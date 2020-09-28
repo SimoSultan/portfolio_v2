@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -11,7 +10,7 @@ import { Link } from 'react-scroll';
 
 
 
-export default function Navigation(props) {
+export default function Navigation() {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -21,7 +20,7 @@ export default function Navigation(props) {
 
             <Grid container alignItems="flex-start" justify="flex-end" direction="row">
 
-            <Button>
+              <Button>
                 <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
                   <Typography color="white" variant="h6">home</Typography>
                 </Link>
