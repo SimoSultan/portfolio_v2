@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../other/Navigation';
+import Navigation from '../other/Navigation'
 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -9,13 +9,13 @@ function Home() {
 
   return (
 
-    <div style={{ height: '100vh', margin: 0, padding: 0, background: '#F2F3F5'}}>
+    <div id='home-cont' style={{ height: '100vh', margin: 0, padding: 0, background: '#F2F3F5'}}>
+      <Navigation />
+
       <Container>
-        <Navigation />
         <Typography variant="h3" gutterBottom>
           Home
         </Typography>
-          
         <Typography variant="body1" gutterBottom>
           This is my first 2 mini react app projects (pokemon and filtering a list) that have been mashed together into my 3rd react project that utilizes (react-router-dom).
           The menu button doesn't work yet. This is just a place where I will add a bunch of small projects into this app to demo them. But really, I made this app so that I 

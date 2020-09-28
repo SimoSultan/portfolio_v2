@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Blogs, Projects  } from "./components/export";
+import { Home, Blogs, Projects, Navigation } from "./components/export";
 
 function App() {
   return (

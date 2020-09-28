@@ -7,7 +7,7 @@ function Blogs() {
 
   return (
 
-    <div style={{ height: '100vh', margin: 0, padding: 0, background: '#304153' }}>
+    <div id='blogs-cont' style={{ height: '100vh', margin: 0, padding: 0, background: '#304153' }}>
       <Container>
         <Typography variant="h3" gutterBottom>
           Blogs

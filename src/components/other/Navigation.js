@@ -4,62 +4,52 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import Slide from '@material-ui/core/Slide';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+
+import { Link } from 'react-scroll';
+
+
 
 export default function Navigation(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <HideOnScroll {...props}>
-        <AppBar>
+
+        <AppBar style={{background: 'transparent', boxShadow: 'none'}}>
           <Toolbar>
 
-            <Button>
-              <Typography variant="h6">projects</Typography>
-            </Button>
+            <Grid container alignItems="flex-start" justify="flex-end" direction="row">
 
             <Button>
-              <Typography variant="h6">blogs</Typography>
-            </Button>
+                <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                  <Typography color="white" variant="h6">home</Typography>
+                </Link>
+              </Button>
 
-            <Button>
-              <Typography variant="h6">contact</Typography>
-            </Button>
+              <Button>
+                <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
+                  <Typography color="white" variant="h6">projects</Typography>
+                </Link>
+              </Button>
+
+              <Button>
+                <Link activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
+                  <Typography variant="h6">blogs</Typography>
+                </Link>
+              </Button>
+
+              <Button>
+                <Link activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
+                  <Typography variant="h6">contact</Typography>
+                </Link>
+              </Button>
+
+            </Grid>
 
           </Toolbar>
         </AppBar>
-      </HideOnScroll>
       <Toolbar />
     </React.Fragment>
   );
 }
-
-
-
-function HideOnScroll(props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({ target: window ? window() : undefined });
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
-
-HideOnScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
-

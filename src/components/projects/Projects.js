@@ -6,7 +6,7 @@ function Projects() {
 
   return (
 
-    <div style={{ height: '100vh', margin: 0, padding: 0}}>
+    <div id='projects-cont' style={{ height: '100vh', margin: 0, padding: 0}}>
       <Container>
         <Typography variant="h3" gutterBottom>
           Projects
