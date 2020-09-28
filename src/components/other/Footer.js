@@ -11,9 +11,6 @@ import { Link } from 'react-scroll';
 const useStyles = makeStyles((theme) => ({
 
   appBar: {
-    // top: 'auto',
-    // bottom: 0,
-    // background: 'transparent',
     boxShadow: 'none',
     marginTop: 'auto',
     width: '100%',

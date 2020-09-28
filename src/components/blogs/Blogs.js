@@ -1,9 +1,19 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import Footer from '../other/Footer';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles(() => ({
+  container: {
+    paddingTop: '19%'
+  },
+}));
+
 
 function Blogs() {
- 
+  const classes = useStyles();
+
 
   return (
 
@@ -13,7 +23,7 @@ function Blogs() {
 
           <Container>
 
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h3" gutterBottom className={classes.container}>
               Blogs
             </Typography>
 

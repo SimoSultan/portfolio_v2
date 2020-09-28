@@ -15,38 +15,36 @@ export default function Navigation() {
     <React.Fragment>
       <CssBaseline />
 
-        <AppBar style={{background: 'transparent', boxShadow: 'none'}}>
-          <Toolbar>
+        <AppBar style={{background: 'transparent', boxShadow: 'none', paddingTop: '6%'}}>
 
-            <Grid container alignItems="flex-start" justify="flex-end" direction="row">
+          <Grid container alignItems="flex-start" justify="flex-end" direction="row">
 
-              <Button>
-                <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                  <Typography color="white" variant="h6">home</Typography>
-                </Link>
-              </Button>
+            <Button>
+              <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                <Typography color="white" variant="h6">home</Typography>
+              </Link>
+            </Button>
 
-              <Button>
-                <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-                  <Typography color="white" variant="h6">projects</Typography>
-                </Link>
-              </Button>
+            <Button>
+              <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
+                <Typography color="white" variant="h6">projects</Typography>
+              </Link>
+            </Button>
 
-              <Button>
-                <Link activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
-                  <Typography variant="h6">blogs</Typography>
-                </Link>
-              </Button>
+            <Button>
+              <Link activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
+                <Typography variant="h6">blogs</Typography>
+              </Link>
+            </Button>
 
-              <Button>
-                <Link activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
-                  <Typography variant="h6">contact</Typography>
-                </Link>
-              </Button>
+            <Button>
+              <Link activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
+                <Typography variant="h6">contact</Typography>
+              </Link>
+            </Button>
 
-            </Grid>
+          </Grid>
 
-          </Toolbar>
         </AppBar>
       <Toolbar />
     </React.Fragment>

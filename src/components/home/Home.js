@@ -3,16 +3,25 @@ import Navigation from '../other/Navigation'
 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles(() => ({
+  container: {
+    paddingTop: '6%'
+  },
+}));
+
 
 function Home() {
- 
+  const classes = useStyles();
 
   return (
 
     <div id='home-cont' style={{ height: '100vh', margin: 0, padding: 0, background: '#F2F3F5'}}>
       <Navigation />
 
-      <Container>
+      <Container className={classes.container}>
         <Typography variant="h3" gutterBottom>
           Home
         </Typography>
