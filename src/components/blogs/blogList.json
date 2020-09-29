@@ -1,0 +1,32 @@
+{
+  "blogList": [
+    {
+      "id": 1,
+      "name": "My first coherent Ruby terminal app",
+      "description": "My first proper milestone at Coder",
+      "link": "https://medium.com/@simo_sultan/my-first-coherent-ruby-terminal-app-4f743b768dd3",
+      "img": "images/blogs/my_first_coherent_terminal_app.jpg"
+    },
+    {
+      "id": 2,
+      "name": "My first coherent Ruby terminal app",
+      "description": "My first proper milestone at Coder",
+      "link": "https://medium.com/@simo_sultan/my-first-coherent-ruby-terminal-app-4f743b768dd3",
+      "img": "images/blogs/my_first_coherent_terminal_app.jpg"
+    },
+    {
+      "id": 3,
+      "name": "My first coherent Ruby terminal app",
+      "description": "My first proper milestone at Coder",
+      "link": "https://medium.com/@simo_sultan/my-first-coherent-ruby-terminal-app-4f743b768dd3",
+      "img": "images/blogs/my_first_coherent_terminal_app.jpg"
+    },
+    {
+      "id": 4,
+      "name": "My first coherent Ruby terminal app",
+      "description": "My first proper milestone at Coder",
+      "link": "https://medium.com/@simo_sultan/my-first-coherent-ruby-terminal-app-4f743b768dd3",
+      "img": "images/blogs/my_first_coherent_terminal_app.jpg"
+    }
+  ]
+}

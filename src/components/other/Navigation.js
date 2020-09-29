@@ -15,7 +15,7 @@ export default function Navigation() {
     <React.Fragment>
       <CssBaseline />
 
-        <AppBar style={{background: 'transparent', boxShadow: 'none', paddingTop: '6%'}}>
+        <AppBar style={{background: 'transparent', boxShadow: 'none', paddingTop: '3%'}}>
 
           <Grid container alignItems="flex-start" justify="flex-end" direction="row">
 

@@ -1,0 +1,48 @@
+{
+  "projectList": [
+    {
+      "id": 1,
+      "name": "DLM",
+      "what": "A driving school app",
+      "why": "For a Coder Academy assignment",
+      "stack": "Ruby, Rails, Bootstrap 4, PostgreSQL",
+      "github": "https://github.com/SimoSultan/dlm",
+      "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+      "logo": "images/projects/dlm-logo.png",
+      "gif": "images/projects/dlm-logo.png"
+    },
+    {
+      "id": 2,
+      "name": "DLM",
+      "what": "A driving school app",
+      "why": "For a Coder Academy assignment",
+      "stack": "Ruby, Rails, Bootstrap 4, PostgreSQL",
+      "github": "https://github.com/SimoSultan/dlm",
+      "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+      "logo": "images/projects/dlm-logo.png",
+      "gif": "images/projects/dlm-logo.png"
+    },
+    {
+      "id": 3,
+      "name": "DLM",
+      "what": "A driving school app",
+      "why": "For a Coder Academy assignment",
+      "stack": "Ruby, Rails, Bootstrap 4, PostgreSQL",
+      "github": "https://github.com/SimoSultan/dlm",
+      "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+      "logo": "images/projects/dlm-logo.png",
+      "gif": "images/projects/dlm-logo.png"
+    },
+    {
+      "id": 4,
+      "name": "DLM",
+      "what": "A driving school app",
+      "why": "For a Coder Academy assignment",
+      "stack": "Ruby, Rails, Bootstrap 4, PostgreSQL",
+      "github": "https://github.com/SimoSultan/dlm",
+      "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+      "logo": "images/projects/dlm-logo.png",
+      "gif": "images/projects/dlm-logo.png"
+    }
+  ]
+}

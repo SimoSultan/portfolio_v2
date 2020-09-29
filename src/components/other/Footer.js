@@ -15,7 +15,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 'auto',
     width: '100%',
     height: '100%',
+    backgroundColor: 'hsla(203, 97%, 57%, 0.3)'
   },
+  contactCont: {
+    height: '12%',
+    margin: 0,
+    padding: '1%'
+  }
 
 }));
 
@@ -24,7 +30,7 @@ function Footer() {
 
   return (
 
-    <div id='contact-cont' style={{ height: '12%', margin: 0, padding: '1%' }}>
+    <div id='contact-cont' className={classes.contactCont}>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar>
           <p><strong>Portfolio (v1):</strong> <a href="https://www.simonmcurran.com/" target="blank">simonmcurran.com - (v2 is next React project)</a></p>
