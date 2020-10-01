@@ -1,36 +1,49 @@
 {
   "blogList": [
-
     {
       "id": 1,
+      "name": "My 1st Week at Coder Academy",
+      "description": "Also my first ever blog post, period! Just a few short thoughts on my first week at this coding bootcamp.",
+      "link": "https://medium.com/@simo_sultan/my-1st-week-at-coder-academy-ed88f20a5273",
+      "img": "images/blogs/ca_logo.png"
+    },
+    {
+      "id": 2,
       "name": "Time Management...and a Tech Bootcamp",
       "description": "How I personally deal with stress and anxiety from the pressure of having 1 million things to do on my mind.",
       "link": "https://medium.com/@simo_sultan/time-management-and-a-tech-bootcamp-c300e755b0b",
       "img": "images/blogs/time_management.jpg"
     },
     {
-      "id": 2,
+      "id": 3,
+      "name": "My First Coherent Ruby Terminal App",
+      "description": "First time in my coding career that I created a basic Ruby app that feel functional. For me this was a small win at the beginning. ",
+      "link": "https://medium.com/@simo_sultan/my-first-coherent-ruby-terminal-app-4f743b768dd3",
+      "img": "images/blogs/my_first_coherent_terminal_app.jpg"
+    },
+    {
+      "id": 4,
       "name": "What I Learnt From Building a Ruby Terminal App",
       "description": "A few points on things I picked up from my first Sprint for a final product with docs as well.",
       "link": "https://medium.com/@simo_sultan/what-i-learnt-from-building-a-ruby-terminal-application-9d22aa4297db",
       "img": "images/blogs/text_adventure.jpg"
     },
     {
-      "id": 3,
+      "id": 5,
       "name": "What I Learnt From Building My First Portfolio Website",
       "description": "A few more pointers I picked up from my experience with building an end product in only CSS/SASS and HTML. When I wrote this description though, my dislike of CSS (even though I love design) has lessened due to CSS frameworks.",
       "link": "https://medium.com/@simo_sultan/what-i-learnt-from-building-my-first-portfolio-website-66a607d45de5",
       "img": "images/blogs/portfolio_v1.jpg"
     },
     {
-      "id": 4,
+      "id": 6,
       "name": "A Rough Guide to Creating a CSS Avatar",
       "description": "I came across a cool avatar and really wanted to recreate it for my profile picture with only CSS (told you I like design). This is a quick guide on how to build one yourself.",
       "link": "https://medium.com/@simo_sultan/a-rough-guide-to-create-a-css-avatar-bb9888011887",
       "img": "images/blogs/css_avatar.png"
     },
     {
-      "id": 5,
+      "id": 7,
       "name": "My Weaknesses As A Developer",
       "description": "I wanted to document my current situation on what I believe to be my weaknesses as a developer so far. I think it will be a great read in a few years to see how many of these exist still, and what new ones have arised.",
       "link": "https://medium.com/@simo_sultan/my-weaknesses-as-a-developer-ac98b3987165",

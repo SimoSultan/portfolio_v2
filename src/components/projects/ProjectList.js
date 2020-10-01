@@ -93,7 +93,7 @@ function ProjectList() {
 
         <Grid item xs={7}>
           <Paper className={classes.paper}>
-            <img className={classes.gif} src={p.gif} alt="app-demo"/>
+            <a href={p.deployed} target="_blank"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
           </Paper>
         </Grid>
 

@@ -14,7 +14,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
   img: {
-    width: '90%'
+    width: '100%',
+    maxHeight: '500px',
+    margin: '0'
   },
   paper: {
     padding: theme.spacing(2),
@@ -23,7 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
   listItem: {
     paddingTop: '5%',
-    paddingBottom: '5%'
+    paddingBottom: '5%',
+    height: 'max-content',
+  },
+  blogImgCard: {
+    maxHeight: '500px'
   }
 }));
 
@@ -38,15 +44,15 @@ function BlogList() {
       <Grid container spacing={3} direction={(b.id % 2 === 0) ? "row-reverse" : "row"} justify ="center" alignItems="center">
         <Grid item xs={5}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">{b.name}</Typography>
+            <Typography variant="h4">{b.name}</Typography>
             <ListItemText primary={b.description} justify="flex-start"/>
-            <Button href={b.link} color="primary" target="_blank" >MEDIUM ARTICLE</Button>
+            <Button href={b.link} color="primary" target="_blank" >Link To Original</Button>
           </Paper>
         </Grid>
 
-        <Grid item xs={7}>
+        <Grid item xs={7} className={classes.blogImgCard}>
           <Paper className={classes.paper}>
-            <img className={classes.img} src={b.img} alt="app-demo"/>
+            <a href={b.link} target="_blank"><img className={classes.img} src={b.img} alt="app-demo"/></a>
           </Paper>
         </Grid>
 
@@ -58,7 +64,7 @@ function BlogList() {
   return (
     <Container>
       <List>
-        {listItems}
+        {listItems.reverse()}
       </List>
     </Container>
   )
