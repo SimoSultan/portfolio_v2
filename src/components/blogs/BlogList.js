@@ -52,7 +52,7 @@ function BlogList() {
 
         <Grid item xs={7} className={classes.blogImgCard}>
           <Paper className={classes.paper}>
-            <a href={b.link} target="_blank"><img className={classes.img} src={b.img} alt="app-demo"/></a>
+            <a href={b.link} target="_blank" rel="noopener noreferrer"><img className={classes.img} src={b.img} alt="app-demo"/></a>
           </Paper>
         </Grid>
 

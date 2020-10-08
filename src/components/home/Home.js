@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Navigation from '../other/Navigation'
 import profileImage from '../../img/v1_transparent.png'
-// import { profileImage } from 'images/v1_transparent.png'
-import { aboutMe } from './aboutMe'
 
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -11,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
 import { TweenMax } from 'gsap';
+import { Paper } from '@material-ui/core';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -30,15 +29,22 @@ const useStyles = makeStyles(() => ({
     width: '90%',
   },
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    // [`${theme.breakpoints.up('sm')} and (orientation: portrait)`]: {
+    //   direction: 'row'
+    // }
   },
 }));
 
 
 const AboutMe = () => (
-  <Typography variant="body1" gutterBottom>
-    { aboutMe }
-  </Typography>
+  <Paper style={{ textAlign: 'left', color: theme.palette.text.secondary, padding: theme.spacing(2)}}>
+    <Typography variant="body1" gutterBottom>
+      Coding is like a Maxibon, being better than the sum of its parts (freedom, creativity, problem solving and teamwork). 
+      And when combined, can create something powerful that can better businesses or simply help one another.
+      Check out my work on <strong>GitHub:  https://github.com/SimoSultan</strong>
+    </Typography>
+  </Paper>
 )
 
 
@@ -53,7 +59,7 @@ function Home() {
 
   useEffect(() => {
     setAnimation(
-      TweenMax.to(profImg.current, 1, {x: 100}).pause()
+      TweenMax.to(profImg.current, 1, {y: 100}).pause()
     )
 
   }, [])
@@ -68,9 +74,6 @@ function Home() {
     }
   }
 
-  // function showHideAboutMeText() {
-  //   (showText) ? setShowText(false) : setShowText(true)
-  // }
 
   return (
 
@@ -81,10 +84,11 @@ function Home() {
       <Container className={classes.container}>
 
         <Grid container direction="row">
+        {/* <Grid container className={classes.root}> */}
 
-          <Grid item direction="column" xs={12} sm={8} lg={5}>
+          <Grid item direction="column" xs={12} sm={6} lg={5}>
             <MuiThemeProvider theme={theme}>
-              <Typography ref={nameText} variant="h5" gutterBottom>
+              <Typography ref={nameText} variant="h1" gutterBottom>
                 SIMON
                 CURRAN
               </Typography>
@@ -102,9 +106,8 @@ function Home() {
             {/* <AboutMe />  */}
           </Grid>
 
-          <Grid item direction="column" xs={8} sm={10} md={7}>
+          <Grid item direction="column" xs={12} sm={10} md={7}>
             <img ref={profImg} className={classes.profileImage} src={profileImage} alt="profile"/>
-            {/* <ProfileImage /> */}
           </Grid>
         </Grid>
 

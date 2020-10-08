@@ -9,7 +9,10 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -57,6 +60,7 @@ function ProjectList() {
 
         <Grid item xs={5}>
           <Paper className={classes.paper}>
+            <MuiThemeProvider theme={theme}>
 
             <Grid container direction="row">
 
@@ -87,13 +91,13 @@ function ProjectList() {
 
             </Grid>
 
-
+            </MuiThemeProvider>
           </Paper>
         </Grid>
 
         <Grid item xs={7}>
           <Paper className={classes.paper}>
-            <a href={p.deployed} target="_blank"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
+            <a href={p.deployed} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
           </Paper>
         </Grid>
 
