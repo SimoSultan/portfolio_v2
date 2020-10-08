@@ -8,10 +8,12 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
 import { TweenMax } from 'gsap';
 
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -19,13 +21,17 @@ const useStyles = makeStyles(() => ({
   },
   homeCont: {
     height: '100vh',
+    width: '100vw',
     margin: 0,
     padding: 0,
     background: '#F2F3F5'
   },
   profileImage: {
     width: '90%',
-  }
+  },
+  root: {
+    flexGrow: 1
+  },
 }));
 
 
@@ -40,6 +46,7 @@ const AboutMe = () => (
 function Home() {
   const classes = useStyles();
   const profImg = useRef(null);
+  const nameText = useRef(null);
 
   const [showText, setShowText] = useState(false)
   const [animation, setAnimation] = useState(null)
@@ -48,6 +55,7 @@ function Home() {
     setAnimation(
       TweenMax.to(profImg.current, 1, {x: 100}).pause()
     )
+
   }, [])
 
   function showHideAboutMeText() {
@@ -67,31 +75,34 @@ function Home() {
   return (
 
     <div id='home-cont' className={classes.homeCont}>
+    
       <Navigation />
 
       <Container className={classes.container}>
 
         <Grid container direction="row">
 
-          <Grid item direction="column" xs={3}>
-            <Typography variant="h1" gutterBottom>
-              simon
-            </Typography>
-            <Typography variant="h1" gutterBottom>
-              curran.
-            </Typography>
-            <Button onClick={showHideAboutMeText}>
-              <Typography variant="body1" gutterBottom>
-                who?
+          <Grid item direction="column" xs={12} sm={8} lg={5}>
+            <MuiThemeProvider theme={theme}>
+              <Typography ref={nameText} variant="h5" gutterBottom>
+                SIMON
+                CURRAN
               </Typography>
-            </Button>
+
+              <Button textAlign="right" onClick={showHideAboutMeText}>
+                <Typography variant="h5" gutterBottom>
+                  who?
+                </Typography>
+              </Button>
+            </MuiThemeProvider>
           </Grid>
 
-          <Grid item direction ="column" xs={3}>
+          <Grid item direction ="column" xs >
             { showText ? <AboutMe /> : null }
+            {/* <AboutMe />  */}
           </Grid>
 
-          <Grid item direction="column" xs={6}>
+          <Grid item direction="column" xs={8} sm={10} md={7}>
             <img ref={profImg} className={classes.profileImage} src={profileImage} alt="profile"/>
             {/* <ProfileImage /> */}
           </Grid>
