@@ -29,6 +29,18 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  appBar: {
+    top: 'auto',
+    background: 'transparent',
+    boxShadow: 'none',
+    paddingTop: '3%',
+    [theme.breakpoints.down('sm')]: {
+      bottom: '3%',
+    },
+    // [theme.breakpoints.up('sm')]: {
+    //   top: '1%'
+    // },
+  },
 }));
 
 export default function Navigation() {
@@ -50,10 +62,10 @@ export default function Navigation() {
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       position="fixed"
@@ -87,7 +99,7 @@ export default function Navigation() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed" style={{background: 'transparent', boxShadow: 'none', paddingTop: '3%'}}>
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
 
           <div className={classes.grow} />

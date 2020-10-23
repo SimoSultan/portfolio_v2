@@ -14,7 +14,9 @@ import { Paper } from '@material-ui/core';
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
-const useStyles = makeStyles(() => ({
+const titleFont =  "'Kaushan', sans-serif";
+
+const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: '6%'
   },
@@ -34,15 +36,22 @@ const useStyles = makeStyles(() => ({
     //   direction: 'row'
     // }
   },
+  titleText: {
+    fontFamily: titleFont
+  },
+  typography: {
+    fontFamily: titleFont,
+  }
 }));
 
 
 const AboutMe = () => (
-  <Paper style={{ textAlign: 'left', color: theme.palette.text.secondary, padding: theme.spacing(2)}}>
+  <Paper style={{ textAlign: 'justify', color: theme.palette.text.secondary, padding: theme.spacing(2)}}>
     <Typography variant="body1" gutterBottom>
-      Coding is like a Maxibon, being better than the sum of its parts (freedom, creativity, problem solving and teamwork). 
-      And when combined, can create something powerful that can better businesses or simply help one another.
-      Check out my work on <strong>GitHub:  https://github.com/SimoSultan</strong>
+      For me, coding is like a Maxibon, being better than the sum of its parts (freedom, creativity, problem solving and teamwork). 
+      And when combined, can create something powerful that can better businesses or simply help one another, which is why it's my passion in life.
+      <br></br>
+      Check out my work on <strong><a href="https://github.com/SimoSultan">GitHub.</a></strong>
     </Typography>
   </Paper>
 )
@@ -88,7 +97,7 @@ function Home() {
 
           <Grid item direction="column" xs={12} sm={6} lg={5}>
             <MuiThemeProvider theme={theme}>
-              <Typography ref={nameText} variant="h1" gutterBottom>
+              <Typography ref={nameText} variant="h1" className={classes.typography} gutterBottom>
                 SIMON
                 CURRAN
               </Typography>
@@ -103,7 +112,6 @@ function Home() {
 
           <Grid item direction ="column" xs >
             { showText ? <AboutMe /> : null }
-            {/* <AboutMe />  */}
           </Grid>
 
           <Grid item direction="column" xs={12} sm={10} md={7}>

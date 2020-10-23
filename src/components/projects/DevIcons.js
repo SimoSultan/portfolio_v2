@@ -8,12 +8,15 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(() => ({
   icons: {
-    width: '100%'
+    width: '30px',
+    margin: '0 auto',
   },
-  listItem: {
-    width: '70%',
-    margin: '0 auto'
-  }
+  flexContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 0,
+    marginTop: '3%',
+  },
   
 }));
 
@@ -22,18 +25,18 @@ function DevIcons({iconList}) {
 
   const listItems = iconList.map(icon => (
 
-    <ListItem key={icon} className={classes.listItem}>
-      <Grid container direction="column">
-          {/* <Grid item><img className={classes.icons} src={`images/devIcons/${icon.toLowerCase()}-plain.svg`} alt={`${icon}-icon`}/></Grid>
-          <Grid item><Typography variant="subtitle2" style={{ textAlign: 'center' }}>{icon}</Typography></Grid> */}
+    <ListItem key={icon} sm={4}>
+      <Grid xs={4} item>
+        <Grid xs container textAlign="center" item direction="column" justify="center" alignItems="center" >
           <img className={classes.icons} src={`images/devIcons/${icon.toLowerCase()}-plain.svg`} alt={`${icon}-icon`}/>
-          <Typography variant="subtitle2" style={{ textAlign: 'center' }}>{icon}</Typography>
+          <Typography variant="subtitle2">{icon}</Typography>
+        </Grid>
       </Grid>
     </ListItem>
   ))
 
   return (
-    <List>
+    <List className={classes.flexContainer}>
       {listItems}
     </List>
   )
