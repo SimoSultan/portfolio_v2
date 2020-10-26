@@ -1,22 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Navigation from '../other/Navigation'
+import HomeHeader from './HomeHeader'
+import AboutMe from './AboutMe'
 import profileImage from '../../img/v1_transparent.png'
 
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
+// import Paper from '@material-ui/core/Paper';
+// import Button from '@material-ui/core/Button';
+// import Typography from '@material-ui/core/Typography';
+import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+// import { makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider, MuiThemeProvider } from '@material-ui/core/styles';
 
 import { TweenMax } from 'gsap';
-import { Paper } from '@material-ui/core';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
-const titleFont =  "'Kaushan', sans-serif";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   container: {
     paddingTop: '6%'
   },
@@ -36,30 +38,12 @@ const useStyles = makeStyles((theme) => ({
     //   direction: 'row'
     // }
   },
-  titleText: {
-    fontFamily: titleFont
-  },
-  typography: {
-    fontFamily: titleFont,
-  }
 }));
-
-
-const AboutMe = () => (
-  <Paper style={{ textAlign: 'justify', color: theme.palette.text.secondary, padding: theme.spacing(2)}}>
-    <Typography variant="body1" gutterBottom>
-      For me, coding is like a Maxibon, being better than the sum of its parts (freedom, creativity, problem solving and teamwork). 
-      And when combined, can create something powerful that can better businesses or simply help one another, which is why it's my passion in life.
-      <br></br>
-      Check out my work on <strong><a href="https://github.com/SimoSultan">GitHub.</a></strong>
-    </Typography>
-  </Paper>
-)
 
 
 
 function Home() {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const profImg = useRef(null);
   const nameText = useRef(null);
 
@@ -68,7 +52,7 @@ function Home() {
 
   useEffect(() => {
     setAnimation(
-      TweenMax.to(profImg.current, 1, {y: 100}).pause()
+      TweenMax.to(profImg.current, 1, {y: '30%'}).pause()
     )
 
   }, [])
@@ -92,31 +76,12 @@ function Home() {
 
       <Container className={classes.container}>
 
-        <Grid container direction="row">
-        {/* <Grid container className={classes.root}> */}
+        <Grid item direction="column" xs={12} sm={6} lg={5}>
+          { showText ? <AboutMe showHideAboutMeText={showHideAboutMeText} /> : <HomeHeader theme={theme} nameText={nameText} showHideAboutMeText={showHideAboutMeText} />}
+        </Grid>
 
-          <Grid item direction="column" xs={12} sm={6} lg={5}>
-            <MuiThemeProvider theme={theme}>
-              <Typography ref={nameText} variant="h1" className={classes.typography} gutterBottom>
-                SIMON
-                CURRAN
-              </Typography>
-
-              <Button textAlign="right" onClick={showHideAboutMeText}>
-                <Typography variant="h5" gutterBottom>
-                  who?
-                </Typography>
-              </Button>
-            </MuiThemeProvider>
-          </Grid>
-
-          <Grid item direction ="column" xs >
-            { showText ? <AboutMe /> : null }
-          </Grid>
-
-          <Grid item direction="column" xs={12} sm={10} md={7}>
-            <img ref={profImg} className={classes.profileImage} src={profileImage} alt="profile"/>
-          </Grid>
+        <Grid item container direction="column" justify="flex-end" alignItems="flex-end" xs={12} sm={10} md={7}>
+          <img ref={profImg} className={classes.profileImage} src={profileImage} alt="profile"/>
         </Grid>
 
       </Container>
