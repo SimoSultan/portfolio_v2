@@ -57,7 +57,56 @@ function BlogList() {
         </Grid>
 
       </Grid>
+
+
+      {/* <Grid item style={{ padding: 0 }} xs={12}>
+        <Paper className={classes.paper}>
+          <MuiThemeProvider theme={theme}>
+
+          <Grid direction="row">
+
+            <Grid item xs={12}>
+              <Grid item container direction="row">
+
+                <Grid xs={4} container justify="center" alignItems="center"><img className={classes.logo} src={p.logo} alt="logo"/></Grid>
+                <Grid xs={8} container justify="flex-start" alignItems="center"><Typography variant="h4" className={classes.appHeader}>{p.name}</Typography></Grid>
+              </Grid>
+
+              <Grid item direction="column" justify="flex-start" alignItems="flex-start">
+                <Typography className={classes.appDescriptions}>{p.what}</Typography>
+                <Typography className={classes.appDescriptions}>{p.why}</Typography>
+              </Grid>
+
+              <Grid item container direction="row" justify="space-around" alignItems="center" className={classes.iconList} >
+                <DevIcons iconList={p.stack}/>
+              </Grid>
+
+              <Grid container direction="row" justify="flex-start">
+                <Button href={p.deployed} color="primary" target="_blank" style={{ cursor: 'pointer' }}>DEMO</Button>
+                <Button href={p.github} color="primary" target="_blank" style={{ cursor: 'pointer' }}>SOURCE CODE</Button>
+              </Grid>
+
+
+            </Grid>
+
+          </Grid>
+
+          </MuiThemeProvider>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          <a href={p.deployed} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
+        </Paper>
+      </Grid>
+
+      </Grid> */}
+
+
     </ListItem>
+
+
 
   ))
 
