@@ -45,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
   },
   appHeader: {
     width: 'max-content',
-    maxWidth: '90%'
+    maxWidth: '90%',
+    fontWeight: 'bold',
   },
   appDescriptions: {
     textAlign: 'left',
@@ -75,10 +76,7 @@ function ProjectList() {
             <Grid direction="row">
 
               <Grid item xs={12}>
-                {/* NAME AND LOGO IMAGE */}
                 <Grid item container direction="row">
-                  {/* <Typography variant="h3" className={classes.appHeader}>{p.name}</Typography>
-                  <img className={classes.logo} src={p.logo} alt="logo"/> */}
                   <Grid xs={4} container justify="center" alignItems="center"><img className={classes.logo} src={p.logo} alt="logo"/></Grid>
                   <Grid xs={8} container justify="flex-start" alignItems="center"><Typography variant="h4" className={classes.appHeader}>{p.name}</Typography></Grid>
                 </Grid>
