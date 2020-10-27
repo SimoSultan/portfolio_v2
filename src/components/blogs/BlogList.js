@@ -3,10 +3,7 @@ import { blogList } from  './blogList.json';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-// import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -54,7 +51,7 @@ function BlogList() {
 
     <ListItem key={b.name} className={classes.listItem}>
 
-      <Card className={classes.root}>
+      <Card className={classes.root} >
         <CardActionArea>
           <CardMedia
             className={classes.media}

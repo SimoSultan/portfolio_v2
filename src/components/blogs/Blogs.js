@@ -1,14 +1,13 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-// import Typography from '@material-ui/core/Typography';
-import Footer from '../other/Footer';
-import { makeStyles } from '@material-ui/core/styles';
 import BlogList from './BlogList';
 
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+// import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(() => ({
   container: {
-    paddingTop: '19%'
+    paddingTop: '10%'
   },
   blogsCont: {
     height: 'fit-content',
@@ -34,8 +33,6 @@ function Blogs() {
         </Container>
 
       </div>
-
-      <Footer />
 
     </div>
 

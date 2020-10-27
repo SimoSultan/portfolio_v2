@@ -2,8 +2,7 @@ import React from "react";
 
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 // import HomeIcon from '@material-ui/icons/Home';
 // import TwitterIcon from '@material-ui/icons/Twitter';
@@ -26,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
   contactCont: {
     height: '12%',
     margin: 0,
-    padding: '3%'
+    padding: '3%',
+    background: '#304153',
   },
   buttons: {
     color: '#F2F3F5',
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   // },
   socialLinks: {
     textAlign: 'center',
-  }
+  },
 
 }));
 
@@ -47,103 +47,101 @@ function Footer() {
   return (
 
     <div id='contact-cont' className={classes.contactCont}>
-      <AppBar position="sticky" className={classes.appBar}>
-        <Toolbar>
+      <Container className={classes.appBar}>
 
-          <Grid container direction="column" spacing={2}>
-            
-            <Grid item style={{textAlign: 'center', color: 'black'}}>
-              <Typography variant="h5">GET IN TOUCH</Typography>
+        <Grid container direction="column" spacing={2}>
+          
+          <Grid item style={{textAlign: 'center', color: 'black'}}>
+            <Typography variant="h5">GET IN TOUCH</Typography>
+          </Grid>
+
+          <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
+
+            <Grid item xs={4}>
+              <Button target="_blank" href="https://twitter.com/simo_sultan" className={classes.buttons}>
+                {/* <TwitterIcon /> */}
+                <Typography variant="body1">twitter</Typography>
+              </Button>
+              {/* <Grid item  className={classes.socialsText}>
+                <Typography variant="body1">simo_sultan</Typography>
+              </Grid> */}
             </Grid>
 
-            <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
-
-              <Grid item xs={4}>
-                <Button target="_blank" href="https://twitter.com/simo_sultan" className={classes.buttons}>
-                  {/* <TwitterIcon /> */}
-                  <Typography variant="body1">twitter</Typography>
-                </Button>
-                {/* <Grid item  className={classes.socialsText}>
-                  <Typography variant="body1">simo_sultan</Typography>
-                </Grid> */}
-              </Grid>
-
-              <Grid item xs={4}>
-                <Button target="_blank" href="https://github.com/SimoSultan" className={classes.buttons}>
-                  {/* <GitHubIcon /> */}
-                  <Typography variant="body1">github</Typography>
-                </Button>
-                {/* <Grid item className={classes.socialsText}>
-                  <Typography variant="body1">SimoSultan</Typography>
-                </Grid> */}
-              </Grid>
-
-              <Grid item xs={4}>
-                <Button target="_blank" href="https://www.linkedin.com/in/simo-sultan/" className={classes.buttons}>
-                  {/* <LinkedInIcon /> */}
-                  <Typography variant="body1">linkedin</Typography>
-                </Button>
-                {/* <Grid item  className={classes.socialsText}>
-                  <Typography variant="body1">simo-sultan</Typography>
-                </Grid> */}
-              </Grid>
-    
+            <Grid item xs={4}>
+              <Button target="_blank" href="https://github.com/SimoSultan" className={classes.buttons}>
+                {/* <GitHubIcon /> */}
+                <Typography variant="body1">github</Typography>
+              </Button>
+              {/* <Grid item className={classes.socialsText}>
+                <Typography variant="body1">SimoSultan</Typography>
+              </Grid> */}
             </Grid>
 
-            <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
+            <Grid item xs={4}>
+              <Button target="_blank" href="https://www.linkedin.com/in/simo-sultan/" className={classes.buttons}>
+                {/* <LinkedInIcon /> */}
+                <Typography variant="body1">linkedin</Typography>
+              </Button>
+              {/* <Grid item  className={classes.socialsText}>
+                <Typography variant="body1">simo-sultan</Typography>
+              </Grid> */}
+            </Grid>
+  
+          </Grid>
 
-              <Grid item xs={4}>
-                <Button target="_blank" href="https://open.spotify.com/user/1231189291" className={classes.buttons}>
-                  {/* <TwitterIcon /> */}
-                  <Typography variant="body1">spotify</Typography>
-                </Button>
-                {/* <Grid item  className={classes.socialsText}>
-                  <Typography variant="body1">simo_sultan</Typography>
-                </Grid> */}
-              </Grid>
+          <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
 
-              <Grid item xs={4}>
-                <Button target="_blank" href="https://medium.com/@simo_sultan" className={classes.buttons}>
-                  {/* <GitHubIcon /> */}
-                  <Typography variant="body1">medium</Typography>
-                </Button>
-                {/* <Grid item className={classes.socialsText}>
-                  <Typography variant="body1">SimoSultan</Typography>
-                </Grid> */}
-              </Grid>
-
-              <Grid item xs={4}>
-                <Button target="_blank" href="simosultan2020@email.com" className={classes.buttons}>
-                  {/* <LinkedInIcon /> */}
-                  <Typography variant="body1">email</Typography>
-                </Button>
-                {/* <Grid item  className={classes.socialsText}>
-                  <Typography variant="body1">simo-sultan</Typography>
-                </Grid> */}
-              </Grid>
-
+            <Grid item xs={4}>
+              <Button target="_blank" href="https://open.spotify.com/user/1231189291" className={classes.buttons}>
+                {/* <TwitterIcon /> */}
+                <Typography variant="body1">spotify</Typography>
+              </Button>
+              {/* <Grid item  className={classes.socialsText}>
+                <Typography variant="body1">simo_sultan</Typography>
+              </Grid> */}
             </Grid>
 
-            <Grid item container justify="center">
-              <Grid item >
-                <Button>
-                  <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                    <Grid container justify="center" alignItems="center" spacing={2} className={classes.buttons}>
-                      {/* <Grid item>
-                        <HomeIcon fontSize="large"/>
-                      </Grid> */}
-                      <Grid item>
-                        <Typography variant="button">back to top</Typography>
-                      </Grid>
-                    </Grid>
-                  </Link>
-                </Button>
-              </Grid>
+            <Grid item xs={4}>
+              <Button target="_blank" href="https://medium.com/@simo_sultan" className={classes.buttons}>
+                {/* <GitHubIcon /> */}
+                <Typography variant="body1">medium</Typography>
+              </Button>
+              {/* <Grid item className={classes.socialsText}>
+                <Typography variant="body1">SimoSultan</Typography>
+              </Grid> */}
+            </Grid>
+
+            <Grid item xs={4}>
+              <Button target="_blank" href="simosultan2020@email.com" className={classes.buttons}>
+                {/* <LinkedInIcon /> */}
+                <Typography variant="body1">email</Typography>
+              </Button>
+              {/* <Grid item  className={classes.socialsText}>
+                <Typography variant="body1">simo-sultan</Typography>
+              </Grid> */}
             </Grid>
 
           </Grid>
-        </Toolbar>
-      </AppBar>
+
+          <Grid item container justify="center">
+            <Grid item >
+              <Button>
+                <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                  <Grid container justify="center" alignItems="center" spacing={2} className={classes.buttons}>
+                    {/* <Grid item>
+                      <HomeIcon fontSize="large"/>
+                    </Grid> */}
+                    <Grid item>
+                      <Typography variant="button">back to top</Typography>
+                    </Grid>
+                  </Grid>
+                </Link>
+              </Button>
+            </Grid>
+          </Grid>
+
+        </Grid>
+      </Container>
     </div>
 
 

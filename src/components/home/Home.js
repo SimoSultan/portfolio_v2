@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Navigation from '../other/Navigation'
 import HomeHeader from './HomeHeader'
 import AboutMe from './AboutMe'
 import profileImage from '../../img/v1_transparent.png'
@@ -50,42 +49,58 @@ buttonFont = responsiveFontSizes(buttonFont);
 
 function Home() {
   const classes = useStyles(theme);
+  const tl = useRef();
   
+  // this handles my aboutMe text showing up or not (working)
   const [showText, setShowText] = useState(false)
+  // this handles my profile photo moving (working)
   const [animation, setAnimation] = useState(null)
+  // this handles my firstname/lastname/whoButton moving (not-working)
+  const [textAnimation, setTextAnimation] = useState(tl.current = new TimelineLite({ paused: true }))
+  // this goes with the code above (not-working)
   const [toggle, setToggle] = useState(false);
 
+  // getting the references of the objects I want to move
   const profImg = useRef(null);
   const nameTextFirst = useRef(null);
   const nameTextSecond = useRef(null);
   const whoButton = useRef(null);
-  const tl = useRef();
 
   useEffect(() => {
+    // this animation is working
     setAnimation( TweenMax.to(profImg.current, 1, {y: '20%'}).pause() )
-
-    tl.current = new TimelineLite()
+    // this animation is not
+    setTextAnimation( 
+      tl.current
       .to(nameTextFirst.current, 0.5, {x: '200%'})
       .to(nameTextSecond.current, 0.5, {x: '200%', delay: -0.3})
       .to(whoButton.current, 0.5, {x: '200%', delay: -0.15})
+    )
   }, [])
 
   function hideAboutMeText() {
-    setShowText(false) 
+    setShowText(false)
     animation.reverse()
+    //not working below
+    textAnimation.reverse()
   }
 
   function showAboutMe() {
     animation.play()
+    //not working below
+    textAnimation.play()
+    // working below
     setTimeout(() => {
       setShowText(true)
     }, 1000);
   }
 
+  // not working
   useEffect(() => {    
-    tl.current.reversed(!toggle);
+    tl.current.reversed(!tl.current.reversed());
   }, [toggle]);
 
+  // not working
   const toggleTimeline = () => {
     setToggle(!toggle);
   };
@@ -95,8 +110,6 @@ function Home() {
 
     <div id='home-cont' className={classes.homeCont}>
     
-      <Navigation />
-
       <Container className={classes.container}>
 
         <Grid container direction="column" justify="space-evenly" alignItems="center">
