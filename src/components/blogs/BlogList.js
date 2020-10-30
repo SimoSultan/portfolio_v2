@@ -1,12 +1,11 @@
 import React from 'react';
 import { blogList } from  './blogList.json';
 
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
+import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -14,51 +13,54 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
-const useStyles = makeStyles((theme) => ({
+import { useMediaQuery } from 'react-responsive'
 
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+const useStyles = makeStyles(() => ({
   img: {
     width: '100%',
+    height: '150px',
     maxHeight: '500px',
     margin: '0'
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-  },
   listItem: {
-    padding: '6% 0',
-    height: '100%',
-    marginBottom: '9%',
     "&:last-child": {
-      marginBottom: '0',
+      marginBottom: '5%',
     }
   },
-  blogImgCard: {
-    maxHeight: '500px'
+  contentContainer: {
+    height: '130px'
   },
   media: {
-    height: 140,
+    height: '150px',
+    [theme.breakpoints.up('sm')]: {
+      height: '225px',
+    }
+  },
+  cardContainer: {
+    margin: '0 auto',
   },
 }));
 
 
 function BlogList() {
   const classes = useStyles();
+  const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
 
 
   const listItems = blogList.map(b => (
 
-    <ListItem key={b.name} className={classes.listItem}>
-
-      <Card className={classes.root} >
+    <Grid item justify="center" alignItems="center" spacing={5} xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={classes.listItem}>
+      <Card>
         <CardActionArea>
           <CardMedia
             className={classes.media}
             image={b.img}
             title={b.name}
           />
-          <CardContent>
+          <CardContent className={classes.contentContainer}>
             <Typography gutterBottom variant="h5" component="h2">
               {b.name}
             </Typography>
@@ -73,16 +75,15 @@ function BlogList() {
           </Button>
         </CardActions>
       </Card>
-
-    </ListItem>
+    </Grid>
 
   ))
 
   return (
     <Container>
-      <List>
+      <Grid container justify="center" alignItems="center" spacing={6}>
         {listItems.reverse()}
-      </List>
+      </Grid>
     </Container>
   )
 

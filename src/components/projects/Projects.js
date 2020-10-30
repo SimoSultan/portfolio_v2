@@ -1,16 +1,12 @@
 import React from 'react';
 import ProjectList from './ProjectList';
 
-import Container from '@material-ui/core/Container';
-// import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
-  container: {
-    paddingTop: '10%'
-  },
   projectsContainer: {
     height: 'fit-content',
+    paddingTop: '5%',
     marginBottom: '5%'
   }
 }));
@@ -22,9 +18,7 @@ function Projects() {
   return (
 
     <div id='projects-cont' className={classes.projectsContainer}>
-      <Container className={classes.container}>
-        <ProjectList />
-      </Container>
+      <ProjectList />
     </div>
 
   );

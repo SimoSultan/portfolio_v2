@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider, MuiThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider, MuiThemeProvider } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
 let theme = createMuiTheme();
@@ -17,31 +17,18 @@ let titleFont = createMuiTheme({
 });
 titleFont = responsiveFontSizes(titleFont);
 
-const useStyles = makeStyles(() => ({
-  firstName: {
-    // fontSize: '4rem',
-    // fontWeight: 400, 
-    // textAlign: "left"
-  },
-  lastName: {
-    // fontSize: '4rem',
-    // fontWeight: 400, 
-    // textAlign: "left"
-  },
-}));
 
 function HomeHeader({ showAboutMe, buttonFont, nameTextFirst, nameTextSecond, whoButton }) {
-  const classes = useStyles()
 
   return (
     <Container>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={titleFont}>
           <Grid direction="column" justify="flex-start" alignItems="center" className>
-            <Typography ref={nameTextFirst} className={classes.firstName} variant="h1" gutterBottom>
+            <Typography ref={nameTextFirst} variant="h1" gutterBottom>
               SIMON
             </Typography>
-            <Typography ref={nameTextSecond} className={classes.lastName} variant="h1" gutterBottom>
+            <Typography ref={nameTextSecond} variant="h1" gutterBottom>
               CURRAN
             </Typography>
           </Grid>
