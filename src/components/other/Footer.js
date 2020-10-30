@@ -3,14 +3,20 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
+
+import { Link } from 'react-scroll';
+import { Grid } from "@material-ui/core";
+
+import { useMediaQuery } from 'react-responsive'
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
 // import HomeIcon from '@material-ui/icons/Home';
 // import TwitterIcon from '@material-ui/icons/Twitter';
 // import GitHubIcon from '@material-ui/icons/GitHub';
 // import LinkedInIcon from '@material-ui/icons/LinkedIn';
-
-import { Link } from 'react-scroll';
-import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -25,100 +31,95 @@ const useStyles = makeStyles((theme) => ({
   contactCont: {
     height: '12%',
     margin: 0,
-    padding: '3%',
+    padding: '4%',
     background: '#304153',
   },
   buttons: {
     color: '#F2F3F5',
     textTransform: 'none',
   },
-  // socialsText: {
-  //   color: "black",
-  // },
+  socialsText: {
+    fontSize: '2rem'
+  },
   socialLinks: {
     textAlign: 'center',
+  },
+  footerHeadingContainer: {
+    marginBottom: '2%',
+    textAlign: 'center', 
+    color: 'black',
+  },
+  footerHeading: {
+    marginTop: '2%', 
+    fontSize: '2rem',
+  },
+  footerTopButton: {
+    fontSize: '1rem',
   },
 
 }));
 
 function Footer() {
   const classes = useStyles();
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
 
   return (
 
     <div id='contact-cont' className={classes.contactCont}>
       <Container className={classes.appBar}>
 
+      <MuiThemeProvider theme={theme}>
+
+
         <Grid container direction="column" spacing={2}>
           
-          <Grid item style={{textAlign: 'center', color: 'black'}}>
-            <Typography variant="h5">GET IN TOUCH</Typography>
+          <Grid item className={classes.footerHeadingContainer}>
+            <Typography variant="h5" className={classes.footerHeading} >GET IN TOUCH</Typography>
           </Grid>
 
-          <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
+          <Grid item container direction="row" justify="space-evenly" alignItems="center" spacing={2} className={classes.socialLinks}>
 
-            <Grid item xs={4}>
+            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="https://twitter.com/simo_sultan" className={classes.buttons}>
                 {/* <TwitterIcon /> */}
-                <Typography variant="body1">twitter</Typography>
+                <Typography variant="body1" className={classes.socialsText}>twitter</Typography>
               </Button>
-              {/* <Grid item  className={classes.socialsText}>
-                <Typography variant="body1">simo_sultan</Typography>
-              </Grid> */}
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="https://github.com/SimoSultan" className={classes.buttons}>
                 {/* <GitHubIcon /> */}
-                <Typography variant="body1">github</Typography>
+                <Typography variant="body1" className={classes.socialsText}>github</Typography>
               </Button>
-              {/* <Grid item className={classes.socialsText}>
-                <Typography variant="body1">SimoSultan</Typography>
-              </Grid> */}
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="https://www.linkedin.com/in/simo-sultan/" className={classes.buttons}>
                 {/* <LinkedInIcon /> */}
-                <Typography variant="body1">linkedin</Typography>
+                <Typography variant="body1" className={classes.socialsText}>linkedin</Typography>
               </Button>
-              {/* <Grid item  className={classes.socialsText}>
-                <Typography variant="body1">simo-sultan</Typography>
-              </Grid> */}
             </Grid>
   
-          </Grid>
-
-          <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
-
-            <Grid item xs={4}>
+            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="https://open.spotify.com/user/1231189291" className={classes.buttons}>
                 {/* <TwitterIcon /> */}
-                <Typography variant="body1">spotify</Typography>
+                <Typography variant="body1" className={classes.socialsText}>spotify</Typography>
               </Button>
-              {/* <Grid item  className={classes.socialsText}>
-                <Typography variant="body1">simo_sultan</Typography>
-              </Grid> */}
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="https://medium.com/@simo_sultan" className={classes.buttons}>
                 {/* <GitHubIcon /> */}
-                <Typography variant="body1">medium</Typography>
+                <Typography variant="body1" className={classes.socialsText}>medium</Typography>
               </Button>
-              {/* <Grid item className={classes.socialsText}>
-                <Typography variant="body1">SimoSultan</Typography>
-              </Grid> */}
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="simosultan2020@email.com" className={classes.buttons}>
                 {/* <LinkedInIcon /> */}
-                <Typography variant="body1">email</Typography>
+                <Typography variant="body1" className={classes.socialsText}>email</Typography>
               </Button>
-              {/* <Grid item  className={classes.socialsText}>
-                <Typography variant="body1">simo-sultan</Typography>
-              </Grid> */}
             </Grid>
 
           </Grid>
@@ -132,7 +133,7 @@ function Footer() {
                       <HomeIcon fontSize="large"/>
                     </Grid> */}
                     <Grid item>
-                      <Typography variant="button">back to top</Typography>
+                      <Typography variant="button" className={classes.footerTopButton} > back to top </Typography>
                     </Grid>
                   </Grid>
                 </Link>
@@ -141,6 +142,7 @@ function Footer() {
           </Grid>
 
         </Grid>
+        </MuiThemeProvider>
       </Container>
     </div>
 

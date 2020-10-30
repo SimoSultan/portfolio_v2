@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     marginBottom: '12%',
     "&:last-child": {
-      marginBottom: '2%',
+      marginBottom: '5%',
     }
   },
   iconList: {
