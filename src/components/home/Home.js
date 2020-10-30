@@ -3,11 +3,11 @@ import HomeHeader from './HomeHeader'
 import AboutMe from './AboutMe'
 import profileImage from '../../img/v1_transparent.png'
 
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 import gsap from 'gsap';
+import { useMediaQuery } from 'react-responsive'
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -20,8 +20,15 @@ let buttonFont = createMuiTheme({
 buttonFont = responsiveFontSizes(buttonFont);
 
 const useStyles = makeStyles(() => ({
-  container: {
-    paddingTop: '10%'
+  gridContainer: {
+    height: '100%',
+  },
+  containerPortrait: {
+    paddingTop: '5%',
+  },
+  containerLandscape: {
+    paddingTop: '3%',
+    paddingLeft: '3%',
   },
   homeCont: {
     height: '100vh',
@@ -32,7 +39,6 @@ const useStyles = makeStyles(() => ({
   },
   profileImage: {
     width: '80%',
-    paddingTop: '7%',
   },
   root: {
     flexGrow: 1,
@@ -54,13 +60,19 @@ function Home() {
   const nameTextSecond = useRef(null);
   const whoButton = useRef(null);
 
+  const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+  // const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1020px)'
+  })
+
   useEffect(() => {
     setAnimation( gsap.to(profImg.current, { y: '20%', duration: 1}).pause() )
     setTextAnimation( 
       tl.current = gsap.timeline({ paused: true })
-        .to(nameTextFirst.current, {x: '300%', duration: 0.5})
-        .to(nameTextSecond.current, { x: '300%', delay: -0.3, duration: 0.5})
-        .to(whoButton.current, {x: '300%', delay: -0.15, duration: 0.5})
+        .to(nameTextFirst.current, {x: '500%', duration: 0.5})
+        .to(nameTextSecond.current, { x: '500%', delay: -0.3, duration: 0.5})
+        .to(whoButton.current, {x: '500%', delay: -0.2, duration: 0.5})
     )
   }, [])
 
@@ -93,10 +105,10 @@ function Home() {
 
     <div id='home-cont' className={classes.homeCont}>
     
-      <Container className={classes.container}>
+      {/* <Container className={ (isLandscape && isTabletOrMobile && classes.containerLandscape) || (isDesktopOrLaptop && classes.containerPortrait) }> */}
 
-        <Grid container direction="row" justify="space-evenly" alignItems="center">
-          <Grid item container xs={12} sm={9} md={6} lg={5}>
+        <Grid container direction="row" justify="space-evenly" alignItems="center" className={classes.gridContainer}>
+          <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape && classes.containerLandscape) || (isDesktopOrLaptop && classes.containerPortrait) }>
             { showText 
                 ? <AboutMe
                     hideAboutMeText={hideAboutMeText} 
@@ -112,7 +124,7 @@ function Home() {
                   />}
           </Grid>
 
-          <Grid item container justify="center" alignItems="center" xs={12} sm={10} md={6}>
+          <Grid item container justify="center" alignItems="center" xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 10 } md={6}>
             <img 
               ref={profImg} 
               className={classes.profileImage} 
@@ -123,7 +135,7 @@ function Home() {
 
         </Grid>
 
-      </Container>
+      {/* </Container> */}
     </div>
 
   );
