@@ -52,7 +52,7 @@ function BlogList() {
 
   const listItems = blogList.map(b => (
 
-    <Grid item justify="center" alignItems="center" spacing={5} xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={classes.listItem}>
+    <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={classes.listItem}>
       <Card>
         <CardActionArea>
           <CardMedia

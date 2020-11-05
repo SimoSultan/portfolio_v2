@@ -3,11 +3,10 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Grid from "@material-ui/core/Grid";
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
 import { Link } from 'react-scroll';
-import { Grid } from "@material-ui/core";
-
 import { useMediaQuery } from 'react-responsive'
 
 let theme = createMuiTheme();
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '2rem',
   },
   footerTopButton: {
-    fontSize: '1rem',
+    fontSize: '1.5rem',
   },
 
 }));
@@ -124,22 +123,15 @@ function Footer() {
 
           </Grid>
 
-          <Grid item container justify="center">
-            <Grid item >
-              <Button>
-                <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                  <Grid container justify="center" alignItems="center" spacing={2} className={classes.buttons}>
-                    {/* <Grid item>
-                      <HomeIcon fontSize="large"/>
-                    </Grid> */}
-                    <Grid item>
-                      <Typography variant="button" className={classes.footerTopButton} > back to top </Typography>
-                    </Grid>
-                  </Grid>
-                </Link>
-              </Button>
+          <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+            <Grid item container justify="center" spacing={2} className={classes.buttons}>
+              <Grid item >
+                <Button>
+                  <Typography variant="button" className={classes.footerTopButton} > top </Typography>
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
+          </Link>
 
         </Grid>
         </MuiThemeProvider>

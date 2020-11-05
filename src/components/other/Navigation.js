@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -16,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
-
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
@@ -37,9 +35,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       bottom: '3%',
     },
-    // [theme.breakpoints.up('sm')]: {
-    //   top: '1%'
-    // },
   },
 }));
 
@@ -72,13 +67,13 @@ export default function Navigation() {
     >
       <MenuItem>
         <Link onClick={handleMobileMenuClose} activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-          <Typography color="white" variant="button">home</Typography>
+          <Typography variant="button">home</Typography>
         </Link>
       </MenuItem>
 
       <MenuItem>
         <Link onClick={handleMobileMenuClose} activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-          <Typography color="white" variant="button">projects</Typography>
+          <Typography variant="button">projects</Typography>
         </Link>
       </MenuItem>
 
@@ -106,12 +101,12 @@ export default function Navigation() {
           <div className={classes.sectionDesktop}>
             <Button>
               <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                <Typography color="white" variant="h6">home</Typography>
+                <Typography variant="h6">home</Typography>
               </Link>
             </Button>
             <Button>
               <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-                <Typography color="white" variant="h6">projects</Typography>
+                <Typography variant="h6">projects</Typography>
               </Link>
             </Button>
 
@@ -129,16 +124,16 @@ export default function Navigation() {
           </div>
           <div className={classes.sectionMobile}>
 
-          <Fab color="primary" aria-label="menu" size="small">
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+          <Fab 
+            color="primary" 
+            aria-label="menu" 
+            aria-controls={mobileMenuId}
+            aria-haspopup="true"
+            onClick={handleMobileMenuOpen}
+            // color="inherit"
+            size="medium"
+          >
+            <MenuIcon />
           </Fab>
 
           </div>

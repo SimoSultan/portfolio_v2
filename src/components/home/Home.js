@@ -108,7 +108,7 @@ function Home() {
       {/* <Container className={ (isLandscape && isTabletOrMobile && classes.containerLandscape) || (isDesktopOrLaptop && classes.containerPortrait) }> */}
 
         <Grid container direction="row" justify="space-evenly" alignItems="center" className={classes.gridContainer}>
-          <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape && classes.containerLandscape) || (isDesktopOrLaptop && classes.containerPortrait) }>
+          <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
             { showText 
                 ? <AboutMe
                     hideAboutMeText={hideAboutMeText} 

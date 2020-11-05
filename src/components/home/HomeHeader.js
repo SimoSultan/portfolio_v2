@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider, MuiThemeProvider } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -24,13 +24,15 @@ function HomeHeader({ showAboutMe, buttonFont, nameTextFirst, nameTextSecond, wh
     <Container>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={titleFont}>
-          <Grid direction="column" justify="flex-start" alignItems="center" className>
-            <Typography ref={nameTextFirst} variant="h1" gutterBottom>
-              SIMON
-            </Typography>
-            <Typography ref={nameTextSecond} variant="h1" gutterBottom>
-              CURRAN
-            </Typography>
+          <Grid container direction="column" justify="center" alignItems="center">
+            <Box>
+              <Typography ref={nameTextFirst} variant="h1" gutterBottom >
+                SIMON
+              </Typography>
+              <Typography ref={nameTextSecond} variant="h1" gutterBottom>
+                CURRAN
+              </Typography>
+            </Box>
           </Grid>
         </ThemeProvider>
 

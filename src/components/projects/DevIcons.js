@@ -27,7 +27,7 @@ function DevIcons({iconList}) {
 
     <ListItem key={icon} sm={4}>
       <Grid xs={4} item>
-        <Grid xs container textAlign="center" item direction="column" justify="center" alignItems="center" >
+        <Grid container item direction="column" justify="center" alignItems="center" xs>
           <img className={classes.icons} src={`images/devIcons/${icon.toLowerCase()}-plain.svg`} alt={`${icon}-icon`}/>
           <Typography variant="subtitle2">{icon}</Typography>
         </Grid>

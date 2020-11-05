@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { projectList } from  './projectList.json';
 import DevIcons from './DevIcons';
 
@@ -11,8 +11,13 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
+
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -50,22 +55,66 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: '8px',
     paddingRight: '8px'
-  }
-  
+  },
 }));
 
 
 function ProjectList() {
   const classes = useStyles();
 
+  const revealRefs = useRef([])
+  revealRefs.current = []
+
+  function hide(elem) {
+    gsap.to(elem, {autoAlpha: 0, duration: 1.25, ease:'expo'});
+  }
+
+  const addToRefs = (el) => {
+    if( el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el)
+    }
+    hide(el); // assure that the element is hidden when scrolled into view
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 75%',
+      scrub: 3,
+      onEnter: function() { animateFrom(el) }, 
+      onLeave: function() { hide(el) }, // assure that the element is hidden when scrolled into view
+      onEnterBack: function() { animateFrom(el, -1) },
+      onLeaveBack: function() { hide(el) } // assure that the element is hidden when scrolled into view
+    });
+  }
+
+  function animateFrom(elem, direction) {
+    direction = direction | 1;
+    let x = 0,
+        y = direction * 10;
+    if(elem.classList.contains('reveal_fromLeft')) {
+      x = -100;
+      y = 0;
+    } else if(elem.classList.contains('reveal_fromRight')) {
+      x = 100;
+      y = 0;
+    }
+    gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+      duration: 1.25, 
+      x: 0,
+      y: direction * 10, 
+      autoAlpha: 1, 
+      ease: "expo", 
+      overwrite: "auto"
+    });
+  }
+  
+
 
   const listItems = projectList.map(p => (
 
-    <ListItem key={p.name} className={classes.listItem}>
+    <ListItem key={p.name} className={classes.listItem} >
 
-      <Grid container spacing={3} direction={(p.id % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center">
+      <Grid container spacing={3} direction={(p.id % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center" >
 
-        <Grid item container xs={12} sm={8} md={5} justify ="center" alignItems="center">
+        <Grid item container xs={12} sm={8} md={5} justify="center" alignItems="center" className={`${(p.id % 2 === 0) ? "reveal_fromLeft" : "reveal_fromRight"}`} ref={addToRefs}>
           <Paper className={classes.paper}>
             <MuiThemeProvider theme={theme}>
 
@@ -79,7 +128,7 @@ function ProjectList() {
                 </Grid>
               </Grid>
 
-              <Grid item direction="column" justify="flex-start" alignItems="flex-start">
+              <Grid container item direction="column" justify="flex-start" alignItems="flex-start">
                 <Typography className={classes.appDescriptions}>{p.what}</Typography>
                 <Typography className={classes.appDescriptions}>{p.why}</Typography>
               </Grid>
@@ -97,7 +146,7 @@ function ProjectList() {
           </Paper>
         </Grid>
 
-        <Grid xs={12} sm={9} md={7}>
+        <Grid item xs={12} sm={9} md={7} className={`${(p.id % 2 === 0) ? "reveal_fromRight" : "reveal_fromLeft"}`} ref={addToRefs}>
           <Paper>
             <a href={p.deployed} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
           </Paper>
