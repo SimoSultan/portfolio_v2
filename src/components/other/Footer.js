@@ -40,19 +40,33 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none',
   },
   socialsText: {
-    fontSize: '2rem'
+    fontSize: '2rem',
+    zIndex: 10,
   },
   socialLinks: {
     textAlign: 'center',
+    marginTop: '5%',
   },
   footerHeadingContainer: {
-    marginBottom: '2%',
+    // marginBottom: '2%',
+    position: 'absolute',
+    width: '92%',
     textAlign: 'center', 
     color: 'black',
+    opacity: 0.3,
+
   },
   footerHeading: {
-    marginTop: '2%', 
-    fontSize: '2rem',
+    fontSize: 110,
+    width: '70%',
+    margin: '0 auto',
+    zIndex: 5,
+  },
+  footerHeadingSmall: {
+    fontSize: 70,
+    width: '90%',
+    margin: '10% auto',
+    zIndex: 5,
   },
   footerTopButton: {
     fontSize: '1.5rem',
@@ -64,6 +78,7 @@ function Footer() {
   const classes = useStyles();
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 411px)' })
 
   return (
 
@@ -76,7 +91,7 @@ function Footer() {
         <Grid container direction="column" spacing={2}>
           
           <Grid item className={classes.footerHeadingContainer}>
-            <Typography variant="h5" className={classes.footerHeading} >GET IN TOUCH</Typography>
+            <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >REACH OUT</Typography>
           </Grid>
 
           <Grid item container direction="row" justify="space-evenly" alignItems="center" spacing={2} className={classes.socialLinks}>
