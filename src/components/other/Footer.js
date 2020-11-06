@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 'auto',
     width: '100%',
     height: '100%',
-    backgroundColor: 'hsla(203, 97%, 57%, 0.3)',
+    // backgroundColor: 'hsla(203, 97%, 57%, 0.3)',
+    backgroundColor: '#2E6086',
     padding: '1%',
   },
   contactCont: {
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: '4%',
     background: '#304153',
+    zIndex: '200 !important',
   },
   buttons: {
     color: '#F2F3F5',

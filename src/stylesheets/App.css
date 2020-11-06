@@ -76,6 +76,18 @@
   }
 }
 
+.section-header {
+  font-size: 20rem !important;
+  z-index: -100;
+  position: absolute;
+  margin-top: -3% !important;
+}
+
+.section-header-blog {
+  z-index: 0 !important;
+  margin-top: 15% !important;
+}
+
 .ico {
   margin: 0 auto;
   text-align: center;

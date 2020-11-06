@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { projectList } from  './projectList.json';
 import DevIcons from './DevIcons';
 
+// Material UI components 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Container from '@material-ui/core/Container';
@@ -11,13 +12,18 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
+// custom styling
+import '../../stylesheets/App.css'
+
+// animation library and plugins
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
-
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -56,14 +62,43 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '8px',
     paddingRight: '8px'
   },
+  list:{
+    marginTop: '150px',
+  }
 }));
 
 
 function ProjectList() {
   const classes = useStyles();
 
+  const projectRef = useRef(null)
   const revealRefs = useRef([])
   revealRefs.current = []
+
+  useEffect(() => {
+    gsap.fromTo(projectRef.current, {
+      x: '100%',
+      opacity: 0.1,
+      scrollTrigger: {
+        trigger: projectRef.current,
+        start: "top",
+        end: "bottom",
+        // end: "+=" + (window.innerHeight),
+        scrub: 1.5,
+        pin: true,
+      }
+    },
+    {
+      x: '-20%',
+      opacity: 0.3,
+      scrollTrigger: { 
+        trigger: projectRef.current,
+        scrub: 1.5,
+      }
+    });
+  }, [])
+
+
 
   function hide(elem) {
     gsap.to(elem, {autoAlpha: 0, duration: 1.25, ease:'expo'});
@@ -88,23 +123,25 @@ function ProjectList() {
   function animateFrom(elem, direction) {
     direction = direction | 1;
     let x = 0,
-        y = direction * 10;
+        y = direction * 100;
     if(elem.classList.contains('reveal_fromLeft')) {
       x = -100;
-      y = 0;
+      // y = direction * 100;
     } else if(elem.classList.contains('reveal_fromRight')) {
       x = 100;
-      y = 0;
+      // y = direction * 100;
     }
     gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
       duration: 1.25, 
       x: 0,
-      y: direction * 10, 
+      y: 0, 
       autoAlpha: 1, 
       ease: "expo", 
       overwrite: "auto"
     });
   }
+
+
   
 
 
@@ -158,11 +195,14 @@ function ProjectList() {
   ))
 
   return (
-    <Container>
-      <List>
-        {listItems}
-      </List>
-    </Container>
+    <>
+      <Typography variant="h2" className="section-header" ref={projectRef}>PROJECTS</Typography>
+      <Container>
+        <List className={classes.list}>
+          {listItems}
+        </List>
+      </Container>
+    </>
   )
 
 }

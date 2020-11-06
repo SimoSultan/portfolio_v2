@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+// import React from 'react';
 import { blogList } from  './blogList.json';
 
+// Material UI components 
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
+// responsive plugin
 import { useMediaQuery } from 'react-responsive'
+
+// custom styling
+import '../../stylesheets/App.css'
+
+// animation library and plugins
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -26,6 +37,7 @@ const useStyles = makeStyles(() => ({
     margin: '0'
   },
   listItem: {
+    zIndex: 10,
     "&:last-child": {
       marginBottom: '5%',
     }
@@ -42,13 +54,43 @@ const useStyles = makeStyles(() => ({
   cardContainer: {
     margin: '0 auto',
   },
+  list:{
+    marginTop: '200px',
+    zIndex: 50,
+  }
 }));
 
 
 function BlogList() {
   const classes = useStyles();
   const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+  const writingRef = useRef(null)
 
+
+  useEffect(() => {
+    gsap.fromTo(writingRef.current, {
+      x: '70%',
+      opacity: 0.1,
+      scrollTrigger: {
+        trigger: writingRef.current,
+        start: "top",
+        end: "bottom",
+        // end: "+=" + (window.innerHeight),
+        pin: true,
+        scrub: 1.5,
+        markers: true,
+      }
+    },
+    {
+      x: '-20%',
+      opacity: 0.3,
+      scrollTrigger: { 
+        trigger: writingRef.current,
+        // pin: true,
+        scrub: 1.5,
+      }
+    });
+  }, [])
 
   const listItems = blogList.map(b => (
 
@@ -80,11 +122,14 @@ function BlogList() {
   ))
 
   return (
-    <Container>
-      <Grid container justify="center" alignItems="center" spacing={6}>
-        {listItems.reverse()}
-      </Grid>
-    </Container>
+    <>
+      <Typography variant="h2" className="section-header section-header-blog" ref={writingRef}>WRITINGS</Typography>
+      <Container className={classes.list}>
+        <Grid container justify="center" alignItems="center" spacing={6} >
+          {listItems.reverse()}
+        </Grid>
+      </Container>
+    </>
   )
 
 }

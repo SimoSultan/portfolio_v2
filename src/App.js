@@ -10,7 +10,7 @@ function App() {
       <Home />
       <Projects />
       <Blogs />
-      <Footer />
+      <Footer style={{zIndex: '300 !important'}} />
 
     </>
 
