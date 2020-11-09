@@ -69,6 +69,8 @@ function BlogList( { blogCont } ) {
 
   useEffect(() => {
 
+    // start the writings word offscreen to the right
+    // fade in slightly and to the scroll to the left as user scrolls down
     tl.from(writingRef.current, {
       x: '95%',
       opacity: 0.1,
@@ -82,6 +84,7 @@ function BlogList( { blogCont } ) {
         toggleActions: 'play none none reverse'
       }
     })
+    // pin the word once it reaches a certain height
     .to(writingRef.current, {
       opacity: 0.2,
       scrollTrigger: { 
@@ -95,6 +98,7 @@ function BlogList( { blogCont } ) {
         toggleActions: 'play none none reverse'
       }
     }, ">")
+    // keeping the word pinned more
     .to(writingRef.current, {
       opacity: 0.3,
       scrollTrigger: {

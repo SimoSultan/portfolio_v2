@@ -78,6 +78,8 @@ function ProjectList( { projectCont } ) {
 
   useEffect(() => {
 
+    // start the projects word offscreen to the right
+    // fade in slightly and to the scroll to the left as user scrolls down
     tl.from(projectRef.current, {
       x: '95%',
       opacity: 0.1,
@@ -91,6 +93,7 @@ function ProjectList( { projectCont } ) {
         toggleActions: 'play none none reverse'
       }
     })
+    // pin the word once it reaches a certain height
     .to(projectRef.current, {
       opacity: 0.2,
       scrollTrigger: { 
@@ -104,6 +107,7 @@ function ProjectList( { projectCont } ) {
         toggleActions: 'play none none reverse'
       }
     }, ">")
+    // keeping the word pinned more
     .to(projectRef.current, {
       opacity: 0.3,
       scrollTrigger: {

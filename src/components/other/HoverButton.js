@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/styles';
+// import Icon from '@material-ui/core/Icon';
+// import { makeStyles } from '@material-ui/styles';
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 import HomeIcon from '@material-ui/icons/Home';
@@ -15,20 +15,20 @@ import EmailIcon from '@material-ui/icons/Email';
 import { ReactComponent as MediumIcon } from "../../img/medium-square-filled.svg"
 import { ReactComponent as SpotifyIcon } from "../../img/spotify.svg"
 
-const useStyles = makeStyles(() => ({
-  imageIcon: {
-    display: 'flex',
-    height: 'inherit',
-    width: 'inherit',
-  },
-  iconRoot: {
-    textAlign: 'center'
-  }
-}));
+// const useStyles = makeStyles(() => ({
+//   imageIcon: {
+//     display: 'flex',
+//     height: 'inherit',
+//     width: 'inherit',
+//   },
+//   iconRoot: {
+//     textAlign: 'center'
+//   }
+// }));
 
 function HoverButton({buttonClass, typoClass, icon, link, isPortrait, isTabletOrMobile}) {
   const [hover, setHover] = useState(false)
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const iconToShow = (icon) => {
     switch (icon) {
