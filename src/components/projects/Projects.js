@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef }  from 'react';
 import ProjectList from './ProjectList';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,11 +14,12 @@ const useStyles = makeStyles(() => ({
 
 function Projects() {
   const classes = useStyles();
+  const projectCont = useRef(null)
 
   return (
 
-    <div id='projects-cont' className={classes.projectsContainer}>
-      <ProjectList />
+    <div id='projects-cont' className={classes.projectsContainer} ref={projectCont}>
+      <ProjectList projectCont={projectCont}/>
     </div>
 
   );

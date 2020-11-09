@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react';
-// import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { blogList } from  './blogList.json';
 
 // Material UI components 
@@ -61,35 +60,54 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-function BlogList() {
+function BlogList( { blogCont } ) {
   const classes = useStyles();
   const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
   const writingRef = useRef(null)
+  const [tl, setTl] = useState(gsap.timeline({paused: true}))
 
 
   useEffect(() => {
-    gsap.fromTo(writingRef.current, {
-      x: '70%',
+
+    tl.from(writingRef.current, {
+      x: '95%',
       opacity: 0.1,
       scrollTrigger: {
-        trigger: writingRef.current,
-        start: "top",
+        trigger: blogCont.current,
+        id: 'scroll-in',
+        start: "top 80%",
         end: "bottom",
-        // end: "+=" + (window.innerHeight),
+        scrub: 1.5,
+        markers: true,
+        toggleActions: 'play none none reverse'
+      }
+    })
+    .to(writingRef.current, {
+      opacity: 0.2,
+      scrollTrigger: { 
+        trigger: writingRef.current,
+        id: 'pin-2',
+        start: "top 50%",
+        end: "bottom",
+        scrub: 1.5,
+        pin: true,
+        markers: true,
+        toggleActions: 'play none none reverse'
+      }
+    }, ">")
+    .to(writingRef.current, {
+      opacity: 0.3,
+      scrollTrigger: {
+        trigger: writingRef.current,
+        id: 'pin-3',
+        start: 'top 30%',
+        end: "bottom",
         pin: true,
         scrub: 1.5,
         markers: true,
+        toggleActions: 'play none none reverse'
       }
-    },
-    {
-      x: '-20%',
-      opacity: 0.3,
-      scrollTrigger: { 
-        trigger: writingRef.current,
-        // pin: true,
-        scrub: 1.5,
-      }
-    });
+    }, ">")
   }, [])
 
   const listItems = blogList.map(b => (

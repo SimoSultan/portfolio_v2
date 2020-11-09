@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import HoverButton from "./HoverButton";
 
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -9,13 +10,10 @@ import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } fro
 import { Link } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive'
 
+import HomeIcon from '@material-ui/icons/Home';
+
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
-
-// import HomeIcon from '@material-ui/icons/Home';
-// import TwitterIcon from '@material-ui/icons/Twitter';
-// import GitHubIcon from '@material-ui/icons/GitHub';
-// import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -24,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 'auto',
     width: '100%',
     height: '100%',
-    // backgroundColor: 'hsla(203, 97%, 57%, 0.3)',
     backgroundColor: '#2E6086',
     padding: '1%',
   },
@@ -33,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: '4%',
     background: '#304153',
-    zIndex: '200 !important',
   },
   buttons: {
     color: '#F2F3F5',
@@ -41,37 +37,42 @@ const useStyles = makeStyles((theme) => ({
   },
   socialsText: {
     fontSize: '2rem',
-    zIndex: 10,
   },
   socialLinks: {
     textAlign: 'center',
     marginTop: '5%',
+    zIndex: 10,
   },
   footerHeadingContainer: {
-    // marginBottom: '2%',
-    position: 'absolute',
-    width: '92%',
+    position: 'relative',
     textAlign: 'center', 
-    color: 'black',
     opacity: 0.3,
-
   },
   footerHeading: {
-    fontSize: 110,
-    width: '70%',
+    fontSize: 120,
+    width: '90%',
     margin: '0 auto',
+    left: '5%',
     zIndex: 5,
+    position: 'absolute',
   },
   footerHeadingSmall: {
     fontSize: 70,
-    width: '90%',
+    width: '80%',
     margin: '10% auto',
+    left: '10%',
     zIndex: 5,
+    position: 'absolute',
   },
   footerTopButton: {
     fontSize: '1.5rem',
   },
-
+  imageIcon: {
+    height: '100%'
+  },
+  iconRoot: {
+    textAlign: 'center'
+  }
 }));
 
 function Footer() {
@@ -79,6 +80,8 @@ function Footer() {
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 411px)' })
+
+  const [hover, setHover] = useState(false)
 
   return (
 
@@ -88,7 +91,7 @@ function Footer() {
       <MuiThemeProvider theme={theme}>
 
 
-        <Grid container direction="column" spacing={2}>
+        <Grid container direction="column">
           
           <Grid item className={classes.footerHeadingContainer}>
             <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >REACH OUT</Typography>
@@ -96,27 +99,33 @@ function Footer() {
 
           <Grid item container direction="row" justify="space-evenly" alignItems="center" spacing={2} className={classes.socialLinks}>
 
-            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
-              <Button target="_blank" href="https://twitter.com/simo_sultan" className={classes.buttons}>
-                {/* <TwitterIcon /> */}
-                <Typography variant="body1" className={classes.socialsText}>twitter</Typography>
-              </Button>
-            </Grid>
+            <HoverButton 
+              buttonClass={classes.buttons} 
+              typoClass={classes.socialsText} 
+              link="https://twitter.com/simo_sultan"
+              icon={'twitter'}
+              isPortrait={isPortrait}
+              isTabletOrMobile={isTabletOrMobile}
+            />
 
-            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
-              <Button target="_blank" href="https://github.com/SimoSultan" className={classes.buttons}>
-                {/* <GitHubIcon /> */}
-                <Typography variant="body1" className={classes.socialsText}>github</Typography>
-              </Button>
-            </Grid>
+            <HoverButton 
+              buttonClass={classes.buttons} 
+              typoClass={classes.socialsText} 
+              link="https://github.com/SimoSultan"
+              icon={'github'}
+              isPortrait={isPortrait}
+              isTabletOrMobile={isTabletOrMobile}
+            />
 
-            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
-              <Button target="_blank" href="https://www.linkedin.com/in/simo-sultan/" className={classes.buttons}>
-                {/* <LinkedInIcon /> */}
-                <Typography variant="body1" className={classes.socialsText}>linkedin</Typography>
-              </Button>
-            </Grid>
-  
+            <HoverButton 
+              buttonClass={classes.buttons} 
+              typoClass={classes.socialsText} 
+              link="https://www.linkedin.com/in/simo-sultan/"
+              icon={'linkedin'}
+              isPortrait={isPortrait}
+              isTabletOrMobile={isTabletOrMobile}
+            />
+
             <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
               <Button target="_blank" href="https://open.spotify.com/user/1231189291" className={classes.buttons}>
                 {/* <TwitterIcon /> */}
@@ -131,24 +140,36 @@ function Footer() {
               </Button>
             </Grid>
 
-            <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)}>
-              <Button target="_blank" href="simosultan2020@email.com" className={classes.buttons}>
-                {/* <LinkedInIcon /> */}
-                <Typography variant="body1" className={classes.socialsText}>email</Typography>
-              </Button>
-            </Grid>
+            <HoverButton 
+              buttonClass={classes.buttons} 
+              typoClass={classes.socialsText} 
+              link="simosultan2020@email.com" 
+              icon={'email'}
+              isPortrait={isPortrait}
+              isTabletOrMobile={isTabletOrMobile}
+            />
 
           </Grid>
 
-          <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-            <Grid item container justify="center" spacing={2} className={classes.buttons}>
-              <Grid item >
-                <Button>
-                  <Typography variant="button" className={classes.footerTopButton} > top </Typography>
-                </Button>
-              </Grid>
-            </Grid>
-          </Link>
+          <Grid 
+            item 
+            container 
+            justify="center" 
+            spacing={2} 
+            className={classes.buttons}
+            onMouseEnter = {() => setHover(true)} 
+            onMouseLeave = {() => setHover(false)}
+          >
+            <Button style={{width: '6%'}}>
+              <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                {
+                  hover
+                  ? <HomeIcon fontSize="large"/>
+                  : <Typography variant="button" className={classes.footerTopButton} > top</Typography>
+                }
+              </Link>
+            </Button>
+          </Grid>
 
         </Grid>
         </MuiThemeProvider>

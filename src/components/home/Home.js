@@ -39,6 +39,7 @@ const useStyles = makeStyles(() => ({
   },
   profileImage: {
     width: '80%',
+    // maxWidth: '512px',
   },
   root: {
     flexGrow: 1,
