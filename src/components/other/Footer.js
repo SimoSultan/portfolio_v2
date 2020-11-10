@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import HoverButton from "./HoverButton";
 
 import Button from '@material-ui/core/Button';
@@ -11,6 +11,11 @@ import { Link } from 'react-scroll';
 import { useMediaQuery } from 'react-responsive'
 
 import HomeIcon from '@material-ui/icons/Home';
+
+// animation library and plugins
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -41,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
   socialLinks: {
     textAlign: 'center',
     marginTop: '5%',
-    zIndex: 10,
   },
   footerHeadingContainer: {
     position: 'relative',
@@ -53,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     margin: '0 auto',
     left: '5%',
-    zIndex: 5,
     position: 'absolute',
   },
   footerHeadingSmall: {
@@ -61,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
     width: '80%',
     margin: '10% auto',
     left: '10%',
-    zIndex: 5,
     position: 'absolute',
   },
   footerTopButton: {
@@ -81,7 +83,23 @@ function Footer() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 411px)' })
 
+  const reachOutRef = useRef(null)
+
   const [hover, setHover] = useState(false)
+
+  useEffect(() => {
+    gsap.fromTo(reachOutRef.current, {y: 100, autoAlpha: 0}, {
+        y: 0, 
+        autoAlpha: 1, 
+        ease: "expo", 
+        scrollTrigger: {
+            trigger: reachOutRef.current,
+            id: 'footer-show',
+            start: "top 70%",
+            scrub: 1,
+        }
+      });
+  }, [])
 
   return (
 
@@ -94,7 +112,7 @@ function Footer() {
         <Grid container direction="column">
           
           <Grid item className={classes.footerHeadingContainer}>
-            <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >REACH OUT</Typography>
+            <Typography ref={reachOutRef} variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >REACH OUT</Typography>
           </Grid>
 
           <Grid item container direction="row" justify="space-evenly" alignItems="center" spacing={2} className={classes.socialLinks}>

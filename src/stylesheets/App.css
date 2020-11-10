@@ -77,16 +77,16 @@
 }
 
 .section-header {
-  font-size: 20rem !important;
+  font-size: 25rem !important;
   z-index: -100;
   position: absolute;
-  margin-top: -3% !important;
+  margin-top: -10% !important;
   opacity: 0.3;
 }
 
 .section-header-blog {
-  z-index: 0 !important;
-  margin-top: 15% !important;
+  z-index: 10 !important;
+  margin-top: 0 !important;
 }
 
 .ico {

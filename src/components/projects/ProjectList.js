@@ -1,5 +1,6 @@
 // import React, { useRef, useState, useEffect } from 'react';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+// import React, { useRef } from 'react';
 import { projectList } from  './projectList.json';
 import DevIcons from './DevIcons';
 
@@ -82,92 +83,37 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function ProjectList( { projectCont } ) {
+function ProjectList() {
     const classes = useStyles();
-    //   const [tl, setTl] = useState(gsap.timeline({paused: true}))
     // const [projectListS3, setProjectListS3] = useState([])
 
-    // const animationDivRef = useRef(null)
+    const timeline = useRef(gsap.timeline({paused: true}))
     const projectRef = useRef(null)
     const revealRefs = useRef([])
     revealRefs.current = []
 
-    // async function getProjectList() {
-    //     console.log('here2');
-    //     let url = 'https://simo-sultan-portfolio-v2.s3-ap-southeast-2.amazonaws.com/projectList.json'
-    //     let { data } = await axios.get(url,{
-    //         headers: {
-    //             'Access-Control-Allow-Origin': '*',
-    //           },
-    //     })
-    //     console.log('here3');
-    //     console.log(data);
-    //     // setProjectListS3(data)
-    //     return data.json()
-    // }
 
-    // useEffect(() => {
-    //     console.log('here');
-    //     getProjectList()
-    // }, [])
-
-
-//   useEffect(() => {
-
-//     // ScrollTrigger.create({
-//     //   animation: tl,
-//     //   trigger: animationDivRef.current,
-//     //   start: "top 80%",
-//     //   end: "bottom",
-//     //   markers: true,
-//     //   scrub: 1.5,
-//     //   pin: true,
-//     // });
-
-//     // start the projects word offscreen to the right
-//     // fade in slightly and to the scroll to the left as user scrolls down
-//     tl.from(projectRef.current, {
-//       x: '95%',
-//       opacity: 0.1,
-//       scrollTrigger: {
-//         trigger: projectCont.current,
-//         id: 'scroll-in',
-//         start: "top 80%",
-//         end: "bottom",
-//         scrub: 1.5,
-//         markers: true,
-//         toggleActions: 'play none none reverse'
-//       }
-//     })
-//     // pin the word once it reaches a certain height
-//     .to(projectRef.current, {
-//       // opacity: 0.2,
-//       scrollTrigger: { 
-//         trigger: projectRef.current,
-//         id: 'pin-2',
-//         start: "top 50%",
-//         end: "bottom",
-//         scrub: 1.5,
-//         pin: true,
-//         markers: true,
-//         toggleActions: 'play none none reverse'
-//       }
-//     }, ">")
-//     // keeping the word pinned more
-//     // .to(projectRef.current, {
-//     //   // opacity: 0.3,
-//     //   scrollTrigger: {
-//     //     trigger: projectRef.current,
-//     //     id: 'pin-3',
-//     //     start: 'top 50%',
-//     //     end: "bottom 50%",
-//     //     pin: true,
-//     //     scrub: 1.5,
-//     //     markers: true,
-//     //     toggleActions: 'play none none reverse'
-//     //   }
-//     // }, ">")
-//   }, [])
+  useEffect(() => {
+    // start the projects word offscreen to the right
+    // fade in slightly and to the scroll to the left as user scrolls down
+    timeline.current.from(projectRef.current, {
+        opacity: 0.1,
+        x: '80%',
+        scrollTrigger: { 
+          trigger: projectRef.current,
+          id: 'project-pin-1',
+          start: "top 80%",
+          end: "bottom -50%",
+          scrub: 1.5,
+          pin: true,
+        //   markers: true,
+          toggleActions: 'play none none reverse'
+        }
+      })
+    .to(projectRef.current, {
+      opacity: 0.3,
+    }, ">")
+  }, [])
 
 
 
@@ -216,7 +162,24 @@ function ProjectList( { projectCont } ) {
 
 
   
+    // async function getProjectList() {
+    //     console.log('here2');
+    //     let url = 'https://simo-sultan-portfolio-v2.s3-ap-southeast-2.amazonaws.com/projectList.json'
+    //     let { data } = await axios.get(url,{
+    //         headers: {
+    //             'Access-Control-Allow-Origin': '*',
+    //           },
+    //     })
+    //     console.log('here3');
+    //     console.log(data);
+    //     // setProjectListS3(data)
+    //     return data.json()
+    // }
 
+    // useEffect(() => {
+    //     console.log('here');
+    //     getProjectList()
+    // }, [])
 
     const listItems = projectList.map(p => (
 

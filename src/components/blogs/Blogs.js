@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import BlogList from './BlogList';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,24 +19,24 @@ const useStyles = makeStyles(() => ({
     margin: 0,
     padding: 0,
     background: '#304153',
+    zIndex: 25,
   },
   contToFitFooter: {
     height: '88%',
+    zIndex: 50,
+    width: '100%',
   }
 }));
 
 
 function Blogs() {
   const classes = useStyles();
-  // get the DOM reference for the parent container for the blog list
-  // pass this reference into the list to be able to use as a trigger
-  const blogCont = useRef(null)
 
   return (
 
     <div id='blogs-cont' className={classes.blogsCont} >
-      <div className={classes.contToFitFooter} ref={blogCont}>
-        <BlogList blogCont={blogCont} />
+      <div className={classes.contToFitFooter}>
+        <BlogList />
       </div>
     </div>
 

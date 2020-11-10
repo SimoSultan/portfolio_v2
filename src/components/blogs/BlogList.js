@@ -1,5 +1,5 @@
 // import React, { useRef, useState, useEffect } from 'react';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { blogList } from  './blogList.json';
 
 // Material UI components 
@@ -61,59 +61,35 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-function BlogList( { blogCont } ) {
+function BlogList() {
   const classes = useStyles();
   const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
   const writingRef = useRef(null)
-//   const [tl, setTl] = useState(gsap.timeline({paused: true}))
+  const timeline = useRef(gsap.timeline({paused: true}))
+
+  useEffect(() => {
+    // start the projects word offscreen to the right
+    // fade in slightly and to the scroll to the left as user scrolls down
+    timeline.current.from(writingRef.current, {
+        opacity: 0.1,
+        x: '85%',
+        scrollTrigger: { 
+          trigger: writingRef.current,
+          id: 'blog-pin-1',
+          start: "top 75%",
+          end: "bottom -50%",
+          scrub: 1.5,
+          pin: true,
+          markers: true,
+          toggleActions: 'play none none reverse'
+        }
+      })
+    .to(writingRef.current, {
+      opacity: 0,
+    }, ">")
+  }, [])
 
 
-//   useEffect(() => {
-
-//     // start the writings word offscreen to the right
-//     // fade in slightly and to the scroll to the left as user scrolls down
-//     tl.from(writingRef.current, {
-//       x: '95%',
-//       opacity: 0.1,
-//       scrollTrigger: {
-//         trigger: blogCont.current,
-//         id: 'scroll-in',
-//         start: "top 80%",
-//         end: "bottom",
-//         scrub: 1.5,
-//         // markers: true,
-//         toggleActions: 'play none none reverse'
-//       }
-//     })
-//     // pin the word once it reaches a certain height
-//     .to(writingRef.current, {
-//       opacity: 0.2,
-//       scrollTrigger: { 
-//         trigger: writingRef.current,
-//         id: 'pin-2',
-//         start: "top 50%",
-//         end: "bottom 50%",
-//         scrub: 1.5,
-//         pin: true,
-//         // markers: true,
-//         toggleActions: 'play none none reverse'
-//       }
-//     }, ">")
-//     // keeping the word pinned more
-//     // .to(writingRef.current, {
-//     //   opacity: 0.3,
-//     //   scrollTrigger: {
-//     //     trigger: writingRef.current,
-//     //     id: 'pin-3',
-//     //     start: 'top 30%',
-//     //     end: "bottom ",
-//     //     pin: true,
-//     //     scrub: 1.5,
-//     //     // markers: true,
-//     //     toggleActions: 'play none none reverse'
-//     //   }
-//     // }, ">")
-//   }, [])
 
   const listItems = blogList.map(b => (
 
@@ -148,7 +124,7 @@ function BlogList( { blogCont } ) {
     <>
       <Typography variant="h2" className="section-header section-header-blog" ref={writingRef}>WRITINGS</Typography>
       <Container className={classes.list}>
-        <Grid container justify="center" alignItems="center" spacing={6} >
+        <Grid container justify="center" alignItems="center" spacing={10} >
           {listItems.reverse()}
         </Grid>
       </Container>
