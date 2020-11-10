@@ -7,7 +7,11 @@ const useStyles = makeStyles(() => ({
   projectsContainer: {
     height: 'fit-content',
     paddingTop: '5%',
-    marginBottom: '5%'
+    marginBottom: '5%',
+    // position: 'relative',
+    // height: '100%',
+    // width: '100%',
+    // zIndex: '100'
   }
 }));
 

@@ -42,6 +42,9 @@ function AboutMe({hideAboutMeText, buttonFont}) {
                   <br></br>
                   Check out my work on <strong><a href="https://github.com/SimoSultan">GitHub.</a></strong>
                 </Typography>
+                <Typography variant="body2">
+                    Get my CV <strong><a target="_blank" rel="noopener noreferrer" href="https://simo-sultan-portfolio-v2.s3-ap-southeast-2.amazonaws.com/dev_cv_V2_without_phone_number.pdf">HERE</a></strong>
+                </Typography>
               </ThemeProvider>
 
               <Grid container direction="row" justify="flex-end" alignItems="center">
