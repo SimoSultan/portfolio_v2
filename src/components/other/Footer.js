@@ -97,9 +97,9 @@ function Footer() {
             trigger: reachOutRef.current,
             id: 'footer-show',
             start: "top 90%",
-            end: "top 80%",
-            markers: true,
-            scrub: 0.5,
+            end: "top 75%",
+            // markers: true,
+            scrub: 1,
         }
       });
   }, [])

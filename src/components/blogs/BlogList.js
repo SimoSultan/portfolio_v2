@@ -4,13 +4,11 @@ import { blogList } from  './blogList.json';
 
 // Material UI components 
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
@@ -36,14 +34,35 @@ const useStyles = makeStyles(() => ({
     maxHeight: '500px',
     margin: '0'
   },
+  listLink: {
+    textDecoration: 'none',
+  },
   listItem: {
     zIndex: 10,
+    transition: 'transform 0.5s ease-in-out',
+    "&:hover": {
+        transform: 'scale(1.05)',
+    },
+    "&:hover .makeStyles-contentContainer-221": {
+        height: '140px',
+    },
+    "&:hover p": {
+        opacity: 1,
+    },
     "&:last-child": {
-      marginBottom: '5%',
+        marginBottom: '5%',
     }
   },
   contentContainer: {
-    height: '130px'
+    height: '60px',
+    transition: 'height 0.5s ease-in-out',
+  },
+  contentDesc: {
+    opacity: 0,
+    transition: 'opacity 0.5s ease-in-out',
+  },
+  contentHeading: {
+    textAlign: 'center',
   },
   media: {
     height: '150px',
@@ -62,10 +81,13 @@ const useStyles = makeStyles(() => ({
 
 
 function BlogList() {
-  const classes = useStyles();
-  const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
-  const writingRef = useRef(null)
-  const timeline = useRef(gsap.timeline({paused: true}))
+    const classes = useStyles();
+    const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+    const writingRef = useRef()
+    const timeline = useRef(gsap.timeline({paused: true}))
+    const revealRefs = useRef([])
+    revealRefs.current = []
+
 
   useEffect(() => {
     // start the projects word offscreen to the right
@@ -80,7 +102,7 @@ function BlogList() {
           end: "bottom -50%",
           scrub: 1.5,
           pin: true,
-          markers: true,
+        //   markers: true,
           toggleActions: 'play none none reverse'
         }
       })
@@ -91,45 +113,84 @@ function BlogList() {
 
 
 
+
+  function hide(elem) {
+    gsap.to(elem, {autoAlpha: 0, duration: 1.25, ease:'expo'});
+  }
+
+  const addToRefs = (el) => {
+    if( el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el)
+    }
+    hide(el); // assure that the element is hidden when scrolled into view
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top center',
+      scrub: 3,
+      onEnter: function() { animateFrom(el, 1) }, 
+      onLeave: function() { hide(el) }, // assure that the element is hidden when scrolled into view
+      onEnterBack: function() { animateFrom(el, -1) },
+      onLeaveBack: function() { hide(el) } // assure that the element is hidden when scrolled into view
+    });
+  }
+
+  function animateFrom(elem, direction) {
+    direction = direction | 1;
+    let x = 0,
+        y = direction * -150;
+    if(elem.classList.contains('reveal_fromLeft')) {
+      x = -100;
+    } else if(elem.classList.contains('reveal_fromRight')) {
+      x = 100;
+    }
+    gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+      duration: 1.25, 
+      x: 0,
+      y: 0, 
+      autoAlpha: 1, 
+      ease: "expo", 
+      overwrite: "auto"
+    });
+  }
+
+
+
   const listItems = blogList.map(b => (
 
-    <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={classes.listItem}>
-      <Card>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={b.img}
-            title={b.name}
-          />
-          <CardContent className={classes.contentContainer}>
-            <Typography gutterBottom variant="h5" component="h2">
-              {b.name}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {b.description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary" target="_blank" href={b.link}>
-            Read More
-          </Button>
-        </CardActions>
-      </Card>
+    <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={`${(b.id % 2 === 0) ? "reveal_fromLeft" : "reveal_fromRight"}`} ref={addToRefs}>
+        <a href={b.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
+            <Card className={classes.listItem}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={b.img}
+                        title={b.name}
+                    />
+                    <CardContent className={classes.contentContainer}>
+                        <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
+                            {b.name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
+                            {b.description}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        </a>
     </Grid>
 
   ))
 
-  return (
-    <>
-      <Typography variant="h2" className="section-header section-header-blog" ref={writingRef}>WRITINGS</Typography>
-      <Container className={classes.list}>
-        <Grid container justify="center" alignItems="center" spacing={10} >
-          {listItems.reverse()}
-        </Grid>
-      </Container>
-    </>
-  )
+    return (
+        <>
+            <Typography variant="h2" className="section-header section-header-blog" ref={writingRef}>WRITINGS</Typography>
+            <Container className={classes.list}>
+                <Grid container justify="center" alignItems="center" spacing={10} >
+                {listItems.reverse()}
+                </Grid>
+            </Container>
+        </>
+    )
 
 }
 

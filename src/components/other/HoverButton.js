@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
@@ -15,20 +15,32 @@ import EmailIcon from '@material-ui/icons/Email';
 import { ReactComponent as MediumIcon } from "../../img/medium-square-filled.svg"
 import { ReactComponent as SpotifyIcon } from "../../img/spotify.svg"
 
-// const useStyles = makeStyles(() => ({
-//   imageIcon: {
-//     display: 'flex',
-//     height: 'inherit',
-//     width: 'inherit',
-//   },
-//   iconRoot: {
-//     textAlign: 'center'
-//   }
-// }));
+// import gsap from 'gsap/gsap-core';
+
+// const mask = {
+//     position: 'absolute',
+//     top: 0,
+//     left: 0,
+//     width: '100%',
+//     height: '100%',
+//     transformOrigin: 'left',
+//     backgroundColor: '#eee',
+// }
 
 function HoverButton({buttonClass, typoClass, icon, link, isPortrait, isTabletOrMobile}) {
-  const [hover, setHover] = useState(false)
-  // const classes = useStyles();
+    const [hover, setHover] = useState(false)
+    // const buttonRef = useRef()
+    // const maskRef = useRef()
+    // const timelineEnter = useRef(gsap.timeline({paused: true}))
+    // const timelineLeave = useRef(gsap.timeline({paused: true}))
+
+    // useEffect(() => {
+    //     timelineEnter.current.set(maskRef.current, { transformOrigin: "left" })
+    //     timelineEnter.current.fromTo(maskRef.current, 1, { scaleX: 0 }, { scaleX: 1, ease: 'expo' });
+    //     timelineLeave.current.set(maskRef.current, { transformOrigin: "right" })
+    //     timelineLeave.current.fromTo(maskRef.current, 1, { scaleX: 1 }, { scaleX: 0, ease: 'expo' });
+    // }, [])
+    // gsap.set(maskRef.current, { scaleX: 0 });
 
   const iconToShow = (icon) => {
     switch (icon) {
@@ -58,13 +70,51 @@ function HoverButton({buttonClass, typoClass, icon, link, isPortrait, isTabletOr
         break;
     }
   }
+
+    // function handleMouseEnter() {
+    //     if(!timelineEnter.current.isActive()){
+    //         timelineEnter.current.restart();
+    //         timelineLeave.current.pause();
+    //     }
+    //     setHover(true)
+    // }
+
+    // function handleMouseLeave() {
+    //     if(!timelineEnter.current.isActive()){
+    //         timelineEnter.current.pause();
+    //         timelineLeave.current.play(0);
+    //       //or else add an onComplete callback that will trigger the leave  
+    //       } else {
+    //         timelineEnter.current.eventCallback("onComplete", playLeave)
+    //       }
+    //     setHover(false)
+    // }
+
+    // function playLeave() {
+    //     timelineEnter.current.eventCallback("onComplete", null)
+    //     timelineLeave.current.restart();
+    // }
+
+    // const animation = gsap
+    //     .from(buttonRef.current, {
+    //         clip: "rect(50px 100px 50px 0px)",
+    //         duration: 0.5,
+            
+    //     }, {paused: true})
+
+    
+
   return (
     <Grid 
       item 
       xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} 
       onMouseEnter = {() => setHover(true)} 
+    //   onMouseEnter = {handleMouseEnter} 
       onMouseLeave = {() => setHover(false)}
-    >
+    //   onMouseLeave = {handleMouseLeave}
+    //   ref={buttonRef}
+    >   
+        {/* <span ref={maskRef} style={mask}></span> */}
       <Button 
         target="_blank" 
         href={link}
