@@ -23,8 +23,6 @@ const useStyles = makeStyles(() => ({
   },
   contToFitFooter: {
     height: '88%',
-    zIndex: 50,
-    width: '100%',
   }
 }));
 

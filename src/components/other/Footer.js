@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: '4%',
     background: '#304153',
+    zIndex: 100,
   },
   buttons: {
     color: '#F2F3F5',
@@ -88,15 +89,17 @@ function Footer() {
   const [hover, setHover] = useState(false)
 
   useEffect(() => {
-    gsap.fromTo(reachOutRef.current, {y: 100, autoAlpha: 0}, {
+    gsap.fromTo(reachOutRef.current, {y: 50, autoAlpha: 0}, {
         y: 0, 
         autoAlpha: 1, 
         ease: "expo", 
         scrollTrigger: {
             trigger: reachOutRef.current,
             id: 'footer-show',
-            start: "top 70%",
-            scrub: 1,
+            start: "top 90%",
+            end: "top 80%",
+            markers: true,
+            scrub: 0.5,
         }
       });
   }, [])

@@ -85,7 +85,7 @@
 }
 
 .section-header-blog {
-  z-index: 10 !important;
+  z-index: 0;
   margin-top: 0 !important;
 }
 

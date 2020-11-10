@@ -76,7 +76,7 @@ function BlogList() {
         scrollTrigger: { 
           trigger: writingRef.current,
           id: 'blog-pin-1',
-          start: "top 75%",
+          start: "top 80%",
           end: "bottom -50%",
           scrub: 1.5,
           pin: true,
@@ -85,7 +85,7 @@ function BlogList() {
         }
       })
     .to(writingRef.current, {
-      opacity: 0,
+      opacity: 0.3,
     }, ">")
   }, [])
 
