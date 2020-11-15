@@ -18,7 +18,8 @@ const useStyles = makeStyles(() => ({
     paddingTop: '5%',
     margin: 0,
     padding: 0,
-    background: '#304153',
+    // background: '#304153',
+    background: '#2E6086',
     zIndex: 25,
   },
   contToFitFooter: {

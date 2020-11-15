@@ -8,6 +8,7 @@ import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/co
 
 import gsap from 'gsap';
 import { useMediaQuery } from 'react-responsive'
+import { Container } from '@material-ui/core';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -15,6 +16,7 @@ theme = responsiveFontSizes(theme);
 let buttonFont = createMuiTheme({
   typography: {
     fontFamily: 'Roboto Slab',
+    fontWeight: 500,
   },
 })
 buttonFont = responsiveFontSizes(buttonFont);
@@ -39,11 +41,11 @@ const useStyles = makeStyles(() => ({
   },
   profileImage: {
     width: '80%',
-    // maxWidth: '512px',
   },
   root: {
     flexGrow: 1,
   },
+
 }));
 
 
@@ -77,10 +79,6 @@ function Home() {
     )
   }, [])
 
-  // const toggleTimeline = () => {
-  //   setToggle(!toggle);
-  // };
-
   function hideAboutMeText() {
     setShowText(false)
     animation.reverse()
@@ -92,14 +90,8 @@ function Home() {
     setTimeout(() => {
       setShowText(true)
     }, 1000);
-    // toggleTimeline()
     textAnimation.play()
   }
-
-  // useEffect(() => {    
-  //   textAnimation.reversed(!textAnimation.reversed());
-  // }, [toggle]);
-
 
 
   return (
@@ -126,12 +118,14 @@ function Home() {
           </Grid>
 
           <Grid item container justify="center" alignItems="center" xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 10 } md={6}>
-            <img 
-              ref={profImg} 
-              className={classes.profileImage} 
-              src={profileImage} 
-              alt="profile"
-            />
+                <Container>
+                    <img 
+                    ref={profImg} 
+                    className={classes.profileImage} 
+                    src={profileImage} 
+                    alt="profile"
+                    />
+                </Container>
           </Grid>
 
         </Grid>

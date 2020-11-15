@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider, responsiveFontSizes, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -11,31 +11,43 @@ import Fab from '@material-ui/core/Fab';
 
 import { Link } from 'react-scroll';
 
+let buttonFont = createMuiTheme({
+    typography: {
+      fontFamily: 'Roboto Slab',
+      opacity: 0.5,
+    //   fontWeight: 500,
+    },
+  })
+  buttonFont = responsiveFontSizes(buttonFont);
+
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    grow: {
+        flexGrow: 1,
     },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    sectionDesktop: {
+        display: 'none',
+        [theme.breakpoints.up('md')]: {
+        display: 'flex',
+        },
     },
-  },
-  appBar: {
-    top: 'auto',
-    background: 'transparent',
-    boxShadow: 'none',
-    paddingTop: '3%',
-    [theme.breakpoints.down('sm')]: {
-      bottom: '3%',
+    sectionMobile: {
+        display: 'flex',
+        [theme.breakpoints.up('md')]: {
+        display: 'none',
+        },
     },
-  },
+    appBar: {
+        top: 'auto',
+        background: 'transparent',
+        boxShadow: 'none',
+        paddingTop: '3%',
+        [theme.breakpoints.down('sm')]: {
+        bottom: '3%',
+        },
+    },
+    buttonClass: {
+        opacity: 0.7,
+    }
 }));
 
 export default function Navigation() {
@@ -65,29 +77,34 @@ export default function Navigation() {
       onClose={handleMobileMenuClose}
       position="fixed"
     >
-      <MenuItem>
-        <Link onClick={handleMobileMenuClose} activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-          <Typography variant="button">home</Typography>
-        </Link>
-      </MenuItem>
+        <MuiThemeProvider>
+            <ThemeProvider theme={buttonFont}>
+                <MenuItem>
+                    <Link onClick={handleMobileMenuClose} activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button">home</Typography>
+                    </Link>
+                </MenuItem>
 
-      <MenuItem>
-        <Link onClick={handleMobileMenuClose} activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-          <Typography variant="button">projects</Typography>
-        </Link>
-      </MenuItem>
+                <MenuItem>
+                    <Link onClick={handleMobileMenuClose} activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button">projects</Typography>
+                    </Link>
+                </MenuItem>
 
-      <MenuItem>
-        <Link onClick={handleMobileMenuClose} activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
-          <Typography variant="button">blogs</Typography>
-        </Link>
-      </MenuItem>
+                <MenuItem>
+                    <Link onClick={handleMobileMenuClose} activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button">blogs</Typography>
+                    </Link>
+                </MenuItem>
 
-      <MenuItem>
-        <Link onClick={handleMobileMenuClose} activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
-          <Typography variant="button">contact</Typography>
-        </Link>
-      </MenuItem>
+                <MenuItem>
+                    <Link onClick={handleMobileMenuClose} activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
+                        <Typography variant="button">contact</Typography>
+                    </Link>
+                </MenuItem>
+            </ThemeProvider>
+        </MuiThemeProvider>
+
 
     </Menu>
   );
@@ -96,32 +113,36 @@ export default function Navigation() {
     <div className={classes.grow}>
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
+        <MuiThemeProvider>
+            <ThemeProvider theme={buttonFont}>
 
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <Button>
-              <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                <Typography variant="h6">home</Typography>
-              </Link>
-            </Button>
-            <Button>
-              <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-                <Typography variant="h6">projects</Typography>
-              </Link>
-            </Button>
+                <div className={classes.grow} />
+                <div className={classes.sectionDesktop}>
+                    <Button>
+                        <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                            <Typography variant="h6" className={classes.buttonClass}> home</Typography>
+                        </Link>
+                    </Button>
+                    <Button>
+                        <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
+                            <Typography variant="h6" className={classes.buttonClass}>projects</Typography>
+                        </Link>
+                    </Button>
 
-            <Button>
-              <Link activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
-                <Typography variant="h6">blogs</Typography>
-              </Link>
-            </Button>
+                    <Button>
+                        <Link activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
+                            <Typography variant="h6" className={classes.buttonClass}>blogs</Typography>
+                        </Link>
+                    </Button>
 
-            <Button>
-              <Link activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
-                <Typography variant="h6">contact</Typography>
-              </Link>
-            </Button>
-          </div>
+                    <Button>
+                        <Link activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
+                            <Typography variant="h6" className={classes.buttonClass}>contact</Typography>
+                        </Link>
+                    </Button>
+
+                </div>
+            </ThemeProvider>
           <div className={classes.sectionMobile}>
 
           <Fab 
@@ -137,6 +158,7 @@ export default function Navigation() {
           </Fab>
 
           </div>
+        </MuiThemeProvider>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

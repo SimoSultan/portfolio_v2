@@ -26,16 +26,19 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
     marginTop: 'auto',
     width: '100%',
-    height: '100%',
-    backgroundColor: '#2E6086',
+    // height: '100%',
+    // background: '#2E6086',
+    background: '#304153',
     padding: '1%',
+    zIndex: 500,
+    // position: 'absolute',
+    // left: 0,
   },
   contactCont: {
-    height: '12%',
-    margin: 0,
     padding: '4%',
-    background: '#304153',
-    zIndex: 100,
+    // width: '100%',
+    // background: '#304153',
+    background: '#2E6086',
   },
   buttons: {
     color: '#F2F3F5',
@@ -59,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     left: '5%',
     position: 'absolute',
+    // color: '#F2F3F5',
+    color: '#F2511B',
+
   },
   footerHeadingSmall: {
     fontSize: 70,
@@ -66,6 +72,10 @@ const useStyles = makeStyles((theme) => ({
     margin: '10% auto',
     left: '10%',
     position: 'absolute',
+    // color: '#F2F3F5',
+    color: '#F2511B',
+
+
   },
   footerTopButton: {
     fontSize: '1.5rem',

@@ -6,7 +6,7 @@ import { blogList } from  './blogList.json';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
-import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -41,10 +41,13 @@ const useStyles = makeStyles(() => ({
     zIndex: 10,
     transition: 'transform 0.5s ease-in-out',
     "&:hover": {
-        transform: 'scale(1.05)',
+        transform: 'scale(1.03)',
     },
+    // "&:hover .makeStyles-media-224": {
+    //     transform: 'scale(1.1)',
+    // },
     "&:hover .makeStyles-contentContainer-221": {
-        height: '140px',
+        height: '150px',
     },
     "&:hover p": {
         opacity: 1,
@@ -66,50 +69,63 @@ const useStyles = makeStyles(() => ({
   },
   media: {
     height: '150px',
+    // transition: 'transform 0.5s ease-in-out',
     [theme.breakpoints.up('sm')]: {
       height: '225px',
     }
+    
   },
   cardContainer: {
     margin: '0 auto',
   },
   list:{
-    marginTop: '200px',
+    marginTop: '15%',
     zIndex: 50,
   }
 }));
+
+
+let writingsFont = createMuiTheme({
+  typography: {
+    fontFamily: 'Quicksand',
+    fontWeight: 600,
+    fontSize: 50,
+  },
+});
+writingsFont = responsiveFontSizes(writingsFont);
+
 
 
 function BlogList() {
     const classes = useStyles();
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
     const writingRef = useRef()
-    const timeline = useRef(gsap.timeline({paused: true}))
+    // const timeline = useRef(gsap.timeline({paused: true}))
     const revealRefs = useRef([])
     revealRefs.current = []
 
 
-  useEffect(() => {
-    // start the projects word offscreen to the right
-    // fade in slightly and to the scroll to the left as user scrolls down
-    timeline.current.from(writingRef.current, {
-        opacity: 0.1,
-        x: '85%',
-        scrollTrigger: { 
-          trigger: writingRef.current,
-          id: 'blog-pin-1',
-          start: "top 80%",
-          end: "bottom -50%",
-          scrub: 1.5,
-          pin: true,
-        //   markers: true,
-          toggleActions: 'play none none reverse'
-        }
-      })
-    .to(writingRef.current, {
-      opacity: 0.3,
-    }, ">")
-  }, [])
+//   useEffect(() => {
+//     // start the projects word offscreen to the right
+//     // fade in slightly and to the scroll to the left as user scrolls down
+//     timeline.current.from(writingRef.current, {
+//         opacity: 0.1,
+//         x: '85%',
+//         scrollTrigger: { 
+//           trigger: writingRef.current,
+//           id: 'blog-pin-1',
+//           start: "top 80%",
+//           end: "bottom -50%",
+//           scrub: 1.5,
+//           pin: true,
+//         //   markers: true,
+//           toggleActions: 'play none none reverse'
+//         }
+//       })
+//     .to(writingRef.current, {
+//       opacity: 0.3,
+//     }, ">")
+//   }, [])
 
 
 
@@ -125,7 +141,7 @@ function BlogList() {
     hide(el); // assure that the element is hidden when scrolled into view
     ScrollTrigger.create({
       trigger: el,
-      start: 'top center',
+      start: 'top 60%',
       scrub: 3,
       onEnter: function() { animateFrom(el, 1) }, 
       onLeave: function() { hide(el) }, // assure that the element is hidden when scrolled into view
@@ -137,11 +153,11 @@ function BlogList() {
   function animateFrom(elem, direction) {
     direction = direction | 1;
     let x = 0,
-        y = direction * -150;
+        y = direction * 150;
     if(elem.classList.contains('reveal_fromLeft')) {
-      x = -100;
+      x = -20;
     } else if(elem.classList.contains('reveal_fromRight')) {
-      x = 100;
+      x = 20;
     }
     gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
       duration: 1.25, 
@@ -158,6 +174,7 @@ function BlogList() {
   const listItems = blogList.map(b => (
 
     <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={`${(b.id % 2 === 0) ? "reveal_fromLeft" : "reveal_fromRight"}`} ref={addToRefs}>
+    {/* <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} ref={addToRefs}> */}
         <a href={b.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
             <Card className={classes.listItem}>
                 <CardActionArea>
@@ -183,7 +200,11 @@ function BlogList() {
 
     return (
         <>
-            <Typography variant="h2" className="section-header section-header-blog" ref={writingRef}>WRITINGS</Typography>
+            <MuiThemeProvider theme={theme}>
+            <ThemeProvider theme={writingsFont}>
+                <Typography variant="h2" className="section-header-vert section-header-blog-vert" ref={writingRef}>WRITINGS</Typography>
+            </ThemeProvider>
+            </MuiThemeProvider>
             <Container className={classes.list}>
                 <Grid container justify="center" alignItems="center" spacing={10} >
                 {listItems.reverse()}

@@ -18,11 +18,14 @@ let aboutMeFont = createMuiTheme({
 aboutMeFont = responsiveFontSizes(aboutMeFont);
 
 const useStyles = makeStyles(() => ({
-  paper: {
-    textAlign: 'justify',
-    color: theme.palette.text.secondary,
-    padding: theme.spacing(3),
-  }
+    paper: {
+        textAlign: 'justify',
+        color: theme.palette.text.secondary,
+        padding: theme.spacing(3),
+    },
+    buttonClass: {
+        color: '#F2511B',
+    }
 }));
 
 
@@ -49,8 +52,8 @@ function AboutMe({hideAboutMeText, buttonFont}) {
               
               <Grid container direction="row" justify="flex-end" alignItems="center">
                 <ThemeProvider theme={buttonFont}>
-                  <Button textAlign="right" onClick={hideAboutMeText}>
-                    <Typography variant="h5" gutterBottom>
+                  <Button onClick={hideAboutMeText}>
+                    <Typography variant="h5" gutterBottom className={classes.buttonClass}>
                       ok!
                     </Typography>
                   </Button>

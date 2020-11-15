@@ -1,16 +1,28 @@
 // import a font family here
 
-.section-header {
-  font-size: 25rem !important;
-  z-index: -100;
-  position: absolute;
-  margin-top: -10% !important;
-  opacity: 0.3;
+.section-header-vert {
+    z-index: -100;
+    position: absolute;
+    top: 97% !important;
+    opacity: 0.3;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: '#304153' !important;
 }
 
-.section-header-blog {
-  z-index: 0;
-  margin-top: 0 !important;
-//   opacity: 0.3;
-
+.section-header-horizontal {
+    z-index: -100;
+    position: absolute;
+    top: 97.5% !important;
+    margin-left: 270px !important;
+    opacity: 0.3;
+    color: '#304153' !important;
 }
+
+// .section-header-blog-vert {
+//     z-index: 0;
+//     position: absolute;
+//     top: 200% !important;
+//     color: '#304153' !important;
+//     margin-top: -15% !important;
+// }
