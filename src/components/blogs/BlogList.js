@@ -79,8 +79,9 @@ const useStyles = makeStyles(() => ({
     margin: '0 auto',
   },
   list:{
-    marginTop: '15%',
+    marginTop: '20%',
     zIndex: 50,
+    position: 'relative'
   }
 }));
 
@@ -200,11 +201,11 @@ function BlogList() {
 
     return (
         <>
-            <MuiThemeProvider theme={theme}>
+            {/* <MuiThemeProvider theme={theme}>
             <ThemeProvider theme={writingsFont}>
                 <Typography variant="h2" className="section-header-vert section-header-blog-vert" ref={writingRef}>WRITINGS</Typography>
             </ThemeProvider>
-            </MuiThemeProvider>
+            </MuiThemeProvider> */}
             <Container className={classes.list}>
                 <Grid container justify="center" alignItems="center" spacing={10} >
                 {listItems.reverse()}

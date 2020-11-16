@@ -17,6 +17,7 @@ import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, Them
 
 import { useMediaQuery } from 'react-responsive'
 
+import ReactHtmlParser from 'react-html-parser'
 
 // custom styling
 import '../../stylesheets/App.css'
@@ -155,8 +156,8 @@ function ProjectList() {
         hide(el); // assure that the element is hidden when scrolled into view
         ScrollTrigger.create({
             trigger: el,
-            start: 'top 75%',
-            end: 'bottom',
+            start: 'top 70%',
+            end: 'bottom -10%',
             scrub: 3,
             onEnter: function() { animateFrom(el) }, 
             onLeave: function() { hide(el) }, // assure that the element is hidden when scrolled into view
@@ -194,41 +195,53 @@ function ProjectList() {
             <Grid container spacing={3} direction={(p.id % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center" >
 
                 <Grid item container xs={12} sm={8} md={5} justify="center" alignItems="center" className={`${(p.id % 2 === 0) ? "reveal_fromLeft" : "reveal_fromRight"}`} ref={addToRefs}>
-                <Paper className={classes.paper}>
-                    <MuiThemeProvider theme={theme}>
+                    <Paper className={classes.paper}>
+                        <MuiThemeProvider theme={theme}>
 
-                    <Grid item container>
-                        <Grid item container xs={4} justify="center" alignItems="center">
-                        <img className={classes.logo} src={p.logo} alt="logo"/>
+                        <Grid item container>
+                            <Grid item container xs={4} justify="center" alignItems="center">
+                                <img className={classes.logo} src={p.logo} alt="logo"/>
+                            </Grid>
+
+                            <Grid item container xs={8} justify="flex-start" alignItems="center">
+                                <Typography variant="h4" className={classes.appHeader}>
+                                    {p.name}
+                                </Typography>
+                            </Grid>
                         </Grid>
 
-                        <Grid item container xs={8} justify="flex-start" alignItems="center">
-                        <Typography variant="h4" className={classes.appHeader}>{p.name}</Typography>
+                        <Grid container item direction="column" justify="flex-start" alignItems="flex-start">
+                            <Typography className={classes.appDescriptions}>
+                                {p.what}
+                            </Typography>
+
+                            <Typography className={classes.appDescriptions}>
+                                {/* {p.why} */}
+                                {ReactHtmlParser(p.why)}
+                            </Typography>
                         </Grid>
-                    </Grid>
 
-                    <Grid container item direction="column" justify="flex-start" alignItems="flex-start">
-                        <Typography className={classes.appDescriptions}>{p.what}</Typography>
-                        <Typography className={classes.appDescriptions}>{p.why}</Typography>
-                    </Grid>
+                        <Grid item container direction="row" justify="space-around" alignItems="center" className={classes.iconList} >
+                            <DevIcons iconList={p.stack}/>
+                        </Grid>
 
-                    <Grid item container direction="row" justify="space-around" alignItems="center" className={classes.iconList} >
-                        <DevIcons iconList={p.stack}/>
-                    </Grid>
+                        <Grid container direction="row" justify="flex-start">
+                            <Button href={p.deployed} color="primary" target="_blank" disabled={p.deployed === false} style={{ cursor: 'pointer' }}>
+                            {`DEMO${!p.deployed ? ': n/a' : ''}`}
+                            </Button>
+                            <Button href={p.github} color="primary" target="_blank" disabled={p.github === false}  style={{ cursor: 'pointer' }}>
+                                {`SOURCE CODE${!p.github ? ': private' : ''}`}
+                            </Button>
+                        </Grid>
 
-                    <Grid container direction="row" justify="flex-start">
-                        <Button href={p.deployed} color="primary" target="_blank" style={{ cursor: 'pointer' }}>DEMO</Button>
-                        <Button href={p.github} color="primary" target="_blank" style={{ cursor: 'pointer' }}>SOURCE CODE</Button>
-                    </Grid>
-
-                    </MuiThemeProvider>
-                </Paper>
+                        </MuiThemeProvider>
+                    </Paper>
                 </Grid>
 
                 <Grid item xs={12} sm={9} md={7} className={`${(p.id % 2 === 0) ? "reveal_fromRight" : "reveal_fromLeft"}`} ref={addToRefs}>
-                <Paper>
-                    <a href={p.deployed} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
-                </Paper>
+                    <Paper>
+                        <a href={p.deployed} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={p.gif} alt="app-demo"/></a>
+                    </Paper>
                 </Grid>
 
             </Grid>
@@ -238,16 +251,6 @@ function ProjectList() {
 
     return (
         <Container>
-            {/* <Box>
-
-            <MuiThemeProvider>
-                <ThemeProvider theme={projectsFont}>
-                    <Typography variant="h2" className="section-header" ref={projectRef}>PROJECTS</Typography>
-                    <Typography variant="h2" className={classes.projectsHorizontalWordMobile}>ROJECTS</Typography>
-                </ThemeProvider>
-              </MuiThemeProvider>
-            </Box> */}
-            
             <Container>
                 <List className={classes.list}>
                     <Container>

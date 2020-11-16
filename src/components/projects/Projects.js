@@ -8,37 +8,32 @@ import Box from '@material-ui/core/Box';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
-  projectsContainer: {
-    height: 'fit-content',
-    paddingTop: '5%',
-    marginBottom: '5%',
-  },
-  projectsHorizontalWordMobile: {
-    // marginTop: '-7%', 
-    // top: '107%',
-    opacity: 0.3,
-    marginLeft: '15%', 
-    position: 'absolute',
-},
-projectsHorizontalWordTabletDesktop: {
-    // position: 'absolute',
-    // top: '103%',
- 
-    opacity: 0.3,
-    marginLeft: '20%', 
-}   
+    projectsContainer: {
+        height: 'fit-content',
+        paddingTop: '5%',
+        marginBottom: '5%',
+    },
+    projectsHorizontalWordMobile: {
+        opacity: 0.3,
+        marginLeft: '15%', 
+        position: 'absolute',
+    },
+    projectsHorizontalWordTabletDesktop: {
+        opacity: 0.3,
+        marginLeft: '20%', 
+    }   
 }));
 
 let projectsFont = createMuiTheme({
     typography: {
-      fontFamily: 'Quicksand',
-      fontWeight: 600,
-      fontSize: 70,
-      color: '#304153',
-      lineHeight: 1,
+        fontFamily: 'Quicksand',
+        fontWeight: 600,
+        fontSize: 70,
+        color: '#304153',
+        lineHeight: 1,
     },
-  });
-  projectsFont = responsiveFontSizes(projectsFont);
+});
+projectsFont = responsiveFontSizes(projectsFont);
 
 
 function Projects() {

@@ -9,6 +9,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import Fab from '@material-ui/core/Fab';
 
+import AnimatedButton from './AnimatedButton'
+
 import { Link } from 'react-scroll';
 
 let buttonFont = createMuiTheme({
@@ -118,17 +120,14 @@ export default function Navigation() {
 
                 <div className={classes.grow} />
                 <div className={classes.sectionDesktop}>
-                    <Button>
-                        <Link activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                            <Typography variant="h6" className={classes.buttonClass}> home</Typography>
-                        </Link>
-                    </Button>
-                    <Button>
-                        <Link activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-                            <Typography variant="h6" className={classes.buttonClass}>projects</Typography>
-                        </Link>
-                    </Button>
+                    <AnimatedButton text="HOME" linkTo="home-cont"/>
 
+                    <AnimatedButton text="PROJECTS" linkTo="projects-cont"/>
+
+                    <AnimatedButton text="BLOGS" linkTo="blogs-cont"/>
+
+                    <AnimatedButton text="CONTACT" linkTo="contact-cont"/>
+{/* 
                     <Button>
                         <Link activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
                             <Typography variant="h6" className={classes.buttonClass}>blogs</Typography>
@@ -139,7 +138,7 @@ export default function Navigation() {
                         <Link activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
                             <Typography variant="h6" className={classes.buttonClass}>contact</Typography>
                         </Link>
-                    </Button>
+                    </Button> */}
 
                 </div>
             </ThemeProvider>

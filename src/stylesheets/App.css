@@ -97,6 +97,27 @@
   color: '#304153' !important;
 }
 
+.section-header-vert-blogs {
+  z-index: -100;
+  position: absolute;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  margin-top: -23% !important;
+  text-orientation: upright;
+  opacity: 0.3;
+  color: '#304153' !important;
+}
+
+.section-header-horizontal-blogs {
+  z-index: -100;
+  position: absolute;
+  margin-top: -22.5% !important;
+  margin-left: 21% !important;
+  opacity: 0.3;
+  color: '#304153' !important;
+}
+
 .ico {
   margin: 0 auto;
   text-align: center;

@@ -19,10 +19,21 @@
     color: '#304153' !important;
 }
 
-// .section-header-blog-vert {
-//     z-index: 0;
-//     position: absolute;
-//     top: 200% !important;
-//     color: '#304153' !important;
-//     margin-top: -15% !important;
-// }
+.section-header-vert-blogs {
+    z-index: -100;
+    position: absolute;
+    writing-mode: vertical-rl;
+    margin-top: -23% !important;
+    text-orientation: upright;
+    opacity: 0.3;
+    color: '#304153' !important;
+}
+
+.section-header-horizontal-blogs {
+    z-index: -100;
+    position: absolute;
+    margin-top: -22.5% !important;
+    margin-left: 21% !important;
+    opacity: 0.3;
+    color: '#304153' !important;
+}
