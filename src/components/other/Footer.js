@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contactCont: {
     padding: '4%',
-    background: '#2E6086',
+    background: 'transparent',
     height: 'auto',
   },
   buttons: {
@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
     left: '5%',
     position: 'absolute',
     color: '#F2511B',
-
   },
   footerHeadingSmall: {
     fontSize: '4rem',

@@ -18,9 +18,7 @@ import { useMediaQuery } from 'react-responsive'
 import '../../stylesheets/App.css'
 
 // animation library and plugins
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { useSpring, animated } from 'react-spring'
 
 
 let theme = createMuiTheme();
@@ -42,10 +40,10 @@ const useStyles = makeStyles(() => ({
     "&:hover": {
         transform: 'scale(1.03)',
     },
-    // "&:hover .makeStyles-media-224": {
-    //     transform: 'scale(1.1)',
-    // },
-    "&:hover .makeStyles-contentContainer-221": {
+    "&:hover .makeStyles-media-224": {
+        transform: 'scale(1.1)',
+    },
+    "&:hover .makeStyles-contentContainer-431": {
         height: '150px',
     },
     "&:hover p": {
@@ -53,7 +51,10 @@ const useStyles = makeStyles(() => ({
     },
     "&:last-child": {
         marginBottom: '5%',
-    }
+    },
+    boxShadow: '0px 10px 30px -5px rgba(0, 0, 0, 0.3)',
+    transition: 'box-shadow 0.5s',
+    willChange: 'transform',
   },
   contentContainer: {
     height: '60px',
@@ -68,7 +69,6 @@ const useStyles = makeStyles(() => ({
   },
   media: {
     height: '150px',
-    // transition: 'transform 0.5s ease-in-out',
     [theme.breakpoints.up('sm')]: {
       height: '225px',
     }
@@ -80,8 +80,9 @@ const useStyles = makeStyles(() => ({
   list:{
     marginTop: '20%',
     zIndex: 50,
-    position: 'relative'
-  }
+    position: 'relative',
+
+  },
 }));
 
 
@@ -90,110 +91,51 @@ const useStyles = makeStyles(() => ({
 function BlogList() {
     const classes = useStyles();
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
-    // const writingRef = useRef()
-    // const timeline = useRef(gsap.timeline({paused: true}))
-    const revealRefs = useRef([])
-    revealRefs.current = []
 
 
-//   useEffect(() => {
-//     // start the projects word offscreen to the right
-//     // fade in slightly and to the scroll to the left as user scrolls down
-//     timeline.current.from(writingRef.current, {
-//         opacity: 0.1,
-//         x: '85%',
-//         scrollTrigger: { 
-//           trigger: writingRef.current,
-//           id: 'blog-pin-1',
-//           start: "top 80%",
-//           end: "bottom -50%",
-//           scrub: 1.5,
-//           pin: true,
-//         //   markers: true,
-//           toggleActions: 'play none none reverse'
-//         }
-//       })
-//     .to(writingRef.current, {
-//       opacity: 0.3,
-//     }, ">")
-//   }, [])
+    const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
+    const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+    const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
 
 
 
+    const listItems = blogList.map(b => (
 
-  function hide(elem) {
-    gsap.to(elem, {autoAlpha: 0, duration: 1.25, ease:'expo'});
-  }
+        <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5}>
+            <a href={b.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
+                <animated.div
+                    onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                    onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                    style={{ transform: props.xys.interpolate(trans) }}
+                >
+                    <Card className={classes.listItem}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image={b.img}
+                                title={b.name}
+                            />
+                            <CardContent className={classes.contentContainer}>
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
+                                    {b.name}
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
+                                    {b.description}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </animated.div>
+            </a>
+        </Grid>
 
-  const addToRefs = (el) => {
-    if( el && !revealRefs.current.includes(el)) {
-      revealRefs.current.push(el)
-    }
-    hide(el); // assure that the element is hidden when scrolled into view
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 60%',
-      scrub: 3,
-      onEnter: function() { animateFrom(el, 1) }, 
-      onLeave: function() { hide(el) }, // assure that the element is hidden when scrolled into view
-      onEnterBack: function() { animateFrom(el, -1) },
-      onLeaveBack: function() { hide(el) } // assure that the element is hidden when scrolled into view
-    });
-  }
-
-  function animateFrom(elem, direction) {
-    direction = direction | 1;
-    let x = 0,
-        y = direction * 150;
-    if(elem.classList.contains('reveal_fromLeft')) {
-      x = -20;
-    } else if(elem.classList.contains('reveal_fromRight')) {
-      x = 20;
-    }
-    gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
-      duration: 1.25, 
-      x: 0,
-      y: 0, 
-      autoAlpha: 1, 
-      ease: "expo", 
-      overwrite: "auto"
-    });
-  }
-
-
-
-  const listItems = blogList.map(b => (
-
-    <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} className={`${(b.id % 2 === 0) ? "reveal_fromLeft" : "reveal_fromRight"}`} ref={addToRefs}>
-    {/* <Grid key={b.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5} ref={addToRefs}> */}
-        <a href={b.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
-            <Card className={classes.listItem}>
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image={b.img}
-                        title={b.name}
-                    />
-                    <CardContent className={classes.contentContainer}>
-                        <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
-                            {b.name}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
-                            {b.description}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </a>
-    </Grid>
-
-  ))
+    ))
 
     return (
         <>
             <Container className={classes.list}>
                 <Grid container justify="center" alignItems="center" spacing={10} >
-                {listItems.reverse()}
+                    {listItems.reverse()}
                 </Grid>
             </Container>
         </>

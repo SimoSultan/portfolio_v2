@@ -21,7 +21,25 @@ const useStyles = makeStyles(() => ({
     projectsHorizontalWordTabletDesktop: {
         opacity: 0.3,
         marginLeft: '20%', 
-    }   
+    }  ,
+    sectionHeaderVert: {
+        zIndex: -100,
+        position: 'absolute',
+        top: '97%',
+        opacity: 0.3,
+        writingMode: 'vertical-rl',
+        textOrientation: 'upright',
+        color: '#304153',
+    },
+    sectionHeaderHorizontal: {
+        zIndex: -100,
+        position: 'absolute',
+        top: '97.5%',
+        marginLeft: '300px',
+        opacity: 0.3,
+        color: '#304153',
+        letterSpacing: '1rem'
+    }
 }));
 
 let projectsFont = createMuiTheme({
@@ -46,8 +64,8 @@ function Projects() {
 
                 <MuiThemeProvider>
                     <ThemeProvider theme={projectsFont}>
-                        <Typography variant="h2" className="section-header-vert">PROJECTS</Typography>
-                        <Typography variant="h2" className="section-header-horizontal">ROJECTS</Typography>
+                        <Typography variant="h2" className={classes.sectionHeaderVert}>PROJECTS</Typography>
+                        <Typography variant="h2" className={classes.sectionHeaderHorizontal}>ROJECTS</Typography>
                     </ThemeProvider>
                 </MuiThemeProvider>
             </Box>
