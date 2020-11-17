@@ -16,9 +16,6 @@ const useStyles = makeStyles(() => ({
         position: 'relative',
         top: 0,
         overflow: 'hidden',
-
-    },
-    buttonClass: {
     },
     buttonCont: {
         cursor: 'pointer',
@@ -26,7 +23,6 @@ const useStyles = makeStyles(() => ({
         width: '140px',
         height: '40px',
         color: '#000',
-        margin: '0 1%'
     },
     buttonTextCont: {
         opacity: 1,
@@ -46,13 +42,13 @@ const useStyles = makeStyles(() => ({
 
 function AnimatedButton( { text, linkTo } ) {
     const classes = useStyles()
-    const [{ x, color }, set] = useSpring(() => ({ x: 100, color: "slategrey" }));
+    const [{ x, color }, set] = useSpring(() => ({ x: 100, color: "#021824" }));
 
     return (
         <div 
             className={classes.buttonCont}
             onMouseEnter={() => set({ x: 0, opacity: 1, color: "#fff" })}
-            onMouseLeave={() => set({ x: 100, opacity: 0.6, color: "slategrey" })}
+            onMouseLeave={() => set({ x: 100, opacity: 0.6, color: "#021824" })}
         >
             <div className={classes.parallelogram}>
                 <animated.div
@@ -64,7 +60,7 @@ function AnimatedButton( { text, linkTo } ) {
             <Grid container alignItems="center" justify="center" className={classes.buttonTextCont}>
                 <Link activeClass="active" to={linkTo} spy={true} smooth={true} duration={1000}>
                     <animated.span style={{ color }}>
-                        <Typography variant="h6" className={classes.buttonClass}>{text}</Typography>
+                        <Typography variant="h6" >{text}</Typography>
                     </animated.span>
                 </Link>
             </Grid>

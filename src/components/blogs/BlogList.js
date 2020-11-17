@@ -1,12 +1,11 @@
-// import React, { useRef, useState, useEffect } from 'react';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { blogList } from  './blogList.json';
 
 // Material UI components 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
-import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -86,21 +85,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-let writingsFont = createMuiTheme({
-  typography: {
-    fontFamily: 'Quicksand',
-    fontWeight: 600,
-    fontSize: 50,
-  },
-});
-writingsFont = responsiveFontSizes(writingsFont);
-
 
 
 function BlogList() {
     const classes = useStyles();
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
-    const writingRef = useRef()
+    // const writingRef = useRef()
     // const timeline = useRef(gsap.timeline({paused: true}))
     const revealRefs = useRef([])
     revealRefs.current = []
@@ -201,11 +191,6 @@ function BlogList() {
 
     return (
         <>
-            {/* <MuiThemeProvider theme={theme}>
-            <ThemeProvider theme={writingsFont}>
-                <Typography variant="h2" className="section-header-vert section-header-blog-vert" ref={writingRef}>WRITINGS</Typography>
-            </ThemeProvider>
-            </MuiThemeProvider> */}
             <Container className={classes.list}>
                 <Grid container justify="center" alignItems="center" spacing={10} >
                 {listItems.reverse()}

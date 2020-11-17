@@ -1,5 +1,11 @@
 import React from 'react';
-import { Home, Blogs, Projects, Footer, Navigation } from "./components/export";
+import { 
+    Home, 
+    Blogs, 
+    Projects, 
+    // Footer, 
+    Navigation
+ } from "./components/export";
 import './stylesheets/App.css'
 
 function App() {
@@ -10,7 +16,7 @@ function App() {
       <Home />
       <Projects />
       <Blogs />
-      <Footer />
+      {/* <Footer /> */}
 
     </>
 

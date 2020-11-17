@@ -5,6 +5,9 @@ import '../../stylesheets/App.css'
 import Typography from '@material-ui/core/Typography';
 // import Typography from '@material-ui/core/Typography';
 import { makeStyles, MuiThemeProvider, ThemeProvider, responsiveFontSizes, createMuiTheme } from '@material-ui/core/styles';
+
+import { Footer } from "../export";
+
 // import Typography from '@material-ui/core/Typography';
 
 // custom styling
@@ -24,7 +27,9 @@ const useStyles = makeStyles(() => ({
         // background: '#304153',
         background: '#2E6086',
         zIndex: 25,
-        position: 'relative'
+        position: 'relative',
+        overflowY: 'hidden',
+
     },
     contToFitFooter: {
         height: '88%',
@@ -59,14 +64,18 @@ function Blogs() {
 
     <div id='blogs-cont' className={classes.blogsCont} >
         <div className={classes.contToFitFooter}>
+
             <MuiThemeProvider>
                 <ThemeProvider theme={writingsFont}>
                     <Typography variant="h2" className="section-header-horizontal-blogs">LOGS</Typography>
                     <Typography variant="h2" className="section-header-vert-blogs">BLOGS</Typography>
                 </ThemeProvider>
             </MuiThemeProvider>
+
             <BlogList />
+
         </div>
+        <Footer />
     </div>
 
   );

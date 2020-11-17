@@ -1,6 +1,4 @@
-// import React, { useRef, useState, useEffect } from 'react';
-import React, { useRef, useEffect } from 'react';
-// import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import { projectList } from  './projectList.json';
 import DevIcons from './DevIcons';
 
@@ -8,14 +6,13 @@ import DevIcons from './DevIcons';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 
 import ReactHtmlParser from 'react-html-parser'
 
@@ -89,17 +86,6 @@ const useStyles = makeStyles((theme) => ({
     }    
 }));
 
-let projectsFont = createMuiTheme({
-    typography: {
-      fontFamily: 'Quicksand',
-      fontWeight: 600,
-      fontSize: 70,
-      color: '#304153',
-      lineHeight: 1,
-    },
-  });
-  projectsFont = responsiveFontSizes(projectsFont);
-
 
 
 
@@ -108,18 +94,18 @@ function ProjectList() {
     const classes = useStyles();
 
     // const timeline = useRef(gsap.timeline({paused: true}))
-    const projectRef = useRef(null)
+    // const projectRef = useRef(null)
     const revealRefs = useRef([])
     revealRefs.current = []
 
-    const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
-    // const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-device-width: 1020px)'
-    })  
-    const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-    const isMobile = useMediaQuery({ query: '(max-width: 411px)' })
+    // const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+    // // const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
+    // const isDesktopOrLaptop = useMediaQuery({
+    //     query: '(min-device-width: 1020px)'
+    // })  
+    // const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+    // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+    // const isMobile = useMediaQuery({ query: '(max-width: 411px)' })
 
 //   useEffect(() => {
 //     // start the projects word offscreen to the right
