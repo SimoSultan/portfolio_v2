@@ -63,6 +63,12 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '-10%', 
         opacity: 0.3,
         marginLeft: '20%', 
+    },
+    gifCont: {
+        transition: 'transform 1s',
+        "&:hover": {
+            transform: 'scale(1.05)',
+        }
     }    
 }));
 
@@ -75,7 +81,7 @@ function ProjectItem( {project, index} ) {
     return (
         <ListItem className={classes.listItem} >
 
-            <Grid container spacing={3} direction={(index % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center" >
+            <Grid container spacing={5} direction={(index % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center" >
 
                 <Grid item container xs={12} sm={8} md={5} justify="center" alignItems="center">
                     <Fade top>
@@ -125,8 +131,10 @@ function ProjectItem( {project, index} ) {
 
                 <Grid item xs={12} sm={9} md={7}>
                     <Fade left mirror={index % 2 === 0}>
-                        <Paper>
-                            <a href={project.deployed.toString()} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={project.gif} alt="app-demo"/></a>
+                        <Paper className={classes.gifCont}>
+                            <a href={project.deployed.toString()} target="_blank" rel="noopener noreferrer">
+                                <img className={classes.gif} src={project.gif} alt="app-demo"/>
+                            </a>
                         </Paper>
                     </Fade>
                 </Grid>

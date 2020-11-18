@@ -121,6 +121,7 @@ export default function Navigation() {
     return (
 
         <div className={classes.grow}>
+
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
 
@@ -158,6 +159,7 @@ export default function Navigation() {
                     </div>
                 </Toolbar>
             </AppBar>
+                
 
             {renderMobileMenu}
 

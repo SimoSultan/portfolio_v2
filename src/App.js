@@ -8,10 +8,13 @@ import {
  } from "./components/export";
 import './stylesheets/App.css'
 
+
+
 function App() {
   return (
 
     <> 
+
       <Navigation />
       <Home />
       <Projects />

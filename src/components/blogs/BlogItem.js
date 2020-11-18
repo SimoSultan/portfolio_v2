@@ -27,13 +27,12 @@ const useStyles = makeStyles(() => ({
         zIndex: 10,
         transition: 'transform 0.5s ease-in-out',
         "&:hover": {
-            transform: 'scale(1.03) box-shadow',
-            // transform: 'box-shadow',
+            transform: 'scale(1.03)',
         },
         "&:hover .makeStyles-media-224": {
             transform: 'scale(1.1)',
         },
-        "&:hover .makeStyles-contentContainer-432": {
+        "&:hover .makeStyles-contentContainer-379": {
             height: '140px',
         },
         "&:hover p": {

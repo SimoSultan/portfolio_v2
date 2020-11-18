@@ -28,7 +28,7 @@ let titleFont = createMuiTheme({
 titleFont = responsiveFontSizes(titleFont);
 
 
-function HomeHeader({ showAboutMeText, buttonFont, whoIsShown  }) {
+function HomeHeader({ showAboutMeText, buttonFont  }) {
     const classes = useStyles()
 
     return (
@@ -36,18 +36,19 @@ function HomeHeader({ showAboutMeText, buttonFont, whoIsShown  }) {
             <MuiThemeProvider theme={theme}>
                 <ThemeProvider theme={titleFont}>
                     <Grid container direction="column" justify="flex-start" alignItems="center">
-                        {/* <Container > */}
-                            <Typography variant="h1" gutterBottom className={classes.nameCont}>
-                                <Fade left cascade delay={500} duration={1500}>
-                                    SIMON
-                                </Fade>
-                            </Typography>
-                            <Typography variant="h1" gutterBottom className={classes.nameCont}>
-                                <Fade left cascade delay={500} duration={1500}>
-                                    CURRAN
-                                </Fade>
-                            </Typography>
-                        {/* </Container> */}
+                    
+                        <Typography variant="h1" gutterBottom className={classes.nameCont}>
+                            <Fade left cascade duration={1500}>
+                                SIMON
+                            </Fade>
+                        </Typography>
+
+                        <Typography variant="h1" gutterBottom className={classes.nameCont}>
+                            <Fade left cascade  duration={1500}>
+                                CURRAN
+                            </Fade>
+                        </Typography>
+
                     </Grid>
                 </ThemeProvider>
 

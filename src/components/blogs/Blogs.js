@@ -6,7 +6,7 @@ import '../../stylesheets/App.css'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, MuiThemeProvider, ThemeProvider, responsiveFontSizes, createMuiTheme } from '@material-ui/core/styles';
 
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 
 
 const useStyles = makeStyles(() => ({
@@ -70,9 +70,9 @@ function Blogs() {
                         BLOGS
                     </Typography>
                     <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
-                        <Fade bottom cascade>
+                        <Zoom right cascade duration={1500}>
                             LOGS
-                        </Fade>
+                        </Zoom>
                     </Typography>
                 </ThemeProvider>
             </MuiThemeProvider>

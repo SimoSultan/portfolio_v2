@@ -13,6 +13,8 @@ import MediumIcon from './MediumIcon'
 
 import { useSpring, animated } from "react-spring";
 
+import Fade from 'react-reveal/Fade';
+
 
 const useStyles = makeStyles(() => ({
     parallelogram: {
@@ -92,8 +94,12 @@ function AnimatedFooterButton( { text, linkTo, isPortrait, isTabletOrMobile } ) 
                 <animated.span style={{ color }}>
                     {
                         hover
-                        ? iconToShow(text)
-                        : <Typography variant="body1" className={classes.socialsText} >{text}</Typography>
+                        ?   <Fade duration={500}>{iconToShow(text)}</Fade>
+                        :   <Typography variant="body1" className={classes.socialsText} >
+                                <Fade duration={500}>
+                                    {text}
+                                </Fade>
+                            </Typography>
                     }
                 </animated.span>
             </Grid>

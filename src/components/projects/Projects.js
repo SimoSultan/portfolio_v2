@@ -5,13 +5,13 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
 
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 
 
 const useStyles = makeStyles(() => ({
     projectsContainer: {
         height: 'fit-content',
-        paddingTop: '50px',
+        paddingTop: '5%',
         marginBottom: '50px',
     },
     projectsHorizontalWordMobile: {
@@ -70,9 +70,9 @@ function Projects() {
                             PROJECTS
                         </Typography>
                         <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
-                            <Fade bottom cascade>
+                            <Zoom right cascade duration={1500}>
                                 ROJECTS
-                            </Fade>
+                            </Zoom>
                         </Typography>
                     </ThemeProvider>
                 </MuiThemeProvider>

@@ -1,5 +1,7 @@
 /* Quicksand */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
+/* Raleway */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap");
 /* Kaushan Script*/
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
 /* Lemonada */
@@ -74,48 +76,6 @@
     -webkit-transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
             transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
   }
-}
-
-.section-header-vert {
-  z-index: -100;
-  position: absolute;
-  top: 97% !important;
-  opacity: 0.3;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  text-orientation: upright;
-  color: '#304153' !important;
-}
-
-.section-header-horizontal {
-  z-index: -100;
-  position: absolute;
-  top: 97.5% !important;
-  margin-left: 270px !important;
-  opacity: 0.3;
-  color: '#304153' !important;
-}
-
-.section-header-vert-blogs {
-  z-index: -100;
-  position: absolute;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  margin-top: -23% !important;
-  text-orientation: upright;
-  opacity: 0.3;
-  color: '#304153' !important;
-}
-
-.section-header-horizontal-blogs {
-  z-index: -100;
-  position: absolute;
-  margin-top: -22.5% !important;
-  margin-left: 21% !important;
-  opacity: 0.3;
-  color: '#304153' !important;
 }
 
 .ico {

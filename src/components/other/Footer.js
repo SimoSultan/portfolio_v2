@@ -46,18 +46,18 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     textAlign: 'center', 
     opacity: 0.3,
-    padding: '3% 0'
+    paddingTop: '3%'
   },
   footerHeading: {
     fontSize: '6rem',
-    margin: '-3% auto -8% auto',
+    margin: '-3% auto -6% auto',
     width: '90%',
     color: '#F2511B',
   },
   footerHeadingSmall: {
     fontSize: '3rem',
     width: '90%',
-    margin: '-3% auto -8% auto',
+    margin: '-3% auto -6% auto',
     color: '#F2511B',
   },
   footerTopButton: {
@@ -99,7 +99,7 @@ function Footer() {
                     <Grid item className={classes.footerHeadingContainer}>
                         
                             <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >
-                                <Fade bottom collapse>
+                                <Fade bottom collapse delay={500}>
                                     REACH OUT
                                 </Fade>
                             </Typography>
