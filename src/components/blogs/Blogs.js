@@ -39,6 +39,7 @@ const useStyles = makeStyles(() => ({
         opacity: 0.8,
         writingMode: 'vertical-rl',
         textOrientation: 'upright',
+        // fontWeight: 500,
         color: '#304153',
     },
     sectionHeaderHorizontal: {
@@ -48,7 +49,8 @@ const useStyles = makeStyles(() => ({
         marginLeft: '300px',
         opacity: 0.8,
         color: '#304153',
-        letterSpacing: '2rem'
+        letterSpacing: '2rem',
+        // fontWeight: 500,
     },
 }));
 

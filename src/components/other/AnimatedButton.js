@@ -42,13 +42,13 @@ const useStyles = makeStyles(() => ({
 
 function AnimatedButton( { text, linkTo } ) {
     const classes = useStyles()
-    const [{ x, color }, set] = useSpring(() => ({ x: 100, color: "#021824" }));
+    const [{ x, color }, set] = useSpring(() => ({ x: 100, color: "#F2511B" }));
 
     return (
         <div 
             className={classes.buttonCont}
             onMouseEnter={() => set({ x: 0, opacity: 1, color: "#fff" })}
-            onMouseLeave={() => set({ x: 100, opacity: 0.6, color: "#021824" })}
+            onMouseLeave={() => set({ x: 100, opacity: 0.6, color: "#F2511B" })}
         >
             <div className={classes.parallelogram}>
                 <animated.div

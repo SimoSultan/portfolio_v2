@@ -1,8 +1,6 @@
 import React from 'react';
 import ProjectList from './ProjectList';
 
-import '../../stylesheets/App.css'
-
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
