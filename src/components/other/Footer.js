@@ -147,7 +147,7 @@ function Footer() {
                         <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
                             <AnimatedFooterButton 
                                 text='email'
-                                linkTo="simosultan2020@email.com" 
+                                linkTo="mailto:simosultan2020@email.com?" 
                             />
                         </Grid>
 

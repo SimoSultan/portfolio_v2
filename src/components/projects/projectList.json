@@ -73,7 +73,7 @@
         "why": "Even though I was proud of my 10 day portfolio site (v1) for my Coder Academy assignment, I always knew I wanted to do a rewrite for a proper portfolio site. This time experimenting with animations using the GreenSock Animation Library and problem solving the importing of that into React.",
         "stack": ["ReactJS", "CSS3", "SASS"],
         "github": "https://github.com/SimoSultan/portfolio_v2",
-        "deployed": "https://www.simonmcurran.com/",
+        "deployed": "https://simosultan2.netlify.app/",
         "logo": "images/projects/logos/simosultan.png",
         "gif": "images/projects/gifs/avatar.png"
     }

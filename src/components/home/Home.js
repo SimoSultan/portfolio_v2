@@ -76,6 +76,11 @@ function Home() {
         setShowAboutMe(!showAboutMe)
     }
 
+    // TODO: add sub headings to the project items
+    // TODO: white on white - maybe change to whitesmoke or make box shadow bigger
+    // TODO: CARD FLIP ANIMATION ON SCROLL FOR BLOGS COULD CHANGE TO PROJECT REVEAL
+    // TODO: who button is not noticeable enough that its a button, think about mobile here
+
     return (
 
         <div id='home-cont' className={classes.homeCont}>

@@ -64,7 +64,7 @@ function AboutMe({hideAboutMeText, buttonFont}) {
                                 I consider myself extremely lucky to have found my passion in life so young, where I can grow and learn, all whilst helping others.
                                 <br></br>
                                 <br></br>
-                                Check out my work on <strong><a href="https://github.com/SimoSultan">GitHub</a></strong>. Or get my CV <strong><a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">HERE</a></strong>
+                                Check out my work on <strong><a href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
                             </Typography>
                         </ThemeProvider>
                         
