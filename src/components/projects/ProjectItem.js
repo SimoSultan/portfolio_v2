@@ -9,8 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 
-import ReactHtmlParser from 'react-html-parser'
-import parse from 'react-html-parser'
+import Fade from 'react-reveal/Fade';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -22,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     gif: {
         width: '100%',
         padding: '0',
+        overflow: 'hidden',
     },
     paper: {
         padding: theme.spacing(3),
@@ -68,16 +68,18 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function ProjectItem( {project} ) {
+function ProjectItem( {project, index} ) {
 
     const classes = useStyles();
 
     return (
-        <ListItem key={project.name} className={classes.listItem} >
+        <ListItem className={classes.listItem} >
 
-            <Grid container spacing={3} direction={(project.id % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center" >
+            <Grid container spacing={3} direction={(index % 2 === 0) ? "row" : "row-reverse"} justify ="center" alignItems="center" >
 
                 <Grid item container xs={12} sm={8} md={5} justify="center" alignItems="center">
+                    <Fade top>
+
                     <Paper className={classes.paper}>
                         <MuiThemeProvider theme={theme}>
 
@@ -99,9 +101,7 @@ function ProjectItem( {project} ) {
                             </Typography>
 
                             <Typography className={classes.appDescriptions}>
-                                {/* {project.why} */}
-                                {/* {ReactHtmlParser(project.why)} */}
-                                {parse(project.why)}
+                                {project.why}
                             </Typography>
                         </Grid>
 
@@ -110,22 +110,25 @@ function ProjectItem( {project} ) {
                         </Grid>
 
                         <Grid container direction="row" justify="flex-start">
-                            <Button href={project.deployed} color="primary" target="_blank" disabled={project.deployed === false} style={{ cursor: 'pointer' }}>
-                            {`DEMO${!project.deployed ? ': n/a' : ''}`}
+                            <Button href={project.deployed.toString()} color="primary" target="_blank" disabled={project.deployed === false} style={{ cursor: 'pointer' }}>
+                                {`DEMO${!project.deployed ? ': n/a' : ''}`}
                             </Button>
-                            <Button href={project.github} color="primary" target="_blank" disabled={project.github === false}  style={{ cursor: 'pointer' }}>
+                            <Button href={project.github.toString()} color="primary" target="_blank" disabled={project.github === false}  style={{ cursor: 'pointer' }}>
                                 {`SOURCE CODE${!project.github ? ': private' : ''}`}
                             </Button>
                         </Grid>
 
                         </MuiThemeProvider>
                     </Paper>
+                    </Fade>
                 </Grid>
 
                 <Grid item xs={12} sm={9} md={7}>
-                    <Paper>
-                        <a href={project.deployed} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={project.gif} alt="app-demo"/></a>
-                    </Paper>
+                    <Fade left mirror={index % 2 === 0}>
+                        <Paper>
+                            <a href={project.deployed.toString()} target="_blank" rel="noopener noreferrer"><img className={classes.gif} src={project.gif} alt="app-demo"/></a>
+                        </Paper>
+                    </Fade>
                 </Grid>
 
             </Grid>

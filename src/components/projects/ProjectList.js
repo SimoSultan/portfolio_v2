@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
 function ProjectList() {
     const classes = useStyles();
 
-    const listItems = projectList.map(p => ( <ProjectItem project={p} /> ))
+    const listItems = projectList.map((p, index) => ( <ProjectItem project={p} index={index} key={`index-${index}`}/> ))
 
     return (
         <Container>

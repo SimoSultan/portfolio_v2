@@ -39,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
   socialLinks: {
     textAlign: 'center',
     padding: '3% 0',
+    width: '90%',
+    margin: '0 auto',
   },
   footerHeadingContainer: {
     position: 'relative',
@@ -48,19 +50,14 @@ const useStyles = makeStyles((theme) => ({
   },
   footerHeading: {
     fontSize: '6rem',
-    lineHeight: '6rem',
+    margin: '-3% auto -8% auto',
     width: '90%',
-    margin: 'auto auto',
-    left: '5%',
-    position: 'absolute',
     color: '#F2511B',
   },
   footerHeadingSmall: {
-    fontSize: '4rem',
-    width: '80%',
-    margin: '10% auto',
-    left: '10%',
-    position: 'absolute',
+    fontSize: '3rem',
+    width: '90%',
+    margin: '-3% auto -8% auto',
     color: '#F2511B',
   },
   footerTopButton: {
@@ -102,7 +99,7 @@ function Footer() {
                     <Grid item className={classes.footerHeadingContainer}>
                         
                             <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >
-                                <Fade bottom cascade>
+                                <Fade bottom collapse>
                                     REACH OUT
                                 </Fade>
                             </Typography>
@@ -110,28 +107,28 @@ function Footer() {
 
                     <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
                     
-                        <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont}>
+                        <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont}>
                             <AnimatedFooterButton 
                                 text='twitter'
                                 linkTo="https://twitter.com/simo_sultan"
                             />
                         </Grid>
 
-                        <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont}>
+                        <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont}>
                             <AnimatedFooterButton 
                                 text='github'
                                 linkTo="https://github.com/SimoSultan"
                             />
                         </Grid>
 
-                        <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
+                        <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
                             <AnimatedFooterButton 
                                 text='linkedin'
                                 linkTo="https://www.linkedin.com/in/simo-sultan/"
                             />
                         </Grid>
 
-                        <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
+                        <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
                             <AnimatedFooterButton 
                                 text='spotify'
                                 linkTo="https://open.spotify.com/user/1231189291"
@@ -139,7 +136,7 @@ function Footer() {
                         </Grid>
 
 
-                        <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
+                        <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
                             <AnimatedFooterButton 
                                 text='medium'
                                 linkTo="https://medium.com/@simo_sultan"
@@ -147,7 +144,7 @@ function Footer() {
                         </Grid>
 
                         
-                        <Grid item xs={isPortrait ? 6 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
+                        <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont} >
                             <AnimatedFooterButton 
                                 text='email'
                                 linkTo="simosultan2020@email.com" 

@@ -1,0 +1,114 @@
+{
+    "projectList": [
+  
+      {
+          "id": 1,
+          "name": "XLR8 Booking System",
+          "what": "A booking and admin system for my business. This was my first time ever building anything from scratch. Who said we should start small?!",
+          "why": "At the time, we didn't have a booking system or back-end to store the large amount of data we were missing. This was the start of this idea but was put on hold due to external factors.",
+          "stack": ["HTML5", "CSS3", "JavaScript", "Firebase"],
+          "github": false,
+          "deployed": false,
+          "logo": "images/projects/logos/xlr8-logo.png",
+          "gif": "images/projects/gifs/avatar.png"
+      },
+  
+      {
+          "id": 2,
+          "name": "Your Coding Journey",
+          "what": "A text based adventure game inspired by the journey of a person learning the world of software development.",
+          "why": "Our first Coder Academy assignment where we were tasked with creating an app in the terminal with Ruby.",
+          "stack": ["Ruby"],
+          "github": "https://github.com/SimoSultan/coding-bootcamp-text-adventure",
+          "deployed": false,
+          "logo": "images/projects/logos/YCV_logo.png",
+          "gif": "images/projects/gifs/YCJ.gif"
+      },
+  
+      {
+          "id": 3,
+          "name": "Portfolio V1",
+          "what": "My first portfolio site. It is prior to the one you are looking at now.",
+          "why": "This was our 2nd Coder Academy assignment where we were required to make a responsive portfolio site with only HTML and CSS",
+          "stack": ["HTML5", "SASS"],
+          "github": "https://github.com/SimoSultan/portfolio-website",
+          "deployed": "https://www.simonmcurran.com/",
+          "logo": "images/projects/logos/simosultan-v1.png",
+          "gif": "images/projects/gifs/portfolio-v1.gif"
+      },
+   
+      {
+          "id": 4,
+          "name": "DLM",
+          "what": "A 'fake' web-app that can be used for learners and driving instructors to book driving lessons.",
+          "why": "For a Coder Academy assignment where we were tasked to build a 2-way marketplace for clients using Ruby on Rails and PostgreSQL.",
+          "stack": ["Rails", "Bootstrap", "PostgreSQL", "AWS"],
+          "github": "https://github.com/SimoSultan/dlm",
+          "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+          "logo": "images/projects/logos/dlm-logo.png",
+          "gif": "images/projects/gifs/dlm.gif"
+      },
+  
+      {
+          "id": 5,
+          "name": "CSS Avatar",
+          "what": "This is my developer account profile picture that I created from CSS.",
+          "why": "I was inspired by <a href='https://twitter.com/flangerhanger' target='_blank'>@flangerhanger</a> and <a href='https://twitter.com/jh3yy?lang=en' target='_blank'>@jh3yy's</a> epic CSS art they were posting all the time on Twitter, so I gave it a crack.",
+          "stack": ["HTML5", "SASS"],
+          "github": "https://github.com/SimoSultan/profile_avatar",
+          "deployed": false,
+          "logo": "images/projects/logos/simosultan.png",
+          "gif": "images/projects/gifs/avatar.png"
+      },
+  
+      {
+          "id": 6,
+          "name": "Calculator",
+          "what": "You already know what a calculator does.",
+          "why": "I've always wanted to build a calculator and understand how a computer actually calculates. However, that's machine code I need to learn. In the meantime, here's my simple calculator I built in an afternoon for a Coder Academy challenge.",
+          "stack": ["HTML5", "CSS3", "JavaScript"],
+          "github": "https://github.com/SimoSultan/calculator",
+          "deployed": "https://simosultan-calculator.netlify.app/",
+          "logo": "images/projects/logos/calculator-logo.png",
+          "gif": "images/projects/gifs/calculator.gif"
+      },
+  
+      {
+          "id": 7,
+          "name": "PPMv1",
+          "what": "Finds common artist and songs between friends Spotify playlists and makes a playlist for them.",
+          "why": "<a href='https://twitter.com/xxkeefer?lang=en' target='_blank'>@xxKeefer</a> and I made this web-app for a 2.5 day Coder Academy JavaScript Hackathon, which we won the competition with due to our teamwork, functionality and code.",
+          "stack": ["HTML5", "CSS3", "JavaScript"],
+          "github": "https://github.com/SimoSultan/dlm",
+          "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+          "logo": "images/projects/logos/spotify-ppm-logo.png",
+          "gif": "images/projects/gifs/spotify-ppm.gif"
+      },
+  
+      {
+          "id": 8,
+          "name": "PPMv2",
+          "what": "The guest functionality of PPMv2 is the same as PPMv1. This app also implements Spotify authentication.",
+          "why": "<a href='https://twitter.com/xxkeefer?lang=en' target='_blank'>@xxKeefer</a> and I remade our v1 using the MERN stack for the next CA Hackathon. We had more plans to put more into this 2.5 day app, but implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake.",
+          "stack": ["MongoDB", "ExpressJS", "ReactJS", "NodeJS"],
+          "github": "https://github.com/SimoSultan/PPMv2",
+          "deployed": "https://ppmv2.netlify.app/",
+          "logo": "images/projects/logos/spotify-ppm-logo.png",
+          "gif": "images/projects/gifs/ppmv2.gif"
+      },
+  
+      {
+          "id": 9,
+          "name": "Portfolio V2",
+          "what": "My long-awaited v2 of my portfolio that is built using ReactJS.",
+          "why": "Even though I was proud of my 10 day portfolio site (v1) for my Coder Academy assignment, I always knew I wanted to do a rewrite for a proper portfolio site. This time experimenting with animations using the GreenSock Animation Library and problem solving the importing of that into React.",
+          "stack": ["ReactJS", "CSS3", "SASS"],
+          "github": "https://github.com/SimoSultan/portfolio_v2",
+          "deployed": "https://www.simonmcurran.com/",
+          "logo": "images/projects/logos/simosultan.png",
+          "gif": "images/projects/gifs/avatar.png"
+      }
+  
+  
+    ]
+  }

@@ -5,11 +5,14 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
 
+import Fade from 'react-reveal/Fade';
+
+
 const useStyles = makeStyles(() => ({
     projectsContainer: {
         height: 'fit-content',
-        paddingTop: '5%',
-        marginBottom: '5%',
+        paddingTop: '50px',
+        marginBottom: '50px',
     },
     projectsHorizontalWordMobile: {
         opacity: 0.3,
@@ -33,10 +36,10 @@ const useStyles = makeStyles(() => ({
         zIndex: -100,
         position: 'absolute',
         top: '97.5%',
-        marginLeft: '300px',
+        marginLeft: '270px',
         opacity: 0.3,
         color: '#304153',
-        letterSpacing: '1rem'
+        letterSpacing: '1rem',
     }
 }));
 
@@ -53,6 +56,7 @@ projectsFont = responsiveFontSizes(projectsFont);
 
 
 function Projects() {
+    
     const classes = useStyles();
 
     return (
@@ -62,8 +66,14 @@ function Projects() {
 
                 <MuiThemeProvider>
                     <ThemeProvider theme={projectsFont}>
-                        <Typography variant="h2" className={classes.sectionHeaderVert}>PROJECTS</Typography>
-                        <Typography variant="h2" className={classes.sectionHeaderHorizontal}>ROJECTS</Typography>
+                        <Typography variant="h2" className={classes.sectionHeaderVert}>
+                            PROJECTS
+                        </Typography>
+                        <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
+                            <Fade bottom cascade>
+                                ROJECTS
+                            </Fade>
+                        </Typography>
                     </ThemeProvider>
                 </MuiThemeProvider>
             </Box>

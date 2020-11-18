@@ -6,15 +6,12 @@ import '../../stylesheets/App.css'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, MuiThemeProvider, ThemeProvider, responsiveFontSizes, createMuiTheme } from '@material-ui/core/styles';
 
+import Fade from 'react-reveal/Fade';
 
 
 const useStyles = makeStyles(() => ({
     blogsCont: {
         height: 'fit-content',
-        paddingTop: '5%',
-        margin: 0,
-        padding: 0,
-        // background: '#304153',
         background: '#2E6086',
         zIndex: 25,
         position: 'relative',
@@ -23,34 +20,25 @@ const useStyles = makeStyles(() => ({
     contToFitFooter: {
         height: '88%',
     },
-    projectsHorizontalWordMobile: {
-        opacity: 0.3,
-        marginLeft: '15%', 
-        position: 'absolute',
-    },
-    projectsHorizontalWordTabletDesktop: {
-        opacity: 0.3,
-        marginLeft: '20%', 
-    },
+
     sectionHeaderVert: {
-        marginTop: '-23%',
+        top: '-50px',
         zIndex: -100,
         position: 'absolute',
         opacity: 0.8,
         writingMode: 'vertical-rl',
         textOrientation: 'upright',
-        // fontWeight: 500,
         color: '#304153',
     },
     sectionHeaderHorizontal: {
-        marginTop: '-22.5%',
+        top: '-45px',
         zIndex: -100,
         position: 'absolute',
-        marginLeft: '300px',
+        marginLeft: '270px',
         opacity: 0.8,
         color: '#304153',
         letterSpacing: '2rem',
-        // fontWeight: 500,
+        overflow: 'hidden',
     },
 }));
 
@@ -72,19 +60,30 @@ function Blogs() {
   return (
 
     <div id='blogs-cont' className={classes.blogsCont} >
+
+
         <div className={classes.contToFitFooter}>
 
             <MuiThemeProvider>
                 <ThemeProvider theme={writingsFont}>
-                    <Typography variant="h2" className={classes.sectionHeaderVert}>BLOGS</Typography>
-                    <Typography variant="h2" className={classes.sectionHeaderHorizontal}>LOGS</Typography>
+                    <Typography variant="h2" className={classes.sectionHeaderVert}>
+                        BLOGS
+                    </Typography>
+                    <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
+                        <Fade bottom cascade>
+                            LOGS
+                        </Fade>
+                    </Typography>
                 </ThemeProvider>
             </MuiThemeProvider>
 
             <BlogList />
 
         </div>
+            
+
         <Footer />
+
     </div>
 
   );

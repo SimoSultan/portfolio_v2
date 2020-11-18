@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { makeStyles, ThemeProvider, responsiveFontSizes, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import AnimatedButton from './AnimatedButton'
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -7,18 +8,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import Fab from '@material-ui/core/Fab';
-
-import AnimatedButton from './AnimatedButton'
+import { makeStyles } from '@material-ui/core/styles';
 
 import { Link } from 'react-scroll';
+import { useMediaQuery } from 'react-responsive'
 
-let buttonFont = createMuiTheme({
-    typography: {
-      fontFamily: 'Roboto Slab',
-      opacity: 0.5,
-    },
-  })
-  buttonFont = responsiveFontSizes(buttonFont);
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -62,15 +57,16 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonText: {
         color: '#F2511B',
+        fontFamily: 'Roboto Slab',
     }
 }));
 
 export default function Navigation() {
     const classes = useStyles();
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
     
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    console.log(mobileMoreAnchorEl);
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
@@ -93,79 +89,78 @@ export default function Navigation() {
             onClose={handleMobileMenuClose}
             position="fixed"
         >
-            <MuiThemeProvider>
-                <ThemeProvider theme={buttonFont}>
-                    <MenuItem>
-                        <Link onClick={handleMobileMenuClose} activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
-                            <Typography variant="button" className={classes.buttonText}>home</Typography>
-                        </Link>
-                    </MenuItem>
 
-                    <MenuItem>
-                        <Link onClick={handleMobileMenuClose} activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
-                            <Typography variant="button" className={classes.buttonText}>projects</Typography>
-                        </Link>
-                    </MenuItem>
+            <MenuItem>
+                <Link onClick={handleMobileMenuClose} activeClass="active" to="home-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button" className={classes.buttonText}>home</Typography>
+                </Link>
+            </MenuItem>
 
-                    <MenuItem>
-                        <Link onClick={handleMobileMenuClose} activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
-                            <Typography variant="button" className={classes.buttonText}>blogs</Typography>
-                        </Link>
-                    </MenuItem>
+            <MenuItem>
+                <Link onClick={handleMobileMenuClose} activeClass="active" to="projects-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button" className={classes.buttonText}>projects</Typography>
+                </Link>
+            </MenuItem>
 
-                    <MenuItem>
-                        <Link onClick={handleMobileMenuClose} activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
-                            <Typography variant="button" className={classes.buttonText}>contact</Typography>
-                        </Link>
-                    </MenuItem>
-                </ThemeProvider>
-            </MuiThemeProvider>
+            <MenuItem>
+                <Link onClick={handleMobileMenuClose} activeClass="active" to="blogs-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button" className={classes.buttonText}>blogs</Typography>
+                </Link>
+            </MenuItem>
 
+            <MenuItem>
+                <Link onClick={handleMobileMenuClose} activeClass="active" to="contact-cont" spy={true} smooth={true} duration={1000}>
+                    <Typography variant="button" className={classes.buttonText}>contact</Typography>
+                </Link>
+            </MenuItem>
 
         </Menu>
     );
 
+
     return (
+
         <div className={classes.grow}>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                <MuiThemeProvider>
-                    <ThemeProvider theme={buttonFont}>
 
-                        <div className={classes.grow} />
-                        <div className={classes.parallelogram} />
 
-                        <div className={classes.sectionDesktop}>
-                            <AnimatedButton text="HOME" linkTo="home-cont"/>
+                    <div className={classes.grow} />
+                    
+                    <div className={isTabletOrMobile ? '' : classes.parallelogram} />
 
-                            <AnimatedButton text="PROJECTS" linkTo="projects-cont"/>
+                    <div className={classes.sectionDesktop}>
 
-                            <AnimatedButton text="BLOGS" linkTo="blogs-cont"/>
+                        <AnimatedButton text="HOME" linkTo="home-cont"/>
 
-                            <AnimatedButton text="CONTACT" linkTo="contact-cont"/>
+                        <AnimatedButton text="PROJECTS" linkTo="projects-cont"/>
 
-                        </div>
-                    </ThemeProvider>
-                <div className={classes.sectionMobile}>
+                        <AnimatedButton text="BLOGS" linkTo="blogs-cont"/>
 
-                <Fab 
-                    color="primary" 
-                    aria-label="menu" 
-                    aria-controls={mobileMenuId}
-                    aria-haspopup="true"
-                    onClick={handleMobileMenuOpen}
-                    // color="inherit"
-                    size="medium"
-                >
-                    <MenuIcon />
-                </Fab>
+                        <AnimatedButton text="CONTACT" linkTo="contact-cont"/>
 
-                </div>
-                </MuiThemeProvider>
+                    </div>
+
+                    <div className={classes.sectionMobile}>
+
+                        <Fab 
+                            color="primary" 
+                            aria-label="menu" 
+                            aria-controls={mobileMenuId}
+                            aria-haspopup="true"
+                            onClick={handleMobileMenuOpen}
+                            // color="inherit"
+                            size="large"
+                        >
+                            <MenuIcon />
+                        </Fab>
+
+                    </div>
                 </Toolbar>
             </AppBar>
 
             {renderMobileMenu}
+
 
         </div>
     );

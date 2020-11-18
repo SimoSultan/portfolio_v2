@@ -8,7 +8,7 @@ import { Container, Grid, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
   list:{
-    marginTop: '20%',
+    marginTop: '270px',
     zIndex: 50,
     position: 'relative',
   },
@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
 function BlogList() {
     const classes = useStyles();
 
-    const listItems = blogList.map(b => (<BlogItem blog={b} />))
+    const listItems = blogList.map((b, index) => (<BlogItem blog={b} key={`index-${index}`}/>))
 
     return (
         <>

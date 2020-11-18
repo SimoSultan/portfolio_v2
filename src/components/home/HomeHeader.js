@@ -1,17 +1,21 @@
 import React from 'react';
+import AnimatedButton from '../other/AnimatedButton'
+
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider, MuiThemeProvider } from '@material-ui/core/styles';
-import { Box, Container, makeStyles } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
+
+import Fade from 'react-reveal/Fade';
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
-    buttonClass: {
-        color: '#F2511B',
-      }
+    nameCont: {
+        width: '480px',
+        margin: 0,
+    }
 }))
 
 let titleFont = createMuiTheme({
@@ -24,35 +28,39 @@ let titleFont = createMuiTheme({
 titleFont = responsiveFontSizes(titleFont);
 
 
-function HomeHeader({ showAboutMe, buttonFont, nameTextFirst, nameTextSecond, whoButton }) {
+function HomeHeader({ showAboutMeText, buttonFont, whoIsShown  }) {
     const classes = useStyles()
 
     return (
-        <Container>
-        <MuiThemeProvider theme={theme}>
-            <ThemeProvider theme={titleFont}>
-            <Grid container direction="column" justify="center" alignItems="center">
-                <Box>
-                <Typography ref={nameTextFirst} variant="h1" gutterBottom >
-                    SIMON
-                </Typography>
-                <Typography ref={nameTextSecond} variant="h1" gutterBottom>
-                    CURRAN
-                </Typography>
-                </Box>
-            </Grid>
-            </ThemeProvider>
+        <Container maxWidth="sm">
+            <MuiThemeProvider theme={theme}>
+                <ThemeProvider theme={titleFont}>
+                    <Grid container direction="column" justify="flex-start" alignItems="center">
+                        {/* <Container > */}
+                            <Typography variant="h1" gutterBottom className={classes.nameCont}>
+                                <Fade left cascade delay={500} duration={1500}>
+                                    SIMON
+                                </Fade>
+                            </Typography>
+                            <Typography variant="h1" gutterBottom className={classes.nameCont}>
+                                <Fade left cascade delay={500} duration={1500}>
+                                    CURRAN
+                                </Fade>
+                            </Typography>
+                        {/* </Container> */}
+                    </Grid>
+                </ThemeProvider>
 
-            <Grid container direction="row" justify="flex-end" alignItems="center">
-            <ThemeProvider theme={buttonFont}>
-                <Button onClick={showAboutMe}>
-                <Typography ref={whoButton} variant="h5" gutterBottom className={classes.buttonClass}>
-                    who?
-                </Typography>
-                </Button>
-            </ThemeProvider>
-            </Grid>
-        </MuiThemeProvider>
+                <Grid container direction="row" justify="flex-end" alignItems="center">
+                    <ThemeProvider theme={buttonFont}>
+
+                        <Fade bottom delay={500} duration={1500} >
+                            <AnimatedButton text="WHO?" linkTo='home-cont' callback={showAboutMeText}/>
+                        </Fade>
+
+                    </ThemeProvider>
+                </Grid>
+            </MuiThemeProvider>
         </Container>
     );
 }

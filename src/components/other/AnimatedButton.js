@@ -38,11 +38,19 @@ const useStyles = makeStyles(() => ({
         top: 0,
         left: 0,
     },
+    buttonText: {
+        fontFamily: 'Roboto Slab',
+    }
 }))
 
-function AnimatedButton( { text, linkTo } ) {
+
+function AnimatedButton( { text, linkTo, callback = false} ) {
     const classes = useStyles()
     const [{ x, color }, set] = useSpring(() => ({ x: 100, color: "#F2511B" }));
+
+    // supply an empty function to the onclick if a callback wasn't supplied as a prop
+    if (!callback) callback = () => {}
+        
 
     return (
         <div 
@@ -58,9 +66,9 @@ function AnimatedButton( { text, linkTo } ) {
             </div> 
 
             <Grid container alignItems="center" justify="center" className={classes.buttonTextCont}>
-                <Link activeClass="active" to={linkTo} spy={true} smooth={true} duration={1000}>
+                <Link activeClass="active" to={linkTo} spy={true} smooth={true} duration={1000} onClick={callback}>
                     <animated.span style={{ color }}>
-                        <Typography variant="h6" >{text}</Typography>
+                        <Typography variant="h6" className={classes.buttonText} >{text}</Typography>
                     </animated.span>
                 </Link>
             </Grid>

@@ -66,7 +66,7 @@ const useStyles = makeStyles(() => ({
 
 
 
-function BlogItem( {blog} ) {
+function BlogItem( { blog } ) {
 
     const classes = useStyles();
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
@@ -77,7 +77,7 @@ function BlogItem( {blog} ) {
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
 
     return (
-        <Grid key={blog.name} item xs={ isLandscape ? 9 : 12 } sm={8} md={5}>
+        <Grid item xs={ isLandscape ? 9 : 12 } sm={8} md={5}>
 
         <a href={blog.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
             
