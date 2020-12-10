@@ -79,7 +79,6 @@ function Home() {
     }
 
     // TODO: add sub headings to the project items
-    // TODO: CARD FLIP ANIMATION ON SCROLL FOR BLOGS COULD CHANGE TO PROJECT REVEAL
     // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
     // TODO: first blog is about my weaknesses, change the order
     // TODO: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
@@ -89,6 +88,8 @@ function Home() {
     // TODO: maybe add the thing on the left of this page - https://stickyroll.github.io/react-stickyroll/
     // TODO: add more fonts
     // TODO: add a read more button to the blog entries because on mobile it looks plain
+    // TODO: change font weight of buttons on project item
+    // TODO: change text of no gif supplied
 
 
 

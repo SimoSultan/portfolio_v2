@@ -187,7 +187,7 @@ function ProjectItem( {project, index} ) {
 
                                         </Button>
 
-                                        <div className={classes.projectButtonDemo}></div>
+                                        <div className={!project.deployed ? '' : classes.projectButtonDemo}></div>
 
                                     </div>
 
@@ -205,7 +205,7 @@ function ProjectItem( {project, index} ) {
 
                                         </Button>
 
-                                        <div className={classes.projectButtonSource}></div>
+                                        <div className={!project.github ? '' : classes.projectButtonSource}></div>
 
                                     </div>
 
@@ -239,6 +239,7 @@ function ProjectItem( {project, index} ) {
                 </Grid>
 
             </Grid>
+
         </ListItem>
     )
 }

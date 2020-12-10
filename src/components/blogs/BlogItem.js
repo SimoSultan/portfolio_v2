@@ -13,7 +13,7 @@ import { useMediaQuery } from 'react-responsive'
 
 // animation library and plugins
 import { useSpring, animated } from 'react-spring'
-import Flip from 'react-reveal/Flip';
+import Fade from 'react-reveal/Fade';
 
 
 let theme = createMuiTheme();
@@ -32,96 +32,96 @@ const useStyles = makeStyles(() => ({
         "&:hover .makeStyles-media-224": {
             transform: 'scale(1.1)',
         },
-        "&:hover .makeStyles-contentContainer-379": {
-            height: '140px',
-        },
-        "&:hover p": {
-            opacity: 1,
-        },
+        // "&:hover .makeStyles-contentContainer-379": {
+        //     height: '140px',
+        // },
+        // "&:hover p": {
+        //     opacity: 1,
+        // },
         "&:last-child": {
             marginBottom: '5%',
         },
         boxShadow: '0px 10px 30px -5px rgba(0, 0, 0, 0.3)',
         willChange: 'transform',
     },
-    contentContainer: {
-        height: '60px',
-        transition: 'height 0.5s ease-in-out',
-    },
-    contentDesc: {
-        opacity: 0,
-        transition: 'opacity 0.5s ease-in-out',
-    },
+    // contentContainer: {
+    //     height: '60px',
+    //     transition: 'height 0.5s ease-in-out',
+    // },
+    // contentDesc: {
+    //     opacity: 0,
+    //     transition: 'opacity 0.5s ease-in-out',
+    // },
     contentHeading: {
         textAlign: 'center',
     },
     media: {
         height: '150px',
         [theme.breakpoints.up('sm')]: {
-        height: '225px',
+            height: '225px',
         }
     },
 }));
 
 
 
-function BlogItem( { blog } ) {
+
+
+function BlogItem( { blog, index } ) {
 
     const classes = useStyles();
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
 
-    
-    const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
-    const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-    const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+    const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+    const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
+    const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
 
     return (
         <Grid item xs={ isLandscape ? 9 : 12 } sm={8} md={5}>
 
         <a href={blog.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
+
+            <div onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+   
+                <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
+
+                    <Fade left mirror={index % 2 === 0}>
+
+                        <Card className={classes.listItem}>
+
+                            <CardActionArea>
+
+                                <CardMedia
+                                    className={classes.media}
+                                    image={blog.img}
+                                    title={blog.name}
+                                />
+
+                                <CardContent className={classes.contentContainer}>
+
+                                    <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
+
+                                        {blog.name}
+
+                                    </Typography>
+    {/* 
+                                    <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
+
+                                        {blog.description}
+
+                                    </Typography> */}
+
+                                </CardContent>
+
+                            </CardActionArea>
+
+                        </Card>
+
+                    </Fade>
+
+                </animated.div>
             
-            <animated.div
-                onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                style={{ transform: props.xys.interpolate(trans) }}
-            >
-
-                <Flip top fraction={0.5} duration={2000}>
-
-                    <Card className={classes.listItem}>
-
-                        <CardActionArea>
-
-                            <CardMedia
-                                className={classes.media}
-                                image={blog.img}
-                                title={blog.name}
-                            />
-
-                            <CardContent className={classes.contentContainer}>
-
-                                <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
-
-                                    {blog.name}
-
-                                </Typography>
-
-                                <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
-
-                                    {blog.description}
-
-                                </Typography>
-
-                            </CardContent>
-
-                        </CardActionArea>
-
-                    </Card>
-
-                </Flip>
-
-            </animated.div>
-            
+            </div>
         </a>
 
     </Grid>

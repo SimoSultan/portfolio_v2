@@ -18,16 +18,20 @@ const useStyles = makeStyles(() => ({
 function BlogList() {
     const classes = useStyles();
 
-    const listItems = blogList.map((b, index) => (<BlogItem blog={b} key={`index-${index}`}/>))
+    const listItems = blogList.map((b, index) => (<BlogItem blog={b} index={index} key={`index-${index}`}/>))
 
     return (
-        <>
-            <Container className={classes.list}>
-                <Grid container justify="center" alignItems="center" spacing={10} >
-                    {listItems.reverse()}
-                </Grid>
-            </Container>
-        </>
+        
+        <Container className={classes.list}>
+
+            <Grid container justify="center" alignItems="center" spacing={10} >
+
+                {listItems.reverse()}
+
+            </Grid>
+
+        </Container>
+
     )
 
 }
