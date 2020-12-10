@@ -7,12 +7,15 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, MuiThemeProvider, ThemeProvider, responsiveFontSizes, createMuiTheme } from '@material-ui/core/styles';
 
 import Zoom from 'react-reveal/Zoom';
+import { useMediaQuery } from 'react-responsive'
 
 
 const useStyles = makeStyles(() => ({
     blogsCont: {
         height: 'fit-content',
-        background: '#2E6086',
+        // background: '#2E6086',
+        background: 'rgb(47,122,180)',
+        background: 'linear-gradient(164deg, rgba(47,122,180,1) 0%, rgba(28,86,129,1) 100%)',
         zIndex: 25,
         position: 'relative',
         overflowY: 'hidden',
@@ -22,8 +25,7 @@ const useStyles = makeStyles(() => ({
     },
 
     sectionHeaderVert: {
-        top: '-50px',
-        zIndex: -100,
+        top: '-40px',
         position: 'absolute',
         opacity: 0.8,
         writingMode: 'vertical-rl',
@@ -31,10 +33,8 @@ const useStyles = makeStyles(() => ({
         color: '#304153',
     },
     sectionHeaderHorizontal: {
-        top: '-45px',
-        zIndex: -100,
+        top: '-35px',
         position: 'absolute',
-        marginLeft: '300px',
         opacity: 0.8,
         color: '#304153',
         letterSpacing: '2rem',
@@ -56,11 +56,12 @@ let writingsFont = createMuiTheme({
 
 function Blogs() {
   const classes = useStyles();
+  const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
   return (
 
     <div id='blogs-cont' className={classes.blogsCont} >
-
 
         <div className={classes.contToFitFooter}>
 
@@ -74,7 +75,12 @@ function Blogs() {
 
                     </Typography>
 
-                    <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
+                    <Typography 
+                        variant="h2" 
+                        className={classes.sectionHeaderHorizontal} 
+                        style={{
+                            marginLeft: `${!isLandscape && isTabletOrMobile ? '200px' : '300px'}`
+                        }}>
 
                         <Zoom right cascade duration={1500}>
 

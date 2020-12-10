@@ -24,6 +24,17 @@ const useStyles = makeStyles((theme) => ({
         padding: '0',
         overflow: 'hidden',
     },
+    noGifProvided:{
+        background: 'transparent',
+        width: 'max-content',
+        textDecoration: 'none',
+        float: 'left',
+        position: 'absolute',
+        top: '30%',
+        fontSize: '3rem',
+        fontFamily: 'raleway',
+        marginLeft: '100px'
+    },
     paper: {
         padding: theme.spacing(3),
         textAlign: 'center',
@@ -36,8 +47,6 @@ const useStyles = makeStyles((theme) => ({
         "&:last-child": {
             marginBottom: '5%',
         },
-        
-
     },
     iconList: {
         height: 'max-content',
@@ -48,9 +57,14 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '90%',
         fontWeight: 'bold',
     },
+    appDescriptionHeading: {
+        paddingTop: '3%',
+        marginLeft: '3%',
+        fontWeight: 'bold'
+    },
     appDescriptions: {
         textAlign: 'left',
-        paddingTop: '3%'
+        fontStyle: 'italic',
     },
     root: {
         paddingLeft: '8px',
@@ -144,10 +158,18 @@ function ProjectItem( {project, index} ) {
 
                                 <Grid item container direction="column" justify="flex-start" alignItems="flex-start">
 
+                                    <Typography variant="body1" className={classes.appDescriptionHeading}>
+                                        WHAT
+                                    </Typography>
+
                                     <Typography className={classes.appDescriptions}>
 
                                         {project.what}
 
+                                    </Typography>
+
+                                    <Typography variant="body1" className={classes.appDescriptionHeading}>
+                                        WHY
                                     </Typography>
 
 
@@ -227,8 +249,20 @@ function ProjectItem( {project, index} ) {
                         <Paper className={classes.gifCont}>
 
                             <a href={project.deployed.toString()} target="_blank" rel="noopener noreferrer">
-
-                                <img className={classes.gif} src={project.gif} alt="app-demo"/>
+{/* 
+                                {
+                                    project.gif === "images/projects/gifs/default4.gif"
+                                    ?   <p className={classes.noGifProvided}>
+                                            Nothing to see here
+                                        </p>
+                                    :   ''
+                                } */}
+                                
+                                <img 
+                                    className={classes.gif} 
+                                    src={project.gif} 
+                                    alt="app-demo"
+                                />
 
                             </a>
 

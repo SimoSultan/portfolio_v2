@@ -13,7 +13,9 @@ const useStyles = makeStyles(() => ({
         height: 'fit-content',
         paddingTop: '5%',
         marginBottom: '50px',
-        backgroundColor: 'whitesmoke'
+        // backgroundColor: 'whitesmoke',
+        background: 'rgb(255,255,255)',
+        background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 100%)',
     },
     projectsHorizontalWordMobile: {
         opacity: 0.3,
@@ -25,7 +27,6 @@ const useStyles = makeStyles(() => ({
         marginLeft: '20%', 
     }  ,
     sectionHeaderVert: {
-        zIndex: -100,
         position: 'absolute',
         top: '97%',
         opacity: 0.3,
@@ -34,7 +35,6 @@ const useStyles = makeStyles(() => ({
         color: '#304153',
     },
     sectionHeaderHorizontal: {
-        zIndex: -100,
         position: 'absolute',
         top: '97.5%',
         marginLeft: '270px',
@@ -63,22 +63,37 @@ function Projects() {
     return (
 
         <div id='projects-cont' className={classes.projectsContainer} >
+
             <Box>
 
                 <MuiThemeProvider>
+
                     <ThemeProvider theme={projectsFont}>
+
                         <Typography variant="h2" className={classes.sectionHeaderVert}>
+
                             PROJECTS
+
                         </Typography>
+
                         <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
+
                             <Zoom right cascade duration={1500}>
+
                                 ROJECTS
+
                             </Zoom>
+
                         </Typography>
+
                     </ThemeProvider>
+
                 </MuiThemeProvider>
+
             </Box>
+
             <ProjectList />
+
         </div>
 
     );

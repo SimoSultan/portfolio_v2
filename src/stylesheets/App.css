@@ -32,6 +32,10 @@
   position: relative;
 }
 
+body {
+  background-color: #e8e8e8;
+}
+
 .svg {
   z-index: 9;
   position: relative;

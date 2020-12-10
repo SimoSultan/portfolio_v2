@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HomeHeader from './HomeHeader'
 import AboutMe from './AboutMe'
+import Arrow from '../other/Arrow'
 import profileImage from '../../img/v1_transparent.png'
 
 import Grid from '@material-ui/core/Grid';
@@ -23,41 +24,36 @@ let buttonFont = createMuiTheme({
 buttonFont = responsiveFontSizes(buttonFont);
 
 const useStyles = makeStyles(() => ({
-  gridContainer: {
-    height: '100%',
-    width: '90vw',
-    maxWidth: '2000px',
-    margin: '0 auto',
-  },
-  containerPortrait: {
-    paddingTop: '5%',
-  },
-  containerLandscape: {
-    paddingTop: '3%',
-    paddingLeft: '3%',
-  },
-  homeCont: {
-    height: '100vh',
-    width: '100vw',
-    margin: 0,
-    padding: 0,
-    // background: '#F2F3F5'
-    background: '#edeef0'
-  },
-  profileImage: {
-    width: '80%',
-    maxWidth: '700px',
-    margin: '0 auto',
-  },
-  root: {
-    flexGrow: 1,
-  },
-//   card: {
-//     position: 'absolute',
-//     top: '100%',
-//     borderRadius: '5px',
-//     willChange: 'transform',
-//   }
+    gridContainer: {
+        height: '100%',
+        width: '90vw',
+        maxWidth: '2000px',
+        margin: '0 auto',
+    },
+    containerPortrait: {
+        paddingTop: '5%',
+    },
+    containerLandscape: {
+        paddingTop: '3%',
+        paddingLeft: '3%',
+    },
+    homeCont: {
+        height: '100vh',
+        width: '100vw',
+        margin: 0,
+        padding: 0,
+        // background: '#edeef0'
+        background: 'rgb(227,227,227)',
+        background: 'linear-gradient(180deg, rgba(227,227,227,1) 0%, rgba(242,243,245,1) 100%)'
+    },
+    profileImage: {
+        width: '80%',
+        maxWidth: '700px',
+        margin: '0 auto',
+    },
+    root: {
+        flexGrow: 1,
+    },
 
 }));
 
@@ -78,15 +74,12 @@ function Home() {
         setShowAboutMe(!showAboutMe)
     }
 
-    // TODO: add sub headings to the project items
+    // TODO FUTURE: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
+
+    
     // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
-    // TODO: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
     // TODO: reload page bug is there on live site where the whole page moves sideways
-    // TODO: maybe remove the vertical word
-    // TODO: add a bouncing arrow to tell people to scroll
-    // TODO: maybe add the thing on the left of this page - https://stickyroll.github.io/react-stickyroll/
     // TODO: add more fonts
-    // TODO: add a read more button to the blog entries because on mobile it looks plain
     // TODO: change font weight of buttons on project item
     // TODO: change text of no gif supplied
 
@@ -145,6 +138,8 @@ function Home() {
                 </Grid>
 
             </Grid>
+
+            <Arrow />
 
         </div>
 
