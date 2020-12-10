@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 
 // responsive plugin
 import { useMediaQuery } from 'react-responsive'
@@ -53,13 +54,34 @@ const useStyles = makeStyles(() => ({
     //     transition: 'opacity 0.5s ease-in-out',
     // },
     contentHeading: {
-        textAlign: 'center',
+        // textAlign: 'center',
+        fontStyle: 'italic',
     },
     media: {
         height: '150px',
         [theme.breakpoints.up('sm')]: {
             height: '225px',
         }
+    },
+    blogItemButton: {
+        cursor: 'pointer',
+        color: '#F2511B',
+        letterSpacing: '1px',
+        fontFamily: 'Roboto Slab',
+        fontSize: '1.1rem',
+    },
+    blogButtonCont: {
+        margin: '2% 0',
+        "&:hover > *:last-child": {
+            opacity: 0,
+        },
+    },
+    blogButtonUnderline: {
+        width: '115px',
+        height: '2px',
+        backgroundColor: '#F2511B',
+        margin: '-9px 0 0 8px',
+        transition: 'opacity .35s ease-in-out',
     },
 }));
 
@@ -77,54 +99,72 @@ function BlogItem( { blog, index } ) {
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
 
     return (
+
         <Grid item xs={ isLandscape ? 9 : 12 } sm={8} md={5}>
 
-        <a href={blog.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
+            <a href={blog.link} target="_blank" rel="noopener noreferrer" className={classes.listLink}>
 
-            <div onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-   
-                <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
+                <div onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+    
+                    <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
 
-                    <Fade left mirror={index % 2 === 0}>
+                        <Fade left mirror={index % 2 === 0}>
 
-                        <Card className={classes.listItem}>
+                            <Card className={classes.listItem}>
 
-                            <CardActionArea>
+                                <CardActionArea>
 
-                                <CardMedia
-                                    className={classes.media}
-                                    image={blog.img}
-                                    title={blog.name}
-                                />
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={blog.img}
+                                        title={blog.name}
+                                    />
 
-                                <CardContent className={classes.contentContainer}>
+                                    <CardContent className={classes.contentContainer}>
 
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
+                                        <Typography gutterBottom variant="body1" className={classes.contentHeading}>
 
-                                        {blog.name}
+                                            {blog.name}
 
-                                    </Typography>
-    {/* 
-                                    <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
+                                        </Typography>
 
-                                        {blog.description}
+                                        {/* <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
 
-                                    </Typography> */}
+                                            {blog.description}
 
-                                </CardContent>
+                                        </Typography> */}
 
-                            </CardActionArea>
+                                        <div className={classes.blogButtonCont}>
 
-                        </Card>
+                                            <Button 
+                                                href={blog.link}
+                                                target="_blank" 
+                                                className={classes.blogItemButton}
+                                            >
 
-                    </Fade>
+                                                Read More
 
-                </animated.div>
-            
-            </div>
-        </a>
+                                            </Button>
 
-    </Grid>
+                                            <div className={classes.blogButtonUnderline} />
+
+                                        </div>
+
+                                    </CardContent>
+
+                                </CardActionArea>
+
+                            </Card>
+
+                        </Fade>
+
+                    </animated.div>
+                
+                </div>
+
+            </a>
+
+        </Grid>
     )
 }
 

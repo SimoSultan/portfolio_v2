@@ -80,7 +80,6 @@ function Home() {
 
     // TODO: add sub headings to the project items
     // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
-    // TODO: first blog is about my weaknesses, change the order
     // TODO: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
     // TODO: reload page bug is there on live site where the whole page moves sideways
     // TODO: maybe remove the vertical word
