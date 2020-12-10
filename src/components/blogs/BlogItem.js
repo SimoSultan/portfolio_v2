@@ -85,27 +85,43 @@ function BlogItem( { blog } ) {
                 onMouseLeave={() => set({ xys: [0, 0, 1] })}
                 style={{ transform: props.xys.interpolate(trans) }}
             >
-            <Flip top fraction={0.5} duration={2000}>
 
-                <Card className={classes.listItem}>
-                    <CardActionArea>
-                        <CardMedia
-                            className={classes.media}
-                            image={blog.img}
-                            title={blog.name}
-                        />
-                        <CardContent className={classes.contentContainer}>
-                            <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
-                                {blog.name}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
-                                {blog.description}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-            </Flip>
+                <Flip top fraction={0.5} duration={2000}>
+
+                    <Card className={classes.listItem}>
+
+                        <CardActionArea>
+
+                            <CardMedia
+                                className={classes.media}
+                                image={blog.img}
+                                title={blog.name}
+                            />
+
+                            <CardContent className={classes.contentContainer}>
+
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.contentHeading}>
+
+                                    {blog.name}
+
+                                </Typography>
+
+                                <Typography variant="body2" color="textSecondary" component="p" className={classes.contentDesc}>
+
+                                    {blog.description}
+
+                                </Typography>
+
+                            </CardContent>
+
+                        </CardActionArea>
+
+                    </Card>
+
+                </Flip>
+
             </animated.div>
+            
         </a>
 
     </Grid>

@@ -78,8 +78,29 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         color: '#F2511B',
         letterSpacing: '1px',
-        // fontSize: '0.9rem',
-    }
+        fontFamily: 'Roboto Slab',
+        fontSize: '0.9rem',
+    },
+    projectButtonCont: {
+        "&:hover > *:last-child": {
+            opacity: 0,
+        },
+    },
+    projectButtonDemo: {
+        width: '78%',
+        height: '1px',
+        backgroundColor: '#F2511B',
+        margin: '-9px auto 0 auto',
+        transition: 'opacity .35s ease-in-out',
+    },
+    projectButtonSource: {
+        width: '90%',
+        height: '1px',
+        backgroundColor: '#F2511B',
+        margin: '-9px auto 0 auto',
+        transition: 'opacity .35s ease-in-out',
+    },
+
 }));
 
 
@@ -153,27 +174,40 @@ function ProjectItem( {project, index} ) {
 
                                 <Grid container direction="row" justify="flex-start">
 
-                                    <Button 
-                                        href={project.deployed.toString()} 
-                                        target="_blank" 
-                                        disabled={project.deployed === false} 
-                                        className={classes.projectItemButton}
-                                    >
+                                    <div className={classes.projectButtonCont}>
 
-                                        {`DEMO${!project.deployed ? ': n/a' : ''}`}
+                                        <Button 
+                                            href={project.deployed.toString()} 
+                                            target="_blank" 
+                                            disabled={project.deployed === false} 
+                                            className={classes.projectItemButton}
+                                        >
 
-                                    </Button>
+                                            {`DEMO${!project.deployed ? ': n/a' : ''}`}
 
-                                    <Button 
-                                        href={project.github.toString()} 
-                                        target="_blank" 
-                                        disabled={project.github === false} 
-                                        className={classes.projectItemButton}
-                                    >
+                                        </Button>
 
-                                        {`SOURCE CODE${!project.github ? ': private' : ''}`}
+                                        <div className={classes.projectButtonDemo}></div>
 
-                                    </Button>
+                                    </div>
+
+                                    <div className={classes.projectButtonCont}>
+
+
+                                        <Button 
+                                            href={project.github.toString()} 
+                                            target="_blank" 
+                                            disabled={project.github === false} 
+                                            className={classes.projectItemButton}
+                                        >
+
+                                            {`SOURCE CODE${!project.github ? ': private' : ''}`}
+
+                                        </Button>
+
+                                        <div className={classes.projectButtonSource}></div>
+
+                                    </div>
 
                                 </Grid>
 

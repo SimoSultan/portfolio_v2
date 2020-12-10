@@ -79,9 +79,7 @@ function Home() {
     }
 
     // TODO: add sub headings to the project items
-    // TODO: white on white - maybe change to whitesmoke or make box shadow bigger - maybe gradients on the cards in projects
     // TODO: CARD FLIP ANIMATION ON SCROLL FOR BLOGS COULD CHANGE TO PROJECT REVEAL
-    // TODO: who button is not noticeable enough that it's a button, think about mobile here
     // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
     // TODO: first blog is about my weaknesses, change the order
     // TODO: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
@@ -90,7 +88,6 @@ function Home() {
     // TODO: add a bouncing arrow to tell people to scroll
     // TODO: maybe add the thing on the left of this page - https://stickyroll.github.io/react-stickyroll/
     // TODO: add more fonts
-    // TODO: Demo, source code links need a bit more 'linkyness'
     // TODO: add a read more button to the blog entries because on mobile it looks plain
 
 

@@ -42,7 +42,19 @@ const useStyles = makeStyles(() => ({
         position: 'absolute',
         borderRadius: '5px',
         willChange: 'transform',
-    }
+    },
+    okButtonCont: {
+        "&:hover > *:last-child": {
+            opacity: 0,
+        },
+    },
+    okButtonUnderline: {
+        width: '25%',
+        height: '2px',
+        backgroundColor: '#F2511B',
+        margin: '-8px auto 0 auto',
+        transition: 'opacity .2s ease-in-out',
+    },
 }));
 
 
@@ -93,7 +105,13 @@ function AboutMe({hideAboutMeText, buttonFont}) {
 
                                             <Fade left delay={500} duration={1500} >
 
-                                                <AnimatedButton text="OK!" linkTo='home-cont' callback={hideAboutMeText}/>
+                                                <div className={classes.okButtonCont}>
+
+                                                    <AnimatedButton text="OK!" linkTo='home-cont' callback={hideAboutMeText}/>
+
+                                                    <div className={classes.okButtonUnderline}></div>
+
+                                                </div>
 
                                             </Fade>
 
