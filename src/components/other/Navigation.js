@@ -47,9 +47,10 @@ const useStyles = makeStyles((theme) => ({
         top: 'auto',
         background: 'transparent',
         boxShadow: 'none',
-        paddingTop: '3%',
+        marginTop: '3%',
         [theme.breakpoints.down('sm')]: {
-            bottom: '3%',
+        marginTop: '0',
+        bottom: '3%',
         },
     },
     buttonClass: {
@@ -123,8 +124,8 @@ export default function Navigation() {
         <div className={classes.grow}>
 
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
 
+                <Toolbar>
 
                     <div className={classes.grow} />
                     
@@ -157,12 +158,12 @@ export default function Navigation() {
                         </Fab>
 
                     </div>
+
                 </Toolbar>
+
             </AppBar>
-                
 
             {renderMobileMenu}
-
 
         </div>
     );

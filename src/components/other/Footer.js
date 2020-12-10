@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     background: '#304153',
-    padding: '1%',
   },
   contactCont: {
     padding: '4%',
     background: 'transparent',
     height: 'auto',
+    marginBottom: '35px',
   },
   buttons: {
     color: '#F2F3F5',
@@ -76,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
     height: '60px',
     color: '#000',
     textDecoration: 'none',
+    margin: '2% 0'
 },
 }));
 
@@ -105,7 +106,7 @@ function Footer() {
                             </Typography>
                     </Grid>
 
-                    <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks}>
+                    <Grid item container direction="row" justify="space-evenly" alignItems="center" className={classes.socialLinks} >
                     
                         <Grid item xs={isPortrait ? 5 : ((isTabletOrMobile && 4) || 2)} className={classes.buttonCont}>
                             <AnimatedFooterButton 
@@ -154,8 +155,11 @@ function Footer() {
                     </Grid>
 
                 </Grid>
+
                 </MuiThemeProvider>
+
             </Container>
+
         </div>
 
 
