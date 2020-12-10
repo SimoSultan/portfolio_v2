@@ -45,7 +45,8 @@ const useStyles = makeStyles(() => ({
   },
   profileImage: {
     width: '80%',
-    maxWidth: '700px'
+    maxWidth: '700px',
+    margin: '0 auto',
   },
   root: {
     flexGrow: 1,
@@ -77,44 +78,70 @@ function Home() {
     }
 
     // TODO: add sub headings to the project items
-    // TODO: white on white - maybe change to whitesmoke or make box shadow bigger
+    // TODO: white on white - maybe change to whitesmoke or make box shadow bigger - maybe gradients on the cards in projects
     // TODO: CARD FLIP ANIMATION ON SCROLL FOR BLOGS COULD CHANGE TO PROJECT REVEAL
-    // TODO: who button is not noticeable enough that its a button, think about mobile here
+    // TODO: who button is not noticeable enough that it's a button, think about mobile here
+    // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
+    // TODO: first blog is about my weaknesses, change the order
+    // TODO: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
+    // TODO: reload page bug is there on live site where the whole page moves sideways
+    // TODO: maybe remove the vertical word
+    // TODO: add a bouncing arrow to tell people to scroll
+    // TODO: maybe add the thing on the left of this page - https://stickyroll.github.io/react-stickyroll/
+    // TODO: add more fonts
+    // TODO: Demo, source code links need a bit more 'linkyness'
+
 
     return (
 
         <div id='home-cont' className={classes.homeCont}>
 
             <Grid container direction="row" justify="space-evenly" alignItems="center" className={classes.gridContainer}>
+
                 <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
+
                     { showAboutMe 
+
                         ? <AboutMe
                             hideAboutMeText={toggleAboutMeText} 
                             buttonFont={buttonFont}
                         /> 
+
                         : <HomeHeader 
                             theme={theme} 
                             showAboutMeText={toggleAboutMeText} 
                             buttonFont={buttonFont}
                         />}
+
                 </Grid>
 
-                
+
 
                 <Grid item container justify="center" alignItems="center" xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 10 } md={6}>
+
                     <Fade right delay={500} duration={1500}>
 
-                        <div class="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-                            <animated.div class="card" style={{ transform: props.xy.interpolate(trans1) }} >
+                        <div onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
 
-                        <img 
-                            className={classes.profileImage} 
-                            src={profileImage} 
-                            alt="profile"
-                        />
+                            <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
+
+                                <Grid container alignItems="center" justify="center">
+
+
+                                    <img 
+                                        className={classes.profileImage} 
+                                        src={profileImage} 
+                                        alt="profile"
+                                    />
+
+                                 </Grid>
+                                
                             </animated.div>
+
                         </div>
+
                     </Fade>
+
                 </Grid>
 
             </Grid>

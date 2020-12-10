@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
         top: '-45px',
         zIndex: -100,
         position: 'absolute',
-        marginLeft: '270px',
+        marginLeft: '300px',
         opacity: 0.8,
         color: '#304153',
         letterSpacing: '2rem',

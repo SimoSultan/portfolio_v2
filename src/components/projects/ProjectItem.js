@@ -4,6 +4,7 @@ import DevIcons from './DevIcons';
 // Material UI components 
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100%',
         marginBottom: '12%',
         "&:last-child": {
-        marginBottom: '5%',
+            marginBottom: '5%',
         }
     },
     iconList: {
