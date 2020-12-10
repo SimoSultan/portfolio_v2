@@ -41,7 +41,8 @@ const useStyles = makeStyles(() => ({
     width: '100vw',
     margin: 0,
     padding: 0,
-    background: '#F2F3F5'
+    // background: '#F2F3F5'
+    background: '#edeef0'
   },
   profileImage: {
     width: '80%',
@@ -90,6 +91,8 @@ function Home() {
     // TODO: maybe add the thing on the left of this page - https://stickyroll.github.io/react-stickyroll/
     // TODO: add more fonts
     // TODO: Demo, source code links need a bit more 'linkyness'
+    // TODO: add a read more button to the blog entries because on mobile it looks plain
+
 
 
     return (

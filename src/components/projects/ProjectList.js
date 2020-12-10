@@ -26,24 +26,23 @@ const useStyles = makeStyles(() => ({
 
 
 
-
-
 function ProjectList() {
     const classes = useStyles();
 
     const listItems = projectList.map((p, index) => ( <ProjectItem project={p} index={index} key={`index-${index}`}/> ))
 
     return (
+
         <Container>
-            <Container>
-                <List className={classes.list}>
-                    <Container>
-                        {listItems.reverse()}
-                    </Container>
-                </List>
-            </Container>
-        
+
+            <List className={classes.list}>
+
+                {listItems.reverse()}
+
+            </List>
+
         </Container>
+        
     ) 
 
 }

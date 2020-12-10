@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
         height: 'fit-content',
         paddingTop: '5%',
         marginBottom: '50px',
+        backgroundColor: 'whitesmoke'
     },
     projectsHorizontalWordMobile: {
         opacity: 0.3,

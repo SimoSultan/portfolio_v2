@@ -65,16 +65,27 @@ function Blogs() {
         <div className={classes.contToFitFooter}>
 
             <MuiThemeProvider>
+
                 <ThemeProvider theme={writingsFont}>
+
                     <Typography variant="h2" className={classes.sectionHeaderVert}>
+
                         BLOGS
+
                     </Typography>
+
                     <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
+
                         <Zoom right cascade duration={1500}>
+
                             LOGS
+
                         </Zoom>
+
                     </Typography>
+
                 </ThemeProvider>
+                
             </MuiThemeProvider>
 
             <BlogList />
