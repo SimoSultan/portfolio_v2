@@ -46,19 +46,26 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     textAlign: 'center', 
     opacity: 0.3,
-    paddingTop: '3%'
+    paddingTop: '3%',
+    
   },
   footerHeading: {
     fontSize: '6rem',
     margin: '-3% auto -6% auto',
     width: '90%',
-    color: '#F2511B',
+    color: '#e3e3e3',
+    // color: '#F2511B',
+    fontFamily: 'Architects Daughter, sans-serif',
+    letterSpacing: '10px',
   },
   footerHeadingSmall: {
     fontSize: '3rem',
     width: '90%',
     margin: '-3% auto -6% auto',
-    color: '#F2511B',
+    color: '#f2f2f2',
+    // color: '#F2511B',
+    fontFamily: 'Architects Daughter, sans-serif',
+
   },
   footerTopButton: {
     fontSize: '1.5rem',
@@ -99,7 +106,7 @@ function Footer() {
                 
                     <Grid item className={classes.footerHeadingContainer}>
                         
-                            <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} >
+                            <Typography variant="h5" className={(isMobile) ? classes.footerHeadingSmall : classes.footerHeading} style={{letterSpacing: isPortrait ? '1px' : '10px'}} >
                                 <Fade bottom collapse delay={500}>
                                     REACH OUT
                                 </Fade>

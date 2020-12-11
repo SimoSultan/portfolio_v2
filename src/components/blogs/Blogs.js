@@ -14,8 +14,9 @@ const useStyles = makeStyles(() => ({
     blogsCont: {
         height: 'fit-content',
         // background: '#2E6086',
-        background: 'rgb(47,122,180)',
-        background: 'linear-gradient(164deg, rgba(47,122,180,1) 0%, rgba(28,86,129,1) 100%)',
+        background: 'rgb(62,148,215)',
+        // eslint-disable-next-line
+        background: 'linear-gradient(120deg, rgba(62,148,215,1) 0%, rgba(28,86,129,1) 90%)',
         zIndex: 25,
         position: 'relative',
         overflowY: 'hidden',

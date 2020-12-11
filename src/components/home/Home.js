@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import HomeHeader from './HomeHeader'
 import AboutMe from './AboutMe'
-import Arrow from '../other/Arrow'
 import profileImage from '../../img/v1_transparent.png'
 
 import Grid from '@material-ui/core/Grid';
@@ -43,8 +42,9 @@ const useStyles = makeStyles(() => ({
         margin: 0,
         padding: 0,
         // background: '#edeef0'
-        background: 'rgb(227,227,227)',
-        background: 'linear-gradient(180deg, rgba(227,227,227,1) 0%, rgba(242,243,245,1) 100%)'
+        background: 'rgb(237,238,240)',
+        // eslint-disable-next-line
+        background: 'linear-gradient(180deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)'
     },
     profileImage: {
         width: '80%',
@@ -71,18 +71,14 @@ function Home() {
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
 
     function toggleAboutMeText() {
+        
         setShowAboutMe(!showAboutMe)
     }
 
     // TODO FUTURE: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
-
     
     // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
     // TODO: reload page bug is there on live site where the whole page moves sideways
-    // TODO: add more fonts
-    // TODO: change font weight of buttons on project item
-    // TODO: change text of no gif supplied
-
 
 
     return (
@@ -91,20 +87,28 @@ function Home() {
 
             <Grid container direction="row" justify="space-evenly" alignItems="center" className={classes.gridContainer}>
 
+
                 <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
 
-                    { showAboutMe 
+                    <Fade when={showAboutMe} top collapse> 
 
-                        ? <AboutMe
+                        <AboutMe
                             hideAboutMeText={toggleAboutMeText} 
                             buttonFont={buttonFont}
-                        /> 
+                        />
+              
 
-                        : <HomeHeader 
+                    </Fade>
+
+                    <Fade when={!showAboutMe} bottom > 
+
+                        <HomeHeader 
                             theme={theme} 
                             showAboutMeText={toggleAboutMeText} 
                             buttonFont={buttonFont}
-                        />}
+                        />
+
+                    </Fade>
 
                 </Grid>
 
@@ -139,7 +143,7 @@ function Home() {
 
             </Grid>
 
-            <Arrow />
+            {/* <Arrow /> */}
 
         </div>
 

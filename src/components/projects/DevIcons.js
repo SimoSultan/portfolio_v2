@@ -21,6 +21,9 @@ const useStyles = makeStyles(() => ({
     letterSpacing: '1px',
     lineHeight: '1rem',
     marginTop: '3%',
+    color: '#235aa1',
+    fontFamily: 'PT Sans Narrow, sand-serif',
+    fontSize: '1rem'
   },
   devIconList: {
       margin: '3% auto',

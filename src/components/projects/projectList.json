@@ -9,7 +9,7 @@
         "github": false,
         "deployed": false,
         "logo": "images/projects/logos/xlr8-logo.png",
-        "gif": "images/projects/gifs/avatar.png"
+        "gif": "images/projects/gifs/XLR8.png"
     },
 
     {
@@ -73,7 +73,7 @@
         "why": "Even though I was proud of my 10 day portfolio site (v1) for my Coder Academy assignment, I always knew I wanted to do a rewrite for a proper portfolio site.",
         "stack": ["ReactJS", "CSS3", "SASS"],
         "github": "https://github.com/SimoSultan/portfolio_v2",
-        "deployed": "https://simosultan2.netlify.app/",
+        "deployed": false,
         "logo": "images/projects/logos/simosultan.png",
         "gif": "images/projects/gifs/avatar.png"
     }

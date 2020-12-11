@@ -5,24 +5,15 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider, MuiThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 
 import Fade from 'react-reveal/Fade';
 import { useSpring, animated } from 'react-spring'
+import { useMediaQuery } from 'react-responsive'
 
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
-
-let aboutMeFont = createMuiTheme({
-  typography: {
-    fontFamily: 'Raleway, sans-serif',
-    fontWeight: '400',
-  },
-});
-aboutMeFont = responsiveFontSizes(aboutMeFont);
-
-
 
 
 const useStyles = makeStyles(() => ({
@@ -31,9 +22,7 @@ const useStyles = makeStyles(() => ({
         color: theme.palette.text.secondary,
         padding: theme.spacing(3),
         transition: 'transform 1s',
-        // "&:hover": {
-        //     transform: 'scale(1.05)',
-        // }
+
     },
     buttonClass: {
         color: '#F2511B',
@@ -55,6 +44,13 @@ const useStyles = makeStyles(() => ({
         margin: '-8px auto 0 auto',
         transition: 'opacity .2s ease-in-out',
     },
+    boldText: {
+        fontFamily: 'Quicksand, sans-serif',
+        fontWeight: '700',
+    },
+    italicsText: {
+        fontFamily: 'Quicksand, sans-serif',
+        fontStyle: 'italic',    }
 }));
 
 
@@ -65,6 +61,7 @@ const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 function AboutMe({hideAboutMeText, buttonFont}) {
 
     const classes = useStyles(theme)
+    const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
 
     return (
@@ -81,23 +78,31 @@ function AboutMe({hideAboutMeText, buttonFont}) {
 
                             <Paper className={classes.paper}>
 
-                                <MuiThemeProvider theme={theme}>
+                                {/* <MuiThemeProvider theme={theme}> */}
 
-                                    <ThemeProvider theme={aboutMeFont}>
+                                    {/* <ThemeProvider theme={aboutMeFont}> */}
 
-                                        <Typography variant="body1" gutterBottom>
+                                        <Typography variant="h6" className={classes.boldText}>
 
-                                            <strong>Why did I become a developer you ask?</strong> Easy! For the creativity and problem solving. Coding is like a Maxibon for me, being better than the sum of its parts, where those parts are creativity and problem solving. I love the highs, learn from the lows and love the community and diversity surrounding tech. 
-                                            <br></br>
-                                            <br></br>
-                                            I consider myself extremely lucky to have found my passion in life so young, where I can grow and learn, all whilst helping others.
-                                            <br></br>
-                                            <br></br>
-                                            Check out my work on <strong><a href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
+                                            <strong>
+                                                Why did I become a developer you ask?
+                                            </strong>
 
                                         </Typography>
 
-                                    </ThemeProvider>
+                                        <Typography variant={isLandscape ? 'body1' : 'body2'} className={classes.italicsText}>
+
+                                            <em>Easy! For the creativity and problem solving. Coding is like a Maxibon for me, being better than the sum of its parts, where those parts are creativity and problem solving. I love the highs, learn from the lows and love the community and diversity surrounding tech. 
+                                            <br />
+                                            <br />
+                                            I consider myself extremely lucky to have found my passion in life so young, where I can grow and learn, all whilst helping others through my code.</em>
+                                            <br />
+                                            <br />
+                                            Check out my work on <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
+
+                                        </Typography>
+
+                                    {/* </ThemeProvider> */}
                                     
                                     <Grid container direction="row" justify="flex-end" alignItems="center">
                                     
@@ -119,7 +124,7 @@ function AboutMe({hideAboutMeText, buttonFont}) {
 
                                     </Grid>
 
-                                </MuiThemeProvider>
+                                {/* </MuiThemeProvider> */}
 
                             </Paper>
                             

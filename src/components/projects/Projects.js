@@ -14,8 +14,9 @@ const useStyles = makeStyles(() => ({
         paddingTop: '5%',
         marginBottom: '50px',
         // backgroundColor: 'whitesmoke',
-        background: 'rgb(255,255,255)',
-        background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 100%)',
+        background: 'rgb(252,252,252)',
+        // eslint-disable-next-line
+        background: 'linear-gradient(171deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)',
     },
     projectsHorizontalWordMobile: {
         opacity: 0.3,

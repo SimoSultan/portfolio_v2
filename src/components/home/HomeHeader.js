@@ -40,7 +40,7 @@ let titleFont = createMuiTheme({
 titleFont = responsiveFontSizes(titleFont);
 
 
-function HomeHeader({ showAboutMeText, buttonFont  }) {
+function HomeHeader({ showAboutMeText, buttonFont, showAboutMe }) {
     const classes = useStyles()
 
     return (

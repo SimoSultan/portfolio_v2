@@ -43,8 +43,10 @@ const useStyles = makeStyles(() => ({
         textDecoration: 'none',
     },
     socialsText: {
-        fontSize: '2rem',
-        lineHeight: '2rem'
+        fontSize: '1.7rem',
+        lineHeight: '2rem',
+        fontFamily: 'Roboto Slab, sans-serif',
+        color: '#fc8403',
     },
 }))
 

@@ -4,7 +4,6 @@ import DevIcons from './DevIcons';
 // Material UI components 
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -56,15 +55,24 @@ const useStyles = makeStyles((theme) => ({
         width: 'max-content',
         maxWidth: '90%',
         fontWeight: 'bold',
+        fontFamily: 'Raleway, sans-serif',
+        color: '#235aa1',
+
     },
     appDescriptionHeading: {
-        paddingTop: '3%',
-        marginLeft: '3%',
+        paddingTop: '4%',
+        marginLeft: '6%',
+        color: '#235aa1',
+        fontSize: '1.2rem',
+        fontFamily: 'Raleway, sans-serif',
         fontWeight: 'bold'
     },
     appDescriptions: {
         textAlign: 'left',
         fontStyle: 'italic',
+        // color: '#235aa1',
+        fontFamily: 'Quicksand'
+
     },
     root: {
         paddingLeft: '8px',
@@ -159,7 +167,7 @@ function ProjectItem( {project, index} ) {
                                 <Grid item container direction="column" justify="flex-start" alignItems="flex-start">
 
                                     <Typography variant="body1" className={classes.appDescriptionHeading}>
-                                        WHAT
+                                        What
                                     </Typography>
 
                                     <Typography className={classes.appDescriptions}>
@@ -169,7 +177,7 @@ function ProjectItem( {project, index} ) {
                                     </Typography>
 
                                     <Typography variant="body1" className={classes.appDescriptionHeading}>
-                                        WHY
+                                        Why
                                     </Typography>
 
 
@@ -248,24 +256,22 @@ function ProjectItem( {project, index} ) {
 
                         <Paper className={classes.gifCont}>
 
-                            <a href={project.deployed.toString()} target="_blank" rel="noopener noreferrer">
-{/* 
-                                {
-                                    project.gif === "images/projects/gifs/default4.gif"
-                                    ?   <p className={classes.noGifProvided}>
-                                            Nothing to see here
-                                        </p>
-                                    :   ''
-                                } */}
-                                
-                                <img 
-                                    className={classes.gif} 
-                                    src={project.gif} 
-                                    alt="app-demo"
-                                />
-
-                            </a>
-
+                            {
+                                project.deployed
+                                ?   <a href={project.deployed.toString()} target="_blank" rel="noopener noreferrer">
+                                        <img 
+                                            className={classes.gif} 
+                                            src={project.gif} 
+                                            alt="app-demo"
+                                        />
+                                    </a>
+                                :   <img 
+                                        className={classes.gif} 
+                                        src={project.gif} 
+                                        alt="app-demo"
+                                    />
+                            } 
+                     
                         </Paper>
 
                     </Fade>

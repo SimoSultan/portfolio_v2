@@ -8,6 +8,7 @@ import {
  } from "./components/export";
 import './stylesheets/App.css'
 
+import Arrow from './components/other/Arrow'
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
       <Home />
       <Projects />
       <Blogs />
+      <Arrow />
+
       {/* <Footer /> */}
 
     </>

@@ -1,39 +1,20 @@
 /* Quicksand */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600,700&display=swap");
 /* Raleway */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap");
-/* Kaushan Script*/
-@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
-/* Lemonada */
-@import url("https://fonts.googleapis.com/css2?family=Lemonada&display=swap");
-/* Shadows Into Light */
-@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
-/* Indie Flower */
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-/* Dancing Script*/
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 /* Architects Daughter */
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
-/* Indie Flower */
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-/* Noto Serif*/
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
-/* Merriweather */
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
-/* Grandstander */
-@import url("https://fonts.googleapis.com/css2?family=Grandstander:ital@1&display=swap");
 /* PT Sans Narrow */
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /* Roboto Slab */
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Quicksand:wght@300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
-/* Grandstander */
 .svg {
   z-index: 9;
   position: relative;
 }
 
 body {
-  background-color: #e8e8e8;
+  background-color: #dedede;
 }
 
 .svg {
