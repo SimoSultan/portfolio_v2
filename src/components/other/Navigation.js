@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             display: 'flex',
         },
-        
     },
     parallelogram: {
         top: '12px',

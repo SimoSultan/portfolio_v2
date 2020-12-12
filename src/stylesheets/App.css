@@ -65,10 +65,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-body {
-  background-color: #dedede;
-}
-
 * {
   scrollbar-width: thin;
   scrollbar-color: #46b7ff #F2F3F5;

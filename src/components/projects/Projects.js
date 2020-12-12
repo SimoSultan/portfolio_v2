@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
     projectsContainer: {
         height: 'fit-content',
         paddingTop: '5%',
-        marginBottom: '50px',
+        paddingBottom: '5%',
         background: 'rgb(252,252,252)',
         // eslint-disable-next-line
         background: 'linear-gradient(171deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)',
@@ -22,6 +22,7 @@ const useStyles = makeStyles(() => ({
     sectionHeaderVert: {
         position: 'absolute',
         top: 0,
+        left: 0,
         opacity: 0.3,
         writingMode: 'vertical-rl',
         textOrientation: 'upright',
@@ -30,7 +31,7 @@ const useStyles = makeStyles(() => ({
     sectionHeaderHorizontal: {
         position: 'absolute',
         top: '8px',
-        // marginLeft: '220px',
+        left: 0,
         opacity: 0.3,
         color: '#304153',
         letterSpacing: '1rem',
