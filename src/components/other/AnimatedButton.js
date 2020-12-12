@@ -55,24 +55,23 @@ function AnimatedButton( { text, linkTo, callback = false} ) {
 
     return (
         
-        <div 
-            className={classes.buttonCont}
-            onMouseEnter={() => set({ x: 0, opacity: 1, color: "#fff" })}
-            onMouseLeave={() => set({ x: 100, opacity: 0.6, color: "#F2511B" })}
-        >
+        <Link activeClass="active" to={linkTo} spy={true} smooth={true} duration={1000} onClick={callback}>
+            <div 
+                className={classes.buttonCont}
+                onMouseEnter={() => set({ x: 0, opacity: 1, color: "#fff" })}
+                onMouseLeave={() => set({ x: 100, opacity: 0.6, color: "#F2511B" })}
+            >
 
-            <div className={classes.parallelogram}>
+                <div className={classes.parallelogram}>
 
-                <animated.div
-                    style={{ transform: x.interpolate((v) => `translateX(-${v}%`) }}
-                    className={classes.glance}
-                />  
+                    <animated.div
+                        style={{ transform: x.interpolate((v) => `translateX(-${v}%`) }}
+                        className={classes.glance}
+                    />  
 
-            </div> 
+                </div> 
 
-            <Grid container alignItems="center" justify="center" className={classes.buttonTextCont}>
-
-                <Link activeClass="active" to={linkTo} spy={true} smooth={true} duration={1000} onClick={callback}>
+                <Grid container alignItems="center" justify="center" className={classes.buttonTextCont}>
 
                     <animated.span style={{ color }}>
 
@@ -84,11 +83,11 @@ function AnimatedButton( { text, linkTo, callback = false} ) {
 
                     </animated.span>
 
-                </Link>
+                </Grid>
+        
+            </div>
 
-            </Grid>
-     
-        </div>
+        </Link>
     )
 }
 

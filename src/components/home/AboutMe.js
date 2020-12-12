@@ -57,7 +57,7 @@ const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
 
-function AboutMe({toggleHomeHeader}) {
+function AboutMe({toggleAboutMeText}) {
 
     const classes = useStyles(theme)
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
@@ -104,7 +104,7 @@ function AboutMe({toggleHomeHeader}) {
 
                                         <div className={classes.okButtonCont}>
 
-                                            <AnimatedButton text="OK!" linkTo='home-cont' callback={toggleHomeHeader}/>
+                                            <AnimatedButton text="OK!" linkTo='home-cont' callback={toggleAboutMeText}/>
 
                                             <div className={classes.okButtonUnderline}></div>
 

@@ -60,7 +60,6 @@ function Home() {
 
     const classes = useStyles(theme);
     const [showAboutMe, setShowAboutMe] = useState(false)
-    const [showHomeHeader, setShowHomeHeader] = useState(true)
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1020px)' })
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
@@ -69,9 +68,9 @@ function Home() {
         setShowAboutMe(!showAboutMe)
     }
 
-    function toggleHomeHeader() {
-        setShowHomeHeader(!showHomeHeader)
-    }
+    // function toggleHomeHeader() {
+    //     setShowHomeHeader(!showHomeHeader)
+    // }
 
     // TODO FUTURE: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
     
@@ -89,14 +88,14 @@ function Home() {
                 <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
            
                     {
-                        !showAboutMe && showHomeHeader
+                        !showAboutMe
                         ?
                             <HomeHeader 
                                 toggleAboutMeText={toggleAboutMeText} 
                             />
                         :
                             <AboutMe
-                                toggleHomeHeader={toggleHomeHeader} 
+                                toggleAboutMeText={toggleAboutMeText} 
                             />
                     }
                             

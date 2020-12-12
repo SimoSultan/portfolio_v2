@@ -64,7 +64,7 @@ function HomeHeader({ toggleAboutMeText, showAboutMe }) {
 
                         <Typography variant="h1" gutterBottom className={classes.nameCont}>
 
-                            <Fade left cascade  duration={1500}>
+                            <Fade left cascade duration={1500}>
 
                                 CURRAN
 
