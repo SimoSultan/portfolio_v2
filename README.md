@@ -9,9 +9,7 @@ V2 source code: [github.com/SimoSultan/portfolio_v2](https://github.com/SimoSult
 ![Twitter Follow](https://img.shields.io/twitter/follow/simo_sultan?style=social)  
 [www.simonmcurran.com](https://www.simonmcurran.com/)  
 
-Live site: [www.simonmcurran.com](https://www.simonmcurran.com/)  
-V2 source code: [github.com/SimoSultan/portfolio_v2](https://github.com/SimoSultan/portfolio_v2)  
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ee22d955-f17c-4e9a-814b-80d2606c2902/deploy-status)](https://app.netlify.com/sites/simosultan2/deploys)
 ---
 
 
