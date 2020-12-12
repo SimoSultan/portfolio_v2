@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { createMuiTheme, responsiveFontSizes, makeStyles } from '@material-ui/core/styles';
 
 import Fade from 'react-reveal/Fade';
-import { useSpring, animated } from 'react-spring'
 import { useMediaQuery } from 'react-responsive'
 
 
@@ -32,6 +31,7 @@ const useStyles = makeStyles(() => ({
         willChange: 'transform',
     },
     okButtonCont: {
+        marginTop: '4%',
         "&:hover > *:last-child": {
             opacity: 0,
         },
@@ -48,20 +48,20 @@ const useStyles = makeStyles(() => ({
         fontWeight: '700',
     },
     italicsText: {
+        marginTop: '3%',
         fontFamily: 'Quicksand, sans-serif',
-        fontStyle: 'italic',    }
+        // fontStyle: 'italic',    
+        lineHeight: '1.5rem'
+    }
 }));
 
-
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
 
 function AboutMe({toggleAboutMeText}) {
 
     const classes = useStyles(theme)
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
-    const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1020px)' })
 
     return (
 
@@ -70,55 +70,85 @@ function AboutMe({toggleAboutMeText}) {
 
                 <Fade left big>
 
-                    <div onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+                    <Paper className={classes.paper}>
 
-                        <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
+                        <Typography variant="h6" className={classes.boldText}>
 
-                            <Paper className={classes.paper}>
+                            <strong>
+                                Why did I become a developer you ask?
+                            </strong>
 
-                                <Typography variant="h6" className={classes.boldText}>
+                        </Typography>
 
-                                    <strong>
-                                        Why did I become a developer you ask?
-                                    </strong>
+                        <Typography 
+                            variant={
+                                isLandscape && isDesktopOrLaptop ? 'body1' : 'body2'
+                            } 
+                            className={classes.italicsText} 
+                            style={{
+                                fontSize: isLandscape && isDesktopOrLaptop ? '1rem' : '0.9rem'
+                            }}
+                        >
 
-                                </Typography>
+                            <em>
+                                {"Easy! For the creativity and problem solving. Coding is like a Maxibon, it's better than the sum of its parts, where each part being creativity and problem solving. I love the highs, learn a lot from the lows and find the community and diversity surrounding tech to be like home."}
+                            </em>
 
-                                <Typography variant={isLandscape ? 'body1' : 'body2'} className={classes.italicsText}>
+                            <br />
+                            <br />
 
-                                    <em>Easy! For the creativity and problem solving. Coding is like a Maxibon for me, being better than the sum of its parts, where those parts are creativity and problem solving. I love the highs, learn from the lows and love the community and diversity surrounding tech. 
-                                    <br />
-                                    <br />
-                                    I consider myself extremely lucky to have found my passion in life so young, where I can grow and learn, all whilst helping others through my code.</em>
-                                    <br />
-                                    <br />
-                                    Check out my work on <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
+                            {"Check out my work on "}
 
-                                </Typography>
-                                    
-                                <Grid container direction="row" justify="flex-end" alignItems="center">
+                            <strong>
+                                <a 
+                                    style={{
+                                        color: '#e66f47', 
+                                    }} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    href="https://github.com/SimoSultan"
+                                >
+                                        {"GitHub"}
+                                </a>
+                            </strong>
 
-                                    <Fade left delay={500} duration={1500} >
+                            {", or grab "} 
 
-                                        <div className={classes.okButtonCont}>
+                            <strong>
+                                <a 
+                                    style={{
+                                        color: '#e66f47', 
+                                    }} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing"
+                                >
+                                    {"my CV"}
+                                </a>
+                            </strong>
+                            {"."}
 
-                                            <AnimatedButton text="OK!" linkTo='home-cont' callback={toggleAboutMeText}/>
-
-                                            <div className={classes.okButtonUnderline}></div>
-
-                                        </div>
-
-                                    </Fade>
-
-
-                                </Grid>
-
-
-                            </Paper>
+                        </Typography>
                             
-                        </animated.div>
+                        <Grid container direction="row" justify="flex-end" alignItems="center">
 
-                    </div>
+                            <Fade left delay={500} duration={1500} >
+
+                                <div className={classes.okButtonCont}>
+
+                                    <AnimatedButton text="OK!" linkTo='home-cont' callback={toggleAboutMeText}/>
+
+                                    <div className={classes.okButtonUnderline}></div>
+
+                                </div>
+
+                            </Fade>
+
+
+                        </Grid>
+
+
+                    </Paper>
                         
                 </Fade>
 
