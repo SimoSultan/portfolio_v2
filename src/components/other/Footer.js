@@ -1,10 +1,11 @@
 import React from "react";
+import Copyright from './Copyright'
+import AnimatedFooterButton from "./AnimatedFooterButton";
 
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
-import AnimatedFooterButton from "./AnimatedFooterButton";
 
 import { useMediaQuery } from 'react-responsive'
 
@@ -159,6 +160,10 @@ function Footer() {
                             />
                         </Grid>
 
+                    </Grid>
+
+                    <Grid item container justify="center" alignItems="center">
+                        <Copyright />
                     </Grid>
 
                 </Grid>

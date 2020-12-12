@@ -208,7 +208,8 @@ function ProjectItem( {project, index} ) {
 
                                         <Button 
                                             href={project.deployed.toString()} 
-                                            target="_blank" 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             disabled={project.deployed === false} 
                                             className={classes.projectItemButton}
                                         >
@@ -226,7 +227,8 @@ function ProjectItem( {project, index} ) {
 
                                         <Button 
                                             href={project.github.toString()} 
-                                            target="_blank" 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             disabled={project.github === false} 
                                             className={classes.projectItemButton}
                                         >
