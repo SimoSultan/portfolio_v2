@@ -1,8 +1,14 @@
 @import './partials/Fonts';
-@import './partials/Arrow';
+@import './partials/Scrollbar';
+@import './partials/ArrowBounce';
 
 body {
     background-color: rgba(222,222,222,1) ;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(70,183,255) #F2F3F5
 }
 
 .svg {

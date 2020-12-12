@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
             bottom: '3%',
             width: '25%'
         },
+        zIndex: 1000,
     },
     buttonClass: {
         opacity: 0.7,

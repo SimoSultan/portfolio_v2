@@ -1,0 +1,27 @@
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: #F2F3F5;        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    border-radius: 20px;       /* roundness of the scroll thumb */
+
+    background: rgb(70,183,255);
+    background: linear-gradient(118deg, rgba(70,183,255,1) 0%, rgba(25,112,167,1) 100%);
+
+    // BLUE
+    // background: rgb(37,169,252);
+    // background: linear-gradient(118deg, rgba(37,169,252,1) 0%, rgba(20,115,175,1) 90%);
+
+    // BLUE ORANGE
+    // background: rgb(37,169,252);
+    // background: linear-gradient(118deg, rgba(37,169,252,1) 0%, rgba(235,127,91,1) 90%);
+
+    // ORANGE
+    // background: rgb(242,81,27);
+    // background: linear-gradient(118deg, rgba(242,81,27,1) 0%, rgba(235,127,91,1) 47%);
+}
