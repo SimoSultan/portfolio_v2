@@ -35,10 +35,11 @@ const useStyles = makeStyles(() => ({
         width: '100vw',
         margin: 0,
         padding: 0,
-        // background: '#edeef0'
         background: 'rgb(237,238,240)',
         // eslint-disable-next-line
-        background: 'linear-gradient(180deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)'
+        background: 'linear-gradient(180deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)',
+        position: 'relative'
+
     },
     profileImage: {
         width: '80%',
@@ -60,44 +61,42 @@ function Home() {
 
     const classes = useStyles(theme);
     const [showAboutMe, setShowAboutMe] = useState(false)
+    const [delayName, setDelayName] = useState(0)
+    const [delayAbout, setDelayAbout] = useState(500)
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1020px)' })
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
 
     function toggleAboutMeText() {
         setShowAboutMe(!showAboutMe)
+        setDelayName(showAboutMe ? 600 : 0)
+        setDelayAbout(!showAboutMe ? 600 : 0)
     }
 
-    // function toggleHomeHeader() {
-    //     setShowHomeHeader(!showHomeHeader)
-    // }
-
-    // TODO FUTURE: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
     
-    // TODO: do something with fadeout animation of card/ name, maybe move the name above the text somehow
     // TODO: reload page bug is there on live site where the whole page moves sideways
+    // TODO: WHO button isn't showing on whit fade animation in there
 
 
     return (
 
         <div id='home-cont' className={classes.homeCont}>
 
-            <Grid container direction="row" justify="space-evenly" alignItems="center" className={classes.gridContainer}>
-
+            <Grid container direction="row" justify="space-between" alignItems="center" className={classes.gridContainer}>
 
                 <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
-           
-                    {
-                        !showAboutMe
-                        ?
-                            <HomeHeader 
-                                toggleAboutMeText={toggleAboutMeText} 
-                            />
-                        :
-                            <AboutMe
-                                toggleAboutMeText={toggleAboutMeText} 
-                            />
-                    }
+
+                    {/* <Fade when={!showAboutMe} right mirror={!showAboutMe} collapse delay={delayName} duration={600}> */}
+
+                        <HomeHeader toggleAboutMeText={toggleAboutMeText} />
+                        
+                    {/* </Fade> */}
+
+                    <Fade when={showAboutMe} right mirror={showAboutMe} collapse delay={delayAbout} duration={600}>
+
+                        <AboutMe toggleAboutMeText={toggleAboutMeText} />
+
+                    </Fade>
                             
                 </Grid>
 

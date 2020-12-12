@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 import { makeStyles, createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
 
 import Zoom from 'react-reveal/Zoom';
+import { useMediaQuery } from 'react-responsive'
 
 
 const useStyles = makeStyles(() => ({
@@ -16,19 +17,11 @@ const useStyles = makeStyles(() => ({
         background: 'rgb(252,252,252)',
         // eslint-disable-next-line
         background: 'linear-gradient(171deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)',
+        position: 'relative'
     },
-    projectsHorizontalWordMobile: {
-        opacity: 0.3,
-        marginLeft: '15%', 
-        position: 'absolute',
-    },
-    projectsHorizontalWordTabletDesktop: {
-        opacity: 0.3,
-        marginLeft: '20%', 
-    }  ,
     sectionHeaderVert: {
         position: 'absolute',
-        top: '97%',
+        top: 0,
         opacity: 0.3,
         writingMode: 'vertical-rl',
         textOrientation: 'upright',
@@ -36,12 +29,12 @@ const useStyles = makeStyles(() => ({
     },
     sectionHeaderHorizontal: {
         position: 'absolute',
-        top: '97.5%',
-        marginLeft: '270px',
+        top: '8px',
+        // marginLeft: '220px',
         opacity: 0.3,
         color: '#304153',
         letterSpacing: '1rem',
-    }
+    } 
 }));
 
 let projectsFont = createMuiTheme({
@@ -59,6 +52,8 @@ projectsFont = responsiveFontSizes(projectsFont);
 function Projects() {
     
     const classes = useStyles();
+    const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1020px)' })
 
     return (
 
@@ -76,7 +71,7 @@ function Projects() {
 
                         </Typography>
 
-                        <Typography variant="h2" className={classes.sectionHeaderHorizontal}>
+                        <Typography variant="h2" className={classes.sectionHeaderHorizontal} style={{marginLeft: isDesktopOrLaptop && isLandscape ? '270px' : '220px'}}>
 
                             <Zoom right cascade duration={1500}>
 
