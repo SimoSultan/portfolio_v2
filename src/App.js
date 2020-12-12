@@ -3,18 +3,16 @@ import {
     Home, 
     Blogs, 
     Projects, 
-    // Footer, 
+    Arrow, 
     Navigation
  } from "./components/export";
 import './stylesheets/App.css'
-
-import Arrow from './components/other/Arrow'
 
 
 function App() {
   return (
 
-    <> 
+    <div style={{overflow: 'hidden'}}> 
 
       <Navigation />
       <Home />
@@ -22,9 +20,7 @@ function App() {
       <Blogs />
       <Arrow />
 
-      {/* <Footer /> */}
-
-    </>
+    </div>
 
   );
 }

@@ -13,7 +13,7 @@ theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
     nameCont: {
-        width: '480px',
+        width: 'max-content',
         margin: 0,
     },
     whoButtonCont: {
@@ -50,11 +50,11 @@ function HomeHeader({ toggleAboutMeText, showAboutMe }) {
 
                 <ThemeProvider theme={titleFont}>
 
-                    <Grid container direction="column" justify="flex-start" alignItems="center">
+                    <Grid container direction="column" justify="space-between" alignItems="flex-start">
                     
-                        <Typography variant="h1" gutterBottom className={classes.nameCont}>
+                        <Typography variant="h1" className={classes.nameCont}>
 
-                            <Fade left cascade duration={1500}>
+                            <Fade left cascade duration={1000}>
 
                                 SIMON
 
@@ -62,7 +62,7 @@ function HomeHeader({ toggleAboutMeText, showAboutMe }) {
 
                         </Typography>
 
-                        <Typography variant="h1" gutterBottom className={classes.nameCont}>
+                        <Typography variant="h1" className={classes.nameCont}>
 
                             <Fade left cascade duration={1500}>
 
@@ -78,7 +78,7 @@ function HomeHeader({ toggleAboutMeText, showAboutMe }) {
 
                 <Grid container direction="row" justify="flex-end" alignItems="center">
 
-                    <Fade bottom delay={500} duration={1500} >
+                    <Fade bottom delay={500} duration={1000} >
 
                         <div className={classes.whoButtonCont}>
 

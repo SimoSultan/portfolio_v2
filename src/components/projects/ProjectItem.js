@@ -138,7 +138,7 @@ function ProjectItem( {project, index} ) {
                 
                 <Grid item container xs={12} sm={8} md={5} justify="center" alignItems="center">
 
-                    <Fade top>
+                    <Fade bottom>
 
                         <Paper className={classes.paper}>
 

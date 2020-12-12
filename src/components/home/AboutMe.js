@@ -66,7 +66,7 @@ function AboutMe({toggleAboutMeText}) {
     return (
 
 
-            <Grid container>
+            <Grid container style={{zIndex: 500}}>
 
                 <Fade left big>
 
@@ -75,7 +75,6 @@ function AboutMe({toggleAboutMeText}) {
                         <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
 
                             <Paper className={classes.paper}>
-
 
                                 <Typography variant="h6" className={classes.boldText}>
 
@@ -96,7 +95,6 @@ function AboutMe({toggleAboutMeText}) {
                                     Check out my work on <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
 
                                 </Typography>
-
                                     
                                 <Grid container direction="row" justify="flex-end" alignItems="center">
 

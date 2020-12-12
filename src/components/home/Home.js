@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
         width: '90vw',
         maxWidth: '2000px',
         margin: '0 auto',
-        overflow: 'hidden',
+        // overflow: 'hidden',
     },
     containerPortrait: {
         paddingTop: '5%',
@@ -45,6 +45,7 @@ const useStyles = makeStyles(() => ({
         width: '80%',
         maxWidth: '700px',
         margin: '0 auto',
+        zIndex: 0,
     },
     root: {
         flexGrow: 1,
@@ -74,23 +75,34 @@ function Home() {
     }
 
     
-    // TODO: reload page bug is there on live site where the whole page moves sideways
-    // TODO: WHO button isn't showing on whit fade animation in there
-
 
     return (
 
         <div id='home-cont' className={classes.homeCont}>
 
-            <Grid container direction="row" justify="space-between" alignItems="center" className={classes.gridContainer}>
+            <Grid container direction="row" justify="space-evenly" alignItems="center" className={classes.gridContainer}>
 
-                <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
+                <Grid 
+                    item 
+                    container 
+                    xs={ isLandscape ? 6 : 12 } 
+                    sm={ isLandscape ? 6 : 9 } 
+                    md={6} 
+                    lg={5} 
+                    className={ 
+                        isLandscape 
+                            ? classes.containerLandscape 
+                            : isDesktopOrLaptop 
+                                ? classes.containerPortrait 
+                                : '' 
+                    }
+                >
 
-                    {/* <Fade when={!showAboutMe} right mirror={!showAboutMe} collapse delay={delayName} duration={600}> */}
+                    <Fade when={!showAboutMe} right mirror={!showAboutMe} collapse delay={delayName} duration={600}>
 
                         <HomeHeader toggleAboutMeText={toggleAboutMeText} />
                         
-                    {/* </Fade> */}
+                    </Fade>
 
                     <Fade when={showAboutMe} right mirror={showAboutMe} collapse delay={delayAbout} duration={600}>
 
@@ -103,7 +115,7 @@ function Home() {
 
                 <Grid item container justify="center" alignItems="center" xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 10 } md={6}>
 
-                    <Fade right delay={500} duration={1500}>
+                    <Fade right delay={500} duration={1000}>
 
                         <div onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
 
