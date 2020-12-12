@@ -49,8 +49,9 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 'none',
         marginTop: '3%',
         [theme.breakpoints.down('sm')]: {
-        marginTop: '0',
-        bottom: '3%',
+            marginTop: '0',
+            bottom: '3%',
+            width: '25%'
         },
     },
     buttonClass: {
@@ -151,7 +152,6 @@ export default function Navigation() {
                             aria-controls={mobileMenuId}
                             aria-haspopup="true"
                             onClick={handleMobileMenuOpen}
-                            // color="inherit"
                             size="large"
                         >
                             <MenuIcon />
