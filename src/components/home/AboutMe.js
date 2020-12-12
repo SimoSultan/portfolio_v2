@@ -2,10 +2,9 @@ import React from 'react';
 import AnimatedButton from '../other/AnimatedButton'
 
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes, makeStyles } from '@material-ui/core/styles';
 
 import Fade from 'react-reveal/Fade';
 import { useSpring, animated } from 'react-spring'
@@ -58,7 +57,7 @@ const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
 
-function AboutMe({hideAboutMeText, buttonFont}) {
+function AboutMe({toggleHomeHeader}) {
 
     const classes = useStyles(theme)
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
@@ -66,7 +65,6 @@ function AboutMe({hideAboutMeText, buttonFont}) {
 
     return (
 
-        <Container>
 
             <Grid container>
 
@@ -78,53 +76,45 @@ function AboutMe({hideAboutMeText, buttonFont}) {
 
                             <Paper className={classes.paper}>
 
-                                {/* <MuiThemeProvider theme={theme}> */}
 
-                                    {/* <ThemeProvider theme={aboutMeFont}> */}
+                                <Typography variant="h6" className={classes.boldText}>
 
-                                        <Typography variant="h6" className={classes.boldText}>
+                                    <strong>
+                                        Why did I become a developer you ask?
+                                    </strong>
 
-                                            <strong>
-                                                Why did I become a developer you ask?
-                                            </strong>
+                                </Typography>
 
-                                        </Typography>
+                                <Typography variant={isLandscape ? 'body1' : 'body2'} className={classes.italicsText}>
 
-                                        <Typography variant={isLandscape ? 'body1' : 'body2'} className={classes.italicsText}>
+                                    <em>Easy! For the creativity and problem solving. Coding is like a Maxibon for me, being better than the sum of its parts, where those parts are creativity and problem solving. I love the highs, learn from the lows and love the community and diversity surrounding tech. 
+                                    <br />
+                                    <br />
+                                    I consider myself extremely lucky to have found my passion in life so young, where I can grow and learn, all whilst helping others through my code.</em>
+                                    <br />
+                                    <br />
+                                    Check out my work on <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
 
-                                            <em>Easy! For the creativity and problem solving. Coding is like a Maxibon for me, being better than the sum of its parts, where those parts are creativity and problem solving. I love the highs, learn from the lows and love the community and diversity surrounding tech. 
-                                            <br />
-                                            <br />
-                                            I consider myself extremely lucky to have found my passion in life so young, where I can grow and learn, all whilst helping others through my code.</em>
-                                            <br />
-                                            <br />
-                                            Check out my work on <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://github.com/SimoSultan">GitHub</a></strong>, or grab my CV <strong><a style={{color: '#e66f47', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing">here</a></strong>.
+                                </Typography>
 
-                                        </Typography>
-
-                                    {/* </ThemeProvider> */}
                                     
-                                    <Grid container direction="row" justify="flex-end" alignItems="center">
-                                    
-                                        <ThemeProvider theme={buttonFont}>
+                                <Grid container direction="row" justify="flex-end" alignItems="center">
 
-                                            <Fade left delay={500} duration={1500} >
+                                    <Fade left delay={500} duration={1500} >
 
-                                                <div className={classes.okButtonCont}>
+                                        <div className={classes.okButtonCont}>
 
-                                                    <AnimatedButton text="OK!" linkTo='home-cont' callback={hideAboutMeText}/>
+                                            <AnimatedButton text="OK!" linkTo='home-cont' callback={toggleHomeHeader}/>
 
-                                                    <div className={classes.okButtonUnderline}></div>
+                                            <div className={classes.okButtonUnderline}></div>
 
-                                                </div>
+                                        </div>
 
-                                            </Fade>
+                                    </Fade>
 
-                                        </ThemeProvider>
 
-                                    </Grid>
+                                </Grid>
 
-                                {/* </MuiThemeProvider> */}
 
                             </Paper>
                             
@@ -136,7 +126,6 @@ function AboutMe({hideAboutMeText, buttonFont}) {
 
             </Grid>
             
-        </Container>
 
   );
 }

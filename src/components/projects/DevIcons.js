@@ -35,9 +35,9 @@ function DevIcons({ iconList }) {
     const classes = useStyles();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1024px)' })
 
-    const listItems = iconList.map(icon => (
+    const listItems = iconList.map((icon, index) => (
 
-        <Grid item container direction="row" xs={isDesktopOrLaptop ? 3 : 6}>
+        <Grid item container direction="row" xs={isDesktopOrLaptop ? 3 : 6} key={`icon-key-${index}`}>
 
             <Grid item container direction="column">
 

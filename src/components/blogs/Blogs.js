@@ -66,7 +66,7 @@ function Blogs() {
 
         <div className={classes.contToFitFooter}>
 
-            <MuiThemeProvider>
+            <MuiThemeProvider theme={writingsFont}>
 
                 <ThemeProvider theme={writingsFont}>
 

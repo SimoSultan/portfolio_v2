@@ -40,7 +40,7 @@ let titleFont = createMuiTheme({
 titleFont = responsiveFontSizes(titleFont);
 
 
-function HomeHeader({ showAboutMeText, buttonFont, showAboutMe }) {
+function HomeHeader({ toggleAboutMeText, showAboutMe }) {
     const classes = useStyles()
 
     return (
@@ -78,21 +78,17 @@ function HomeHeader({ showAboutMeText, buttonFont, showAboutMe }) {
 
                 <Grid container direction="row" justify="flex-end" alignItems="center">
 
-                    <ThemeProvider theme={buttonFont}>
+                    <Fade bottom delay={500} duration={1500} >
 
-                        <Fade bottom delay={500} duration={1500} >
+                        <div className={classes.whoButtonCont}>
 
-                            <div className={classes.whoButtonCont}>
+                            <AnimatedButton text="WHO?" linkTo='home-cont' callback={toggleAboutMeText}/>
 
-                                <AnimatedButton text="WHO?" linkTo='home-cont' callback={showAboutMeText}/>
+                            <div className={classes.whoButtonUnderline}></div>
 
-                                <div className={classes.whoButtonUnderline}></div>
+                        </div>
 
-                            </div>
-
-                        </Fade>
-
-                    </ThemeProvider>
+                    </Fade>
 
                 </Grid>
 

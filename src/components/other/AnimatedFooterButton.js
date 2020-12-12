@@ -93,17 +93,17 @@ function AnimatedFooterButton( { text, linkTo, isPortrait, isTabletOrMobile } ) 
             </div> 
 
             <Grid container alignItems="center" justify="center" className={classes.buttonTextCont}>
-                <animated.span style={{ color }}>
+                <animated.div style={{ color }}>
                     {
                         hover
                         ?   <Fade duration={500}>{iconToShow(text)}</Fade>
-                        :   <Typography variant="body1" className={classes.socialsText} >
+                        :   <Typography variant="body1" component="div" className={classes.socialsText} >
                                 <Fade duration={500}>
                                     {text}
                                 </Fade>
                             </Typography>
                     }
-                </animated.span>
+                </animated.div>
             </Grid>
 
         </a>

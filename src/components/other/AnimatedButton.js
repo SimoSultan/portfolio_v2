@@ -40,6 +40,7 @@ const useStyles = makeStyles(() => ({
     },
     buttonText: {
         fontFamily: 'Roboto Slab',
+        fontWeight: 'bold',
     }
 }))
 

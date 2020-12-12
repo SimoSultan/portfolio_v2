@@ -14,13 +14,6 @@ import { useSpring, animated } from 'react-spring'
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
-let buttonFont = createMuiTheme({
-  typography: {
-    fontFamily: 'Roboto Slab',
-    fontWeight: 500,
-  },
-})
-buttonFont = responsiveFontSizes(buttonFont);
 
 const useStyles = makeStyles(() => ({
     gridContainer: {
@@ -28,6 +21,7 @@ const useStyles = makeStyles(() => ({
         width: '90vw',
         maxWidth: '2000px',
         margin: '0 auto',
+        overflow: 'hidden',
     },
     containerPortrait: {
         paddingTop: '5%',
@@ -66,13 +60,17 @@ function Home() {
 
     const classes = useStyles(theme);
     const [showAboutMe, setShowAboutMe] = useState(false)
+    const [showHomeHeader, setShowHomeHeader] = useState(true)
     const isLandscape = useMediaQuery({ query: '(orientation: landscape)' })
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1020px)' })
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
 
     function toggleAboutMeText() {
-        
         setShowAboutMe(!showAboutMe)
+    }
+
+    function toggleHomeHeader() {
+        setShowHomeHeader(!showHomeHeader)
     }
 
     // TODO FUTURE: I HAVE TO CLICK THE WORD TO GET THE LINKS TO WORK, THE BLUE HOVER SECTIONS AREN'T CLICKABLE
@@ -89,29 +87,20 @@ function Home() {
 
 
                 <Grid item container xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 9 } md={6} lg={5} className={ (isLandscape) ? classes.containerLandscape : (isDesktopOrLaptop) ? classes.containerPortrait : '' }>
-
-                    <Fade when={showAboutMe} top collapse> 
-
-                        <AboutMe
-                            hideAboutMeText={toggleAboutMeText} 
-                            buttonFont={buttonFont}
-                        />
-              
-
-                    </Fade>
-
-                    <Fade when={!showAboutMe} bottom > 
-
-                        <HomeHeader 
-                            theme={theme} 
-                            showAboutMeText={toggleAboutMeText} 
-                            buttonFont={buttonFont}
-                        />
-
-                    </Fade>
-
+           
+                    {
+                        !showAboutMe && showHomeHeader
+                        ?
+                            <HomeHeader 
+                                toggleAboutMeText={toggleAboutMeText} 
+                            />
+                        :
+                            <AboutMe
+                                toggleHomeHeader={toggleHomeHeader} 
+                            />
+                    }
+                            
                 </Grid>
-
 
 
                 <Grid item container justify="center" alignItems="center" xs={ isLandscape ? 6 : 12 } sm={ isLandscape ? 6 : 10 } md={6}>
@@ -123,7 +112,6 @@ function Home() {
                             <animated.div style={{ transform: props.xy.interpolate(trans1)}} >
 
                                 <Grid container alignItems="center" justify="center">
-
 
                                     <img 
                                         className={classes.profileImage} 

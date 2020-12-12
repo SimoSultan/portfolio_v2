@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
         height: 'fit-content',
         paddingTop: '5%',
         marginBottom: '50px',
-        // backgroundColor: 'whitesmoke',
         background: 'rgb(252,252,252)',
         // eslint-disable-next-line
         background: 'linear-gradient(171deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)',
@@ -67,7 +66,7 @@ function Projects() {
 
             <Box>
 
-                <MuiThemeProvider>
+                <MuiThemeProvider theme={projectsFont}>
 
                     <ThemeProvider theme={projectsFont}>
 
