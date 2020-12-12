@@ -76,7 +76,7 @@ function AnimatedSectionHeading({ text, opacity }) {
 
                             <Typography variant="h2" className={classes.sectionHeaderVert} style={{opacity: opacity}}>
 
-                                <Zoom bottom cascade duration={1500}>
+                                <Zoom bottom cascade delay={500} duration={1500}>
 
                                     {text}
 
@@ -111,7 +111,7 @@ function AnimatedSectionHeading({ text, opacity }) {
                                                 : '6rem'
                                 }}>
 
-                                <Zoom right cascade duration={1500}>
+                                <Zoom right cascade delay={500} duration={1500}>
 
                                     {text}
 
