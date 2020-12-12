@@ -10,6 +10,7 @@ import {
 
 import './stylesheets/App.css'
 
+import { Helmet } from "react-helmet";
 
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
     return (
 
         <>
+            <Helmet>
+                <meta name="description" content="A showcase of Simon's projects and blogs." />
+                <meta property="og:image" content="%PUBLIC_URL%/logo192.png" />
+            </Helmet>
 
             <Navigation />
             <Home />
