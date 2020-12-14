@@ -46,7 +46,7 @@
 
         {
             "name": "PPMv1",
-            "what": "Finds common artist and songs between friends' Spotify playlists and makes a playlist for them.",
+            "what": "An app that finds common artist and songs between friends' Spotify playlists and makes a playlist out of them, and also graphing data about that playlist.",
             "why": "@xxKeefer and I made this web-app for a 2.5 day JavaScript Hackathon, which we ended up winning due to our teamwork, app functionality and code.",
             "stack": ["HTML5", "CSS3", "JavaScript"],
             "github": "https://github.com/SimoSultan/dlm",
@@ -58,7 +58,7 @@
         {
             "name": "PPMv2",
             "what": "The V2 of our Spotify Party Playlist Maker (see next project). This time adding Spotify Authentication and also rewriting our V1 functionality into the guest section.",
-            "why": "@xxKeefer and I remade our v1 using the MERN stack for the next CA Hackathon. We had more plans to put more into this 2.5 day app, but implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake.",
+            "why": "@xxKeefer and I wanted to remake our V1 using the MERN stack for the next Hackathon. We had plans to put more into this 2.5 day app, but when implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake.",
             "stack": ["MongoDB", "Express", "React", "Node"],
             "github": "https://github.com/SimoSultan/PPMv2",
             "deployed": "https://ppmv2.netlify.app/",
@@ -69,7 +69,7 @@
         {
             "name": "Portfolio V2",
             "what": "My long-time-in-making v2 of my portfolio that is built using React.",
-            "why": "Even though I was proud of my 10 day portfolio site (v1) for a Coder Academy assignment (which you can visit by the link in the Copyright in the Contact section), I always knew I wanted to do a rewrite. ",
+            "why": "Even though I was proud of my 10 day portfolio site (v1) for a Coder Academy assignment (which you can visit by the link in the Copyright in the Contact section), I always knew I wanted to do a rewrite. I hope you like it.",
             "stack": ["React", "MaterialUI", "SASS"],
             "github": "https://github.com/SimoSultan/portfolio_v2",
             "deployed": false,
