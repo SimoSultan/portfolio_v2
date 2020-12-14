@@ -1,82 +1,80 @@
 {
-  "projectList": [
+    "projectList": [
+        {
+            "name": "XLR8 Booking System",
+            "what": "A booking and admin system for my business. This was my first time ever building anything from scratch. Who said we should start small?!",
+            "why": "At the time, we didn't have a booking system, or back-end, to store the large amount of data we were missing. This was the start of that idea, but was put on hold due to external factors.",
+            "stack": ["HTML5", "CSS3", "JavaScript", "Firebase"],
+            "github": false,
+            "deployed": false,
+            "logo": "images/projects/logos/xlr8-logo.png",
+            "gif": "images/projects/gifs/XLR8.png"
+        },
 
-    {
-        "name": "XLR8 Booking System",
-        "what": "A booking and admin system for my business. This was my first time ever building anything from scratch. Who said we should start small?!",
-        "why": "At the time, we didn't have a booking system or back-end to store the large amount of data we were missing. This was the start of this idea but was put on hold due to external factors.",
-        "stack": ["HTML5", "CSS3", "JavaScript", "Firebase"],
-        "github": false,
-        "deployed": false,
-        "logo": "images/projects/logos/xlr8-logo.png",
-        "gif": "images/projects/gifs/XLR8.png"
-    },
+        {
+            "name": "DLM",
+            "what": "A 'fake' web-app that can be used for learners and driving instructors to book driving lessons.",
+            "why": "Built for a piece of assessment where we were tasked to build a 2-way marketplace for clients using Ruby on Rails and PostgreSQL.",
+            "stack": ["Rails", "Bootstrap", "PostgreSQL", "AWS"],
+            "github": "https://github.com/SimoSultan/dlm",
+            "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+            "logo": "images/projects/logos/dlm-logo.png",
+            "gif": "images/projects/gifs/dlm.gif"
+        },
 
-    {
-        "name": "DLM",
-        "what": "A 'fake' web-app that can be used for learners and driving instructors to book driving lessons.",
-        "why": "For a Coder Academy assignment where we were tasked to build a 2-way marketplace for clients using Ruby on Rails and PostgreSQL.",
-        "stack": ["Rails", "Bootstrap", "PostgreSQL", "AWS"],
-        "github": "https://github.com/SimoSultan/dlm",
-        "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
-        "logo": "images/projects/logos/dlm-logo.png",
-        "gif": "images/projects/gifs/dlm.gif"
-    },
+        {
+            "name": "CSS Avatar",
+            "what": "This is my developer account profile picture that I created from CSS.",
+            "why": "I was inspired by @flangerhanger's and @jh3yy's epic CSS art they were posting all the time on Twitter, so I gave it a crack.",
+            "stack": ["HTML5", "SASS"],
+            "github": "https://github.com/SimoSultan/profile_avatar",
+            "deployed": "https://codepen.io/simo_sultan/pen/JjGKBBj",
+            "logo": "images/projects/logos/simosultan.png",
+            "gif": "images/projects/gifs/avatar.png"
+        },
 
-    {
-        "name": "CSS Avatar",
-        "what": "This is my developer account profile picture that I created from CSS.",
-        "why": "I was inspired byx @flangerhanger and @jh3yy's epic CSS art they were posting all the time on Twitter, so I gave it a crack.",
-        "stack": ["HTML5", "SASS"],
-        "github": "https://github.com/SimoSultan/profile_avatar",
-        "deployed": "https://codepen.io/simo_sultan/pen/JjGKBBj",
-        "logo": "images/projects/logos/simosultan.png",
-        "gif": "images/projects/gifs/avatar.png"
-    },
+        {
+            "name": "Calculator",
+            "what": "You already know what a calculator does.",
+            "why": "I've always wanted to build a calculator and understand how a computer actually calculates 2 numbers. However, I found out that was machine code, which I would love to take a look at one day. In the meantime, here's my simple calculator I built in an afternoon.",
+            "stack": ["HTML5", "CSS3", "JavaScript"],
+            "github": "https://github.com/SimoSultan/calculator",
+            "deployed": "https://simosultan-calculator.netlify.app/",
+            "logo": "images/projects/logos/calculator-logo.png",
+            "gif": "images/projects/gifs/calculator.gif"
+        },
 
-    {
-        "name": "Calculator",
-        "what": "You already know what a calculator does.",
-        "why": "I've always wanted to build a calculator and understand how a computer actually calculates. However, that's machine code I need to learn. In the meantime, here's my simple calculator I built in an afternoon for a Coder Academy challenge.",
-        "stack": ["HTML5", "CSS3", "JavaScript"],
-        "github": "https://github.com/SimoSultan/calculator",
-        "deployed": "https://simosultan-calculator.netlify.app/",
-        "logo": "images/projects/logos/calculator-logo.png",
-        "gif": "images/projects/gifs/calculator.gif"
-    },
+        {
+            "name": "PPMv1",
+            "what": "Finds common artist and songs between friends' Spotify playlists and makes a playlist for them.",
+            "why": "@xxKeefer and I made this web-app for a 2.5 day JavaScript Hackathon, which we ended up winning due to our teamwork, app functionality and code.",
+            "stack": ["HTML5", "CSS3", "JavaScript"],
+            "github": "https://github.com/SimoSultan/dlm",
+            "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+            "logo": "images/projects/logos/spotify-ppm-logo.png",
+            "gif": "images/projects/gifs/spotify-ppm.gif"
+        },
 
-    {
-        "name": "PPMv1",
-        "what": "Finds common artist and songs between friends Spotify playlists and makes a playlist for them.",
-        "why": "@xxKeefer and I made this web-app for a 2.5 day Coder Academy JavaScript Hackathon, which we won the competition with due to our teamwork, functionality and code.",
-        "stack": ["HTML5", "CSS3", "JavaScript"],
-        "github": "https://github.com/SimoSultan/dlm",
-        "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
-        "logo": "images/projects/logos/spotify-ppm-logo.png",
-        "gif": "images/projects/gifs/spotify-ppm.gif"
-    },
+        {
+            "name": "PPMv2",
+            "what": "The V2 of our Spotify Party Playlist Maker (see next project). This time adding Spotify Authentication and also rewriting our V1 functionality into the guest section.",
+            "why": "@xxKeefer and I remade our v1 using the MERN stack for the next CA Hackathon. We had more plans to put more into this 2.5 day app, but implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake.",
+            "stack": ["MongoDB", "Express", "React", "Node"],
+            "github": "https://github.com/SimoSultan/PPMv2",
+            "deployed": "https://ppmv2.netlify.app/",
+            "logo": "images/projects/logos/spotify-ppm-logo.png",
+            "gif": "images/projects/gifs/ppmv2.gif"
+        },
 
-    {
-        "name": "PPMv2",
-        "what": "The guest functionality of PPMv2 is the same as PPMv1. This app also implements Spotify authentication.",
-        "why": "@xxKeefer and I remade our v1 using the MERN stack for the next CA Hackathon. We had more plans to put more into this 2.5 day app, but implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake.",
-        "stack": ["MongoDB", "ExpressJS", "ReactJS", "NodeJS"],
-        "github": "https://github.com/SimoSultan/PPMv2",
-        "deployed": "https://ppmv2.netlify.app/",
-        "logo": "images/projects/logos/spotify-ppm-logo.png",
-        "gif": "images/projects/gifs/ppmv2.gif"
-    },
-
-    {
-        "name": "Portfolio V2",
-        "what": "My long-awaited v2 of my portfolio that is built using ReactJS.",
-        "why": "Even though I was proud of my 10 day portfolio site (v1) for my Coder Academy assignment, I always knew I wanted to do a rewrite for a proper portfolio site.",
-        "stack": ["ReactJS", "CSS3", "SASS"],
-        "github": "https://github.com/SimoSultan/portfolio_v2",
-        "deployed": false,
-        "logo": "images/projects/logos/simosultan.png",
-        "gif": "images/projects/gifs/portfolio_v2.gif"
-    }
-
-  ]
+        {
+            "name": "Portfolio V2",
+            "what": "My long-time-in-making v2 of my portfolio that is built using React.",
+            "why": "Even though I was proud of my 10 day portfolio site (v1) for a Coder Academy assignment (which you can visit by the link in the Copyright in the Contact section), I always knew I wanted to do a rewrite. ",
+            "stack": ["React", "MaterialUI", "SASS"],
+            "github": "https://github.com/SimoSultan/portfolio_v2",
+            "deployed": false,
+            "logo": "images/projects/logos/simosultan.png",
+            "gif": "images/projects/gifs/portfolio_v2.gif"
+        }
+    ]
 }
