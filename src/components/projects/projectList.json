@@ -58,7 +58,7 @@
         {
             "name": "PPMv2",
             "what": "The V2 of our Spotify Party Playlist Maker (see next project). This time adding Spotify Authentication and also rewriting our V1 functionality into the guest section.",
-            "why": "@xxKeefer and I wanted to remake our V1 using the MERN stack for the next Hackathon. We had plans to put more into this 2.5 day app, but when implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake, swapping roles this time, where I wrote the back-end and Keef created the front-end with Bulma."
+            "why": "@xxKeefer and I wanted to remake our V1 using the MERN stack for the next Hackathon. We had plans to put more into this 2.5 day app, but when implementing MERN for the first time we came across some hurdles. We placed 2nd this time for our remake, swapping roles this time, where I wrote the back-end and Keef created the front-end with Bulma.",
             "stack": ["MongoDB", "Express", "React", "Node"],
             "github": "https://github.com/SimoSultan/PPMv2",
             "deployed": "https://ppmv2.netlify.app/",
