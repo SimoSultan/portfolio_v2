@@ -50,7 +50,7 @@
             "why": "@xxKeefer and I made this web-app for a 2.5 day JavaScript Hackathon, which we ended up winning due to our teamwork, app functionality and code. I focused on the front-end and Keef wrote the back-end.",
             "stack": ["HTML5", "CSS3", "Bootstrap", "JavaScript"],
             "github": "https://github.com/SimoSultan/dlm",
-            "deployed": "https://driving-lesson-marketplace.herokuapp.com/",
+            "deployed": "https://spotify-party-playlist-maker.netlify.app/",
             "logo": "images/projects/logos/spotify-ppm-logo.png",
             "gif": "images/projects/gifs/spotify-ppm.gif"
         },
