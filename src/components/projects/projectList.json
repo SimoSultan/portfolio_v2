@@ -75,6 +75,17 @@
             "deployed": false,
             "logo": "images/projects/logos/simosultan.png",
             "gif": "images/projects/gifs/portfolio_v2.gif"
+        },
+
+        {
+            "name": "The Curtain Co",
+            "what": "Our last piece of assessment required us to build an e-commerce app for a client in a team of 2.",
+            "why": "@PeelRasel and I combined all our knowledge and experience, alongside working with a client for the first time, to help turn her business into a reality. This website was created in 1 month across our Christmas break.",
+            "stack": ["MongoDB", "Express", "React", "Node", "AWS", "PayPal", "Heroku", "Netlify"],
+            "github": "https://github.com/curtainCo/curtain_co_fe_prod",
+            "deployed": "https://thecurtainco.netlify.app/",
+            "logo": "images/projects/logos/the-curtain-co.png",
+            "gif": "images/projects/gifs/curtainco.gif"
         }
     ]
 }
