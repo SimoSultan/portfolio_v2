@@ -1,7 +1,6 @@
-# SimoSultans Portfolio
+# Simo_Sultans Portfolio
 
-Live site: [www.simonmcurran.com](https://www.simonmcurran.com/)  
-V2 source code: [github.com/SimoSultan/portfolio_v2](https://github.com/SimoSultan/portfolio_v2)
+Live site: [simoncurran.dev](https://www.simoncurran.dev)
 
 ![GitHub followers](https://img.shields.io/github/followers/SimoSultan?style=social)  
 ![Twitter Follow](https://img.shields.io/twitter/follow/simo_sultan?style=social)
@@ -17,11 +16,17 @@ If you're here reading this. I know my docs haven't been completed before the si
 
 ## Resources
 
-_To be filled out now that the site is finally live._
+-   [React](https://reactjs.org/)
+-   [Material UI](https://mui.com/)
+-   [React Reveal](https://www.react-reveal.com/)
+-   [React Scroll](https://github.com/fisshy/react-scroll)
+-   [React](https://react-spring.io/)
 
 ---
 
-## Superceded
+## My Very First Portfolio
+
+_Built with just HTML and CSS._
 
 My original portfolio site: [simosultan.netlify.app](https://simosultan.netlify.app/)  
 V1 source code: [github.com/SimoSultan/portfolio-website](https://github.com/SimoSultan/portfolio-website)
@@ -31,4 +36,4 @@ V1 source code: [github.com/SimoSultan/portfolio-website](https://github.com/Sim
 ## Author
 
 © Simon Curran  
-[www.simonmcurran.com](https://www.simonmcurran.com/)
+[simoncurran.dev](https://www.simoncurran.dev)

@@ -1,7 +1,7 @@
 import React from "react"
 import ProjectList from "./ProjectList"
 
-import { AnimatedSectionHeading } from "../export"
+import { AnimatedSectionHeading } from "../exports"
 
 function Projects() {
     return (

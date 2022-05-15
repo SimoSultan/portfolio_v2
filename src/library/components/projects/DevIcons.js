@@ -1,9 +1,5 @@
 import React from "react"
-
-import Typography from "@mui/material/Typography"
-import Grid from "@mui/material/Grid"
-
-import { useMediaQuery } from "@mui/material"
+import { useMediaQuery, Typography, Grid } from "@mui/material"
 
 function DevIcons({ iconList }) {
     const isDesktopOrLaptop = useMediaQuery("(minWidth: 1024px)")

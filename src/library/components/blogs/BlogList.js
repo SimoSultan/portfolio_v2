@@ -1,14 +1,13 @@
 import React from "react"
-import CONTENT from "../../content.json"
 import BlogItem from "./BlogItem"
-
+import CONTENT from "../../content.json"
 import { Container, Grid, useMediaQuery } from "@mui/material"
 
 function BlogList() {
+    const { blogList } = CONTENT
     const isBigScreen = useMediaQuery("(min-width: 1600px)")
     const isLandscape = useMediaQuery("(orientation: landscape)")
 
-    const { blogList } = CONTENT
     const listItems = blogList.map((b, index) => (
         <BlogItem blog={b} index={index} key={`index-${index}`} />
     ))

@@ -5,7 +5,7 @@ import {
     Projects,
     Arrow,
     Navigation,
-} from "./library/components/export"
+} from "./library/components/exports"
 import {
     createTheme,
     responsiveFontSizes,

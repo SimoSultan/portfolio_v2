@@ -1,13 +1,7 @@
 import React from "react"
 import Copyright from "./Copyright"
 import AnimatedFooterButton from "./AnimatedFooterButton"
-
-import Typography from "@mui/material/Typography"
-import Container from "@mui/material/Container"
-import Grid from "@mui/material/Grid"
-
-import { useMediaQuery } from "@mui/material"
-
+import { Typography, Container, Grid, useMediaQuery } from "@mui/material"
 // animation library and plugins
 import Fade from "react-reveal/Fade"
 

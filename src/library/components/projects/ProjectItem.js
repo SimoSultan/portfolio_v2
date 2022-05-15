@@ -1,12 +1,6 @@
 import React from "react"
 import DevIcons from "./DevIcons"
-
-// Material UI components
-import ListItem from "@mui/material/ListItem"
-import Grid from "@mui/material/Grid"
-import Paper from "@mui/material/Paper"
-import Button from "@mui/material/Button"
-import Typography from "@mui/material/Typography"
+import { ListItem, Grid, Paper, Button, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 
 import Fade from "react-reveal/Fade"

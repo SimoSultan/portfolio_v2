@@ -123,7 +123,6 @@ export default function Navigation() {
                     background: "transparent",
                     boxShadow: "none",
                     marginTop: theme.breakpoints.down("sm") ? "3%" : "0",
-                    // bottom: theme.breakpoints.down("sm") ? "3%" : "0",
                     width: theme.breakpoints.up("sm") ? "50%" : "0",
                     display: isTabletOrMobile ? "none" : "flex",
                     zIndex: 1000,
@@ -131,7 +130,7 @@ export default function Navigation() {
             >
                 <Toolbar>
                     <div style={{ flexGrow: 1 }} />
-                    {isTabletOrMobile && (
+                    {!isTabletOrMobile && (
                         <div
                             style={{
                                 top: "12px",

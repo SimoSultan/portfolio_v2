@@ -2,15 +2,10 @@ import React, { useState } from "react"
 import HomeHeader from "./HomeHeader"
 import AboutMe from "./AboutMe"
 import profileImage from "../../img/v1_transparent.png"
+import { useMediaQuery, Grid } from "@mui/material"
 
-import Grid from "@mui/material/Grid"
-
-import { useMediaQuery } from "@mui/material"
 import Fade from "react-reveal/Fade"
 import { useSpring, animated } from "react-spring"
-
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
 function Home() {
     const [showAboutMe, setShowAboutMe] = useState(false)
@@ -28,6 +23,12 @@ function Home() {
         setDelayName(showAboutMe ? 600 : 0)
         setDelayAbout(!showAboutMe ? 600 : 0)
     }
+
+    const calc = (x, y) => [
+        x - window.innerWidth / 2,
+        y - window.innerHeight / 2,
+    ]
+    const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
     return (
         <div

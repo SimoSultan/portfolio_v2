@@ -1,10 +1,7 @@
 import React from "react"
-
-import Grid from "@mui/material/Grid"
-import Typography from "@mui/material/Typography"
+import { Typography, Grid, useMediaQuery } from "@mui/material"
 
 import Zoom from "react-reveal/Zoom"
-import { useMediaQuery } from "@mui/material"
 
 function AnimatedSectionHeading({ text, opacity }) {
     const isLandscape = useMediaQuery("(orientation: landscape)")

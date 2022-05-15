@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-
-import Typography from "@mui/material/Typography"
-import Grid from "@mui/material/Grid"
+import { Typography, Grid } from "@mui/material"
 
 import TwitterIcon from "@mui/icons-material/Twitter"
 import GitHubIcon from "@mui/icons-material/GitHub"
@@ -11,7 +9,6 @@ import SpotifyIcon from "./SpotifyIcon"
 import MediumIcon from "./MediumIcon"
 
 import { useSpring, animated } from "react-spring"
-
 import Fade from "react-reveal/Fade"
 
 function AnimatedFooterButton({ text, linkTo, isPortrait, isTabletOrMobile }) {

@@ -1,7 +1,6 @@
 import React from "react"
 import BlogList from "./BlogList"
-import { Footer } from "../export"
-import { AnimatedSectionHeading } from "../export"
+import { Footer, AnimatedSectionHeading } from "../exports"
 
 function Blogs() {
     return (

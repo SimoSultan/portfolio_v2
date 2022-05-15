@@ -1,7 +1,5 @@
 import React from "react"
-
-import Typography from "@mui/material/Typography"
-import Grid from "@mui/material/Grid"
+import { Typography, Grid } from "@mui/material"
 
 import { Link } from "react-scroll"
 import { useSpring, animated } from "react-spring"

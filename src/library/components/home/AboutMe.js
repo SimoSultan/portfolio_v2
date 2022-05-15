@@ -1,13 +1,9 @@
 import React from "react"
 import AnimatedButton from "../other/AnimatedButton"
-
-import Grid from "@mui/material/Grid"
-import Paper from "@mui/material/Paper"
-import Typography from "@mui/material/Typography"
+import { useMediaQuery, Grid, Paper, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 
 import Fade from "react-reveal/Fade"
-import { useMediaQuery } from "@mui/material"
 
 function AboutMe({ toggleAboutMeText }) {
     const isLandscape = useMediaQuery("(orientation: landscape)")

@@ -1,8 +1,6 @@
 import React from "react"
-import AnimatedButton from "../other/AnimatedButton"
-
-import Typography from "@mui/material/Typography"
-import { Container, Grid } from "@mui/material"
+import { AnimatedButton } from "../exports"
+import { Container, Grid, Typography } from "@mui/material"
 
 import Fade from "react-reveal/Fade"
 

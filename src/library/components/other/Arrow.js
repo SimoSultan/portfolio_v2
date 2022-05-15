@@ -1,7 +1,5 @@
 import React from "react"
-import { useMediaQuery } from "@mui/material"
-
-import { Grid } from "@mui/material"
+import { useMediaQuery, Grid } from "@mui/material"
 
 function Arrow() {
     const isLandscape = useMediaQuery("(orientation: landscape)")
