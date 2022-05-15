@@ -33,7 +33,12 @@ function AnimatedSectionHeading({ text, opacity }) {
                     </Typography>
                 </Grid>
             ) : (
-                <Grid item container justify="center" alignItems="center">
+                <Grid
+                    item
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <Typography
                         variant="h2"
                         sx={{

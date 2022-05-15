@@ -60,7 +60,7 @@ function Footer() {
                         item
                         container
                         direction="row"
-                        justify="space-evenly"
+                        justifyContent="space-evenly"
                         alignItems="center"
                         sx={{
                             textAlign: "center",
@@ -184,7 +184,12 @@ function Footer() {
                         </Grid>
                     </Grid>
 
-                    <Grid item container justify="center" alignItems="center">
+                    <Grid
+                        item
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                    >
                         <Copyright />
                     </Grid>
                 </Grid>

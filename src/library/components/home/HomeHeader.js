@@ -1,16 +1,20 @@
 import React from "react"
 import { AnimatedButton } from "../exports"
 import { Container, Grid, Typography } from "@mui/material"
+import CONTENT from "../../content.json"
 
 import Fade from "react-reveal/Fade"
 
 function HomeHeader({ toggleAboutMeText }) {
+    const {
+        landingPage: { firstName, lastName },
+    } = CONTENT
     return (
         <Container maxWidth="sm">
             <Grid
                 container
                 direction="column"
-                justify="space-between"
+                justifyContent="space-between"
                 alignItems="flex-start"
             >
                 <Typography
@@ -23,7 +27,7 @@ function HomeHeader({ toggleAboutMeText }) {
                     }}
                 >
                     <Fade left cascade duration={1000}>
-                        SIMON
+                        {firstName}
                     </Fade>
                 </Typography>
 
@@ -37,7 +41,7 @@ function HomeHeader({ toggleAboutMeText }) {
                     }}
                 >
                     <Fade left cascade duration={1500}>
-                        CURRAN
+                        {lastName}
                     </Fade>
                 </Typography>
             </Grid>
@@ -45,7 +49,7 @@ function HomeHeader({ toggleAboutMeText }) {
             <Grid
                 container
                 direction="row"
-                justify="flex-end"
+                justifyContent="flex-end"
                 alignItems="center"
             >
                 <Fade bottom delay={500} duration={1000}>

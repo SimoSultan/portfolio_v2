@@ -1,4 +1,14 @@
 {
+    "landingPage": {
+        "firstName": "Simon",
+        "lastName": "Curran"
+    },
+    "aboutMe": {
+        "title": "Why did I become a developer you ask?",
+        "description": "Easy! For the creativity and problem solving. Coding is like a Maxibon, it's better than the sum of its parts, where each part being creativity and problem solving. I love the highs, learn a lot from the lows and find the community and diversity surrounding tech to be like home.",
+        "gitHubLink": "https://github.com/SimoSultan",
+        "cvLink": "https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing"
+    },
     "projectList": [
         {
             "name": "XLR8 Booking System",

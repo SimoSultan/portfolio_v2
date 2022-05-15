@@ -4,7 +4,7 @@ import { useMediaQuery, Typography, Grid } from "@mui/material"
 function DevIcons({ iconList }) {
     const isDesktopOrLaptop = useMediaQuery("(minWidth: 1024px)")
 
-    const listItems = iconList.map((icon, index) => (
+    const listItems = iconList.map((iconName, index) => (
         <Grid
             item
             container
@@ -15,8 +15,8 @@ function DevIcons({ iconList }) {
             <Grid item container direction="column">
                 <img
                     style={{ width: "40px", margin: "0 auto" }}
-                    src={`images/devIcons/${icon.toLowerCase()}-plain.svg`}
-                    alt={`${icon}-icon`}
+                    src={`images/devIcons/${iconName.toLowerCase()}-plain.svg`}
+                    alt={`${iconName}-icon`}
                 />
 
                 <Typography
@@ -26,11 +26,11 @@ function DevIcons({ iconList }) {
                         lineHeight: "1rem",
                         marginTop: "3%",
                         color: "#235aa1",
-                        fontFamily: "PT Sans Narrow, sand-serif",
+                        fontFamily: "PT Sans Narrow, sans-serif",
                         fontSize: "1rem",
                     }}
                 >
-                    {icon}
+                    {iconName}
                 </Typography>
             </Grid>
         </Grid>

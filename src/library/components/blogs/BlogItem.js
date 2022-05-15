@@ -30,6 +30,8 @@ function BlogItem({ blog, index }) {
         config: { mass: 10, tension: 550, friction: 140 },
     }))
 
+    const { link, img, name } = blog
+
     return (
         <Grid item xs={isLandscape ? 9 : 12} sm={8} md={5}>
             <div
@@ -60,7 +62,7 @@ function BlogItem({ blog, index }) {
                             }}
                         >
                             <CardActionArea
-                                href={blog.link}
+                                href={link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -71,8 +73,8 @@ function BlogItem({ blog, index }) {
                                             height: "175px",
                                         },
                                     }}
-                                    image={blog.img}
-                                    title={blog.name}
+                                    image={img}
+                                    title={name}
                                 />
 
                                 <CardContent>
@@ -83,7 +85,7 @@ function BlogItem({ blog, index }) {
                                             fontStyle: "italic",
                                         }}
                                     >
-                                        {blog.name}
+                                        {name}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -98,7 +100,7 @@ function BlogItem({ blog, index }) {
                                     }}
                                 >
                                     <Button
-                                        href={blog.link}
+                                        href={link}
                                         target="_blank"
                                         sx={{
                                             cursor: "pointer",

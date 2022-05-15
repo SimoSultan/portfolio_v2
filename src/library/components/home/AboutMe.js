@@ -2,13 +2,17 @@ import React from "react"
 import AnimatedButton from "../other/AnimatedButton"
 import { useMediaQuery, Grid, Paper, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
+import CONTENT from "../../content.json"
 
 import Fade from "react-reveal/Fade"
 
-function AboutMe({ toggleAboutMeText }) {
+export default function AboutMe({ toggleAboutMeText }) {
     const isLandscape = useMediaQuery("(orientation: landscape)")
     const isDesktopOrLaptop = useMediaQuery("(min-device-width: 1020px)")
     const theme = useTheme()
+    const {
+        aboutMe: { title, description, gitHubLink, cvLink },
+    } = CONTENT
 
     return (
         <Grid container style={{ zIndex: 500 }}>
@@ -28,7 +32,7 @@ function AboutMe({ toggleAboutMeText }) {
                             fontWeight: "700",
                         }}
                     >
-                        <strong>Why did I become a developer you ask?</strong>
+                        <strong>{title}</strong>
                     </Typography>
 
                     <Typography
@@ -45,11 +49,7 @@ function AboutMe({ toggleAboutMeText }) {
                             lineHeight: "1.5rem",
                         }}
                     >
-                        <em>
-                            {
-                                "Easy! For the creativity and problem solving. Coding is like a Maxibon, it's better than the sum of its parts, where each part being creativity and problem solving. I love the highs, learn a lot from the lows and find the community and diversity surrounding tech to be like home."
-                            }
-                        </em>
+                        <em>{description}</em>
 
                         <br />
                         <br />
@@ -63,7 +63,7 @@ function AboutMe({ toggleAboutMeText }) {
                                 }}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href="https://github.com/SimoSultan"
+                                href={gitHubLink}
                             >
                                 {"GitHub"}
                             </a>
@@ -78,7 +78,7 @@ function AboutMe({ toggleAboutMeText }) {
                                 }}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href="https://drive.google.com/file/d/1XZXNrNisou74rIXNXF-92RCv6nPwQhk6/view?usp=sharing"
+                                href={cvLink}
                             >
                                 {"my CV"}
                             </a>
@@ -89,7 +89,7 @@ function AboutMe({ toggleAboutMeText }) {
                     <Grid
                         container
                         direction="row"
-                        justify="flex-end"
+                        justifyContent="flex-end"
                         alignItems="center"
                     >
                         <Fade left delay={500} duration={1500}>
@@ -124,5 +124,3 @@ function AboutMe({ toggleAboutMeText }) {
         </Grid>
     )
 }
-
-export default AboutMe

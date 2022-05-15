@@ -5,11 +5,11 @@ function Arrow() {
     const isLandscape = useMediaQuery("(orientation: landscape)")
 
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justifyContent="center" alignItems="center">
             <Grid
                 item
                 container
-                justify="flex-start"
+                justifyContent="flex-start"
                 alignItems="center"
                 className="downArrow bounce"
                 sx={{

@@ -7,13 +7,15 @@ import Fade from "react-reveal/Fade"
 
 function ProjectItem({ project, index }) {
     const theme = useTheme()
+    const { logo, name, what, why, stack, deployed, github, gif } = project
+
     return (
         <ListItem
             key={index}
             sx={{
                 height: "100%",
                 marginBottom: "12%",
-                "&:last-child": {
+                "&:lastChild": {
                     marginBottom: "5%",
                 },
             }}
@@ -52,7 +54,7 @@ function ProjectItem({ project, index }) {
                                 >
                                     <img
                                         style={{ width: "50%" }}
-                                        src={project.logo}
+                                        src={logo}
                                         alt="logo"
                                     />
                                 </Grid>
@@ -61,7 +63,7 @@ function ProjectItem({ project, index }) {
                                     item
                                     container
                                     xs={8}
-                                    justify="flex-start"
+                                    justifyContent="flex-start"
                                     alignItems="center"
                                 >
                                     <Typography
@@ -74,7 +76,7 @@ function ProjectItem({ project, index }) {
                                             color: "#235aa1",
                                         }}
                                     >
-                                        {project.name}
+                                        {name}
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -83,15 +85,18 @@ function ProjectItem({ project, index }) {
                                 item
                                 container
                                 direction="column"
-                                justify="flex-start"
+                                justifyContent="flex-start"
                                 alignItems="flex-start"
                             >
                                 <Typography
                                     variant="body1"
                                     sx={{
-                                        textAlign: "left",
-                                        fontStyle: "italic",
-                                        fontFamily: "Quicksand",
+                                        paddingTop: "4%",
+                                        marginLeft: "6%",
+                                        color: "#235aa1",
+                                        fontSize: "1.2rem",
+                                        fontFamily: "Raleway, sans-serif",
+                                        fontWeight: "bold",
                                     }}
                                 >
                                     What
@@ -104,15 +109,18 @@ function ProjectItem({ project, index }) {
                                         fontFamily: "Quicksand",
                                     }}
                                 >
-                                    {project.what}
+                                    {what}
                                 </Typography>
 
                                 <Typography
                                     variant="body1"
                                     sx={{
-                                        textAlign: "left",
-                                        fontStyle: "italic",
-                                        fontFamily: "Quicksand",
+                                        paddingTop: "4%",
+                                        marginLeft: "6%",
+                                        color: "#235aa1",
+                                        fontSize: "1.2rem",
+                                        fontFamily: "Raleway, sans-serif",
+                                        fontWeight: "bold",
                                     }}
                                 >
                                     Why
@@ -125,7 +133,7 @@ function ProjectItem({ project, index }) {
                                         fontFamily: "Quicksand",
                                     }}
                                 >
-                                    {project.why}
+                                    {why}
                                 </Typography>
                             </Grid>
 
@@ -133,17 +141,17 @@ function ProjectItem({ project, index }) {
                                 item
                                 container
                                 direction="row"
-                                justify="space-around"
+                                justifyContent="space-around"
                                 alignItems="center"
                                 sx={{ height: "max-content", width: "100%" }}
                             >
-                                <DevIcons iconList={project.stack} />
+                                <DevIcons iconList={stack} />
                             </Grid>
 
                             <Grid
                                 container
                                 direction="row"
-                                justify="flex-start"
+                                justifyContent="flex-start"
                             >
                                 <div
                                     style={{
@@ -153,10 +161,10 @@ function ProjectItem({ project, index }) {
                                     }}
                                 >
                                     <Button
-                                        href={project.deployed.toString()}
+                                        href={deployed.toString()}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        disabled={project.deployed === false}
+                                        disabled={deployed === false}
                                         sx={{
                                             cursor: "pointer",
                                             color: "#F2511B",
@@ -165,12 +173,10 @@ function ProjectItem({ project, index }) {
                                             fontSize: "0.9rem",
                                         }}
                                     >
-                                        {`DEMO${
-                                            !project.deployed ? ": n/a" : ""
-                                        }`}
+                                        {`DEMO${!deployed ? ": n/a" : ""}`}
                                     </Button>
 
-                                    {project.deployed && (
+                                    {deployed && (
                                         <div
                                             style={{
                                                 width: "78%",
@@ -192,10 +198,10 @@ function ProjectItem({ project, index }) {
                                     }}
                                 >
                                     <Button
-                                        href={project.github.toString()}
+                                        href={github.toString()}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        disabled={project.github === false}
+                                        disabled={github === false}
                                         sx={{
                                             cursor: "pointer",
                                             color: "#F2511B",
@@ -205,11 +211,11 @@ function ProjectItem({ project, index }) {
                                         }}
                                     >
                                         {`SOURCE CODE${
-                                            !project.github ? ": private" : ""
+                                            !github ? ": private" : ""
                                         }`}
                                     </Button>
 
-                                    {project.github && (
+                                    {github && (
                                         <div
                                             style={{
                                                 width: "90%",
@@ -237,9 +243,9 @@ function ProjectItem({ project, index }) {
                                 },
                             }}
                         >
-                            {project.deployed ? (
+                            {deployed ? (
                                 <a
-                                    href={project.deployed.toString()}
+                                    href={deployed.toString()}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -249,7 +255,7 @@ function ProjectItem({ project, index }) {
                                             padding: "0",
                                             overflow: "hidden",
                                         }}
-                                        src={project.gif}
+                                        src={gif}
                                         alt="app-demo"
                                     />
                                 </a>
@@ -260,7 +266,7 @@ function ProjectItem({ project, index }) {
                                         padding: "0",
                                         overflow: "hidden",
                                     }}
-                                    src={project.gif}
+                                    src={gif}
                                     alt="app-demo"
                                 />
                             )}

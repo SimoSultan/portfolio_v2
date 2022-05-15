@@ -14,16 +14,12 @@ function BlogList() {
     return (
         <Container
             sx={{
-                paddingLeft: !isLandscape
-                    ? ""
-                    : isBigScreen && isLandscape
-                    ? ""
-                    : "15%",
+                paddingLeft: isBigScreen && isLandscape ? "" : "15%",
             }}
         >
             <Grid
                 container
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 spacing={8}
                 sx={{ paddingTop: "5%" }}

@@ -61,7 +61,7 @@ function AnimatedButton({ text, linkTo, callback = false }) {
                 <Grid
                     container
                     alignItems="center"
-                    justify="center"
+                    justifyContent="center"
                     sx={{
                         opacity: 1,
                         position: "absolute",

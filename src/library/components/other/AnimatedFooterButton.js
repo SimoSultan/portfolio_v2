@@ -75,7 +75,7 @@ function AnimatedFooterButton({ text, linkTo, isPortrait, isTabletOrMobile }) {
             <Grid
                 container
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 sx={{ position: "absolute", top: 0, padding: "10px" }}
             >
                 <animated.div style={{ color }}>

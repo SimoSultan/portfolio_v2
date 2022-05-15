@@ -47,7 +47,7 @@ function Home() {
             <Grid
                 container
                 direction="row"
-                justify="space-evenly"
+                justifyContent="space-evenly"
                 alignItems="center"
                 sx={{
                     height: "100%",
@@ -97,7 +97,7 @@ function Home() {
                 <Grid
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     xs={isLandscape ? 6 : 12}
                     sm={isLandscape ? 6 : 10}
@@ -117,7 +117,7 @@ function Home() {
                                 <Grid
                                     container
                                     alignItems="center"
-                                    justify="center"
+                                    justifyContent="center"
                                 >
                                     <img
                                         style={{
