@@ -5,10 +5,14 @@ import CONTENT from "../../content.json"
 
 import Fade from "react-reveal/Fade"
 
-function HomeHeader({ toggleAboutMeText }) {
-    const {
-        landingPage: { firstName, lastName },
-    } = CONTENT
+function HomeHeader({
+    toggleAboutMeText,
+    homeContainerID,
+    landingPageContent,
+}) {
+    const { landingPage: { firstName, lastName } = landingPageContent } =
+        CONTENT
+
     return (
         <Container maxWidth="sm">
             <Grid
@@ -27,7 +31,7 @@ function HomeHeader({ toggleAboutMeText }) {
                     }}
                 >
                     <Fade left cascade duration={1000}>
-                        {firstName}
+                        {firstName.toString().toUpperCase()}
                     </Fade>
                 </Typography>
 
@@ -41,7 +45,7 @@ function HomeHeader({ toggleAboutMeText }) {
                     }}
                 >
                     <Fade left cascade duration={1500}>
-                        {lastName}
+                        {lastName.toString().toUpperCase()}
                     </Fade>
                 </Typography>
             </Grid>
@@ -62,7 +66,7 @@ function HomeHeader({ toggleAboutMeText }) {
                     >
                         <AnimatedButton
                             text="WHO?"
-                            linkTo="home-cont"
+                            linkTo={homeContainerID}
                             callback={toggleAboutMeText}
                         />
 

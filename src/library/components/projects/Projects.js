@@ -1,9 +1,13 @@
 import React from "react"
 import ProjectList from "./ProjectList"
-
+import CONTENT from "../../content.json"
 import { AnimatedSectionHeading } from "../exports"
 
 function Projects() {
+    const {
+        projects: { header, projectList },
+    } = CONTENT
+
     return (
         <div
             id="projects-cont"
@@ -17,9 +21,9 @@ function Projects() {
                 position: "relative",
             }}
         >
-            <AnimatedSectionHeading text={"PROJECTS"} opacity={0.3} />
+            <AnimatedSectionHeading text={header} opacity={0.3} />
 
-            <ProjectList />
+            <ProjectList list={projectList} />
         </div>
     )
 }

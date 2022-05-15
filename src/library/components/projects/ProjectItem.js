@@ -11,7 +11,6 @@ function ProjectItem({ project, index }) {
 
     return (
         <ListItem
-            key={index}
             sx={{
                 height: "100%",
                 marginBottom: "12%",

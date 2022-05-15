@@ -1,8 +1,13 @@
 import React from "react"
 import BlogList from "./BlogList"
 import { Footer, AnimatedSectionHeading } from "../exports"
+import CONTENT from "../../content.json"
 
 function Blogs() {
+    const {
+        blogs: { header, blogList },
+    } = CONTENT
+
     return (
         <div
             id="blogs-cont"
@@ -17,9 +22,9 @@ function Blogs() {
             }}
         >
             <div style={{ height: "88%" }}>
-                <AnimatedSectionHeading text={"BLOGS"} opacity={0.8} />
+                <AnimatedSectionHeading text={header} opacity={0.8} />
 
-                <BlogList />
+                <BlogList list={blogList} />
             </div>
 
             <Footer />

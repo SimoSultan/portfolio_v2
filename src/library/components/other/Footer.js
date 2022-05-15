@@ -2,6 +2,7 @@ import React from "react"
 import Copyright from "./Copyright"
 import AnimatedFooterButton from "./AnimatedFooterButton"
 import { Typography, Container, Grid, useMediaQuery } from "@mui/material"
+import CONTENT from "../../content.json"
 // animation library and plugins
 import Fade from "react-reveal/Fade"
 
@@ -9,6 +10,14 @@ function Footer() {
     const isPortrait = useMediaQuery("(orientation: portrait)")
     const isTabletOrMobile = useMediaQuery("(max-width: 1024px)")
     const isMobile = useMediaQuery("(max-width: 411px)")
+    const {
+        twitterLink,
+        githubLink,
+        linkedInLink,
+        spotifyLink,
+        mediumLink,
+        emailLink,
+    } = CONTENT
 
     return (
         <div
@@ -84,7 +93,7 @@ function Footer() {
                         >
                             <AnimatedFooterButton
                                 text="twitter"
-                                linkTo="https://twitter.com/simo_sultan"
+                                linkTo={twitterLink}
                             />
                         </Grid>
 
@@ -103,7 +112,7 @@ function Footer() {
                         >
                             <AnimatedFooterButton
                                 text="github"
-                                linkTo="https://github.com/SimoSultan"
+                                linkTo={githubLink}
                             />
                         </Grid>
 
@@ -122,7 +131,7 @@ function Footer() {
                         >
                             <AnimatedFooterButton
                                 text="linkedin"
-                                linkTo="https://www.linkedin.com/in/simo-sultan/"
+                                linkTo={linkedInLink}
                             />
                         </Grid>
 
@@ -141,7 +150,7 @@ function Footer() {
                         >
                             <AnimatedFooterButton
                                 text="spotify"
-                                linkTo="https://open.spotify.com/user/1231189291"
+                                linkTo={spotifyLink}
                             />
                         </Grid>
 
@@ -160,7 +169,7 @@ function Footer() {
                         >
                             <AnimatedFooterButton
                                 text="medium"
-                                linkTo="https://medium.com/@simo_sultan"
+                                linkTo={mediumLink}
                             />
                         </Grid>
 
@@ -179,7 +188,7 @@ function Footer() {
                         >
                             <AnimatedFooterButton
                                 text="email"
-                                linkTo="mailto:simosultan2020@email.com?"
+                                linkTo={emailLink}
                             />
                         </Grid>
                     </Grid>

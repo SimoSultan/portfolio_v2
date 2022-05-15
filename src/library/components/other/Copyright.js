@@ -1,7 +1,12 @@
 import React from "react"
 import { Link, Typography } from "@mui/material"
+import CONTENT from "../../content.json"
 
 function Copyright() {
+    const {
+        landingPage: { firstName, lastName },
+    } = CONTENT
+
     return (
         <Typography
             variant="body2"
@@ -10,7 +15,7 @@ function Copyright() {
             sx={{
                 color: "#d8d8d8",
                 fontFamily: "Raleway, sans-serif",
-                marginBottom: "1%",
+                marginBottom: "3%",
             }}
         >
             {"Copyright © "}
@@ -20,7 +25,7 @@ function Copyright() {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Simon Curran
+                {`${firstName} ${lastName}`}
             </Link>{" "}
             {new Date().getFullYear()}
             {"."}

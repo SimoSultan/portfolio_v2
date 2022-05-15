@@ -33,7 +33,14 @@ function BlogItem({ blog, index }) {
     const { link, img, name } = blog
 
     return (
-        <Grid item xs={isLandscape ? 9 : 12} sm={8} md={5}>
+        <Grid
+            item
+            xs={isLandscape ? 9 : 12}
+            sm={8}
+            md={5}
+            component="li"
+            sx={{ listStyleType: "none" }}
+        >
             <div
                 onMouseMove={({ clientX: x, clientY: y }) =>
                     set({ xy: calc(x, y) })
@@ -68,10 +75,9 @@ function BlogItem({ blog, index }) {
                             >
                                 <CardMedia
                                     sx={{
-                                        height: "150px",
-                                        [theme.breakpoints.up("sm")]: {
-                                            height: "175px",
-                                        },
+                                        height: theme.breakpoints.up("sm")
+                                            ? "175px"
+                                            : "150px",
                                     }}
                                     image={img}
                                     title={name}

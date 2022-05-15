@@ -1,16 +1,17 @@
 import React from "react"
 import BlogItem from "./BlogItem"
-import CONTENT from "../../content.json"
 import { Container, Grid, useMediaQuery } from "@mui/material"
 
-function BlogList() {
-    const { blogList } = CONTENT
+function BlogList({ list }) {
     const isBigScreen = useMediaQuery("(min-width: 1600px)")
     const isLandscape = useMediaQuery("(orientation: landscape)")
 
-    const listItems = blogList.map((b, index) => (
-        <BlogItem blog={b} index={index} key={`index-${index}`} />
-    ))
+    const listItems = list
+        .map((b, index) => (
+            <BlogItem blog={b} index={index} key={`blog-item-${index}`} />
+        ))
+        .reverse()
+
     return (
         <Container
             sx={{
@@ -23,8 +24,9 @@ function BlogList() {
                 alignItems="center"
                 spacing={8}
                 sx={{ paddingTop: "5%" }}
+                component="ul"
             >
-                {listItems.reverse()}
+                {listItems}
             </Grid>
         </Container>
     )

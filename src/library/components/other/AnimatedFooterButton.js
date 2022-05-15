@@ -15,7 +15,7 @@ function AnimatedFooterButton({ text, linkTo, isPortrait, isTabletOrMobile }) {
     const [{ x, color }, set] = useSpring(() => ({ x: 100, color: "#fff" }))
     const [hover, setHover] = useState(false)
 
-    const iconToShow = (icon) => {
+    const getIcon = (icon) => {
         switch (icon) {
             case "twitter":
                 return <TwitterIcon fontSize="large" />
@@ -80,7 +80,7 @@ function AnimatedFooterButton({ text, linkTo, isPortrait, isTabletOrMobile }) {
             >
                 <animated.div style={{ color }}>
                     {hover ? (
-                        <Fade duration={500}>{iconToShow(text)}</Fade>
+                        <Fade duration={500}>{getIcon(text)}</Fade>
                     ) : (
                         <Typography
                             variant="body1"

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import HomeHeader from "./HomeHeader"
 import AboutMe from "./AboutMe"
 import profileImage from "../../img/v1_transparent.png"
+import CONTENT from "../../content.json"
 import { useMediaQuery, Grid } from "@mui/material"
 
 import Fade from "react-reveal/Fade"
@@ -30,9 +31,18 @@ function Home() {
     ]
     const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
+    const {
+        landingPage,
+        aboutMe,
+        nav: { navLinks },
+    } = CONTENT
+
+    const homeContainerID =
+        navLinks.find((n) => n.text === "HOME")?.id || "home-cont"
+
     return (
         <div
-            id="home-cont"
+            id={homeContainerID}
             style={{
                 height: "100vh",
                 width: "100vw",
@@ -79,7 +89,11 @@ function Home() {
                         delay={delayName}
                         duration={600}
                     >
-                        <HomeHeader toggleAboutMeText={toggleAboutMeText} />
+                        <HomeHeader
+                            toggleAboutMeText={toggleAboutMeText}
+                            homeContainerID={homeContainerID}
+                            landingPageContent={landingPage}
+                        />
                     </Fade>
 
                     <Fade
@@ -90,7 +104,11 @@ function Home() {
                         delay={delayAbout}
                         duration={600}
                     >
-                        <AboutMe toggleAboutMeText={toggleAboutMeText} />
+                        <AboutMe
+                            toggleAboutMeText={toggleAboutMeText}
+                            homeContainerID={homeContainerID}
+                            aboutMeContent={aboutMe}
+                        />
                     </Fade>
                 </Grid>
 
@@ -135,8 +153,6 @@ function Home() {
                     </Fade>
                 </Grid>
             </Grid>
-
-            {/* <Arrow /> */}
         </div>
     )
 }

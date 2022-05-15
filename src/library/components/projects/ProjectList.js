@@ -1,28 +1,28 @@
 import React from "react"
 import ProjectItem from "./ProjectItem"
-import CONTENT from "../../content.json"
 import { useMediaQuery, List, Container } from "@mui/material"
 
-function ProjectList() {
-    const { projectList } = CONTENT
+function ProjectList({ list }) {
     const isBigScreen = useMediaQuery("(min-width: 1600px)")
     const isLandscape = useMediaQuery("(orientation: landscape)")
 
-    const listItems = projectList.map((p, index) => (
-        <ProjectItem project={p} index={index} key={`index-${index}`} />
-    ))
+    const listItems = list
+        .map((p, index) => (
+            <ProjectItem
+                project={p}
+                index={index}
+                key={`project-item-${index}`}
+            />
+        ))
+        .reverse()
 
     return (
         <Container
             sx={{
-                paddingLeft: !isLandscape
-                    ? ""
-                    : isBigScreen && isLandscape
-                    ? ""
-                    : "15%",
+                paddingLeft: isBigScreen && isLandscape ? "" : "15%",
             }}
         >
-            <List>{listItems.reverse()}</List>
+            <List>{listItems}</List>
         </Container>
     )
 }

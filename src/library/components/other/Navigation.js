@@ -11,14 +11,19 @@ import {
 } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import MenuIcon from "@mui/icons-material/Menu"
+import CONTENT from "../../content.json"
 
 import { Link } from "react-scroll"
 
 export default function Navigation() {
+    const theme = useTheme()
+    const {
+        nav: { mobileMenuId, navLinks },
+    } = CONTENT
+
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
     const isTabletOrMobile = useMediaQuery("(max-width: 1024px)")
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-    const theme = useTheme()
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null)
@@ -27,8 +32,6 @@ export default function Navigation() {
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget)
     }
-
-    const mobileMenuId = "app-bar-mobile"
 
     const renderMobileMenu = (
         <Menu
@@ -41,84 +44,33 @@ export default function Navigation() {
             onClose={handleMobileMenuClose}
             position="fixed"
         >
-            <MenuItem>
-                <Link
-                    onClick={handleMobileMenuClose}
-                    activeClass="active"
-                    to="home-cont"
-                    spy={true}
-                    smooth={true}
-                    duration={1000}
-                >
-                    <Typography
-                        variant="button"
-                        sx={{ color: "#F2511B", fontFamily: "Roboto Slab" }}
+            {navLinks.map(({ text, id }) => (
+                <MenuItem key={`mobile-menu-key-${text}`}>
+                    <Link
+                        onClick={handleMobileMenuClose}
+                        activeClass="active"
+                        to={id}
+                        spy={true}
+                        smooth={true}
+                        duration={1000}
                     >
-                        home
-                    </Typography>
-                </Link>
-            </MenuItem>
-
-            <MenuItem>
-                <Link
-                    onClick={handleMobileMenuClose}
-                    activeClass="active"
-                    to="projects-cont"
-                    spy={true}
-                    smooth={true}
-                    duration={1000}
-                >
-                    <Typography
-                        variant="button"
-                        sx={{ color: "#F2511B", fontFamily: "Roboto Slab" }}
-                    >
-                        projects
-                    </Typography>
-                </Link>
-            </MenuItem>
-
-            <MenuItem>
-                <Link
-                    onClick={handleMobileMenuClose}
-                    activeClass="active"
-                    to="blogs-cont"
-                    spy={true}
-                    smooth={true}
-                    duration={1000}
-                >
-                    <Typography
-                        variant="button"
-                        sx={{ color: "#F2511B", fontFamily: "Roboto Slab" }}
-                    >
-                        blogs
-                    </Typography>
-                </Link>
-            </MenuItem>
-
-            <MenuItem>
-                <Link
-                    onClick={handleMobileMenuClose}
-                    activeClass="active"
-                    to="contact-cont"
-                    spy={true}
-                    smooth={true}
-                    duration={1000}
-                >
-                    <Typography
-                        variant="button"
-                        sx={{ color: "#F2511B", fontFamily: "Roboto Slab" }}
-                    >
-                        contact
-                    </Typography>
-                </Link>
-            </MenuItem>
+                        <Typography
+                            variant="button"
+                            sx={{ color: "#F2511B", fontFamily: "Roboto Slab" }}
+                        >
+                            {text}
+                        </Typography>
+                    </Link>
+                </MenuItem>
+            ))}
         </Menu>
     )
 
     return (
-        <div style={{ flexGrow: 1 }}>
+        <>
             <AppBar
                 position="fixed"
+                component="header"
                 sx={{
                     background: "transparent",
                     boxShadow: "none",
@@ -128,7 +80,7 @@ export default function Navigation() {
                     zIndex: 1000,
                 }}
             >
-                <Toolbar>
+                <Toolbar component="nav">
                     <div style={{ flexGrow: 1 }} />
                     {!isTabletOrMobile && (
                         <div
@@ -146,32 +98,17 @@ export default function Navigation() {
                         />
                     )}
 
-                    <div
-                        style={{
-                            display: theme.breakpoints.up("md")
-                                ? "flex"
-                                : "none",
-                        }}
-                    >
-                        <AnimatedButton text="HOME" linkTo="home-cont" />
-
-                        <AnimatedButton
-                            text="PROJECTS"
-                            linkTo="projects-cont"
-                        />
-
-                        <AnimatedButton text="BLOGS" linkTo="blogs-cont" />
-
-                        <AnimatedButton text="CONTACT" linkTo="contact-cont" />
-                    </div>
-
-                    <div
-                        style={{
-                            display: theme.breakpoints.up("md")
-                                ? "none"
-                                : "flex",
-                        }}
-                    >
+                    {theme.breakpoints.up("md") ? (
+                        <>
+                            {navLinks.map(({ text, id }) => (
+                                <AnimatedButton
+                                    text={text}
+                                    linkTo={id}
+                                    key={`desktop-menu-key-${text}`}
+                                />
+                            ))}
+                        </>
+                    ) : (
                         <Fab
                             color="primary"
                             aria-label="menu"
@@ -182,11 +119,11 @@ export default function Navigation() {
                         >
                             <MenuIcon />
                         </Fab>
-                    </div>
+                    )}
                 </Toolbar>
             </AppBar>
 
             {renderMobileMenu}
-        </div>
+        </>
     )
 }

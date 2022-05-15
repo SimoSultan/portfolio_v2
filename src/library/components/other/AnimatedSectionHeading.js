@@ -21,7 +21,7 @@ function AnimatedSectionHeading({ text, opacity }) {
                             left: 0,
                             writingMode: "vertical-rl",
                             overflow: "hidden",
-                            fontSize: "12rem",
+                            fontSize: "14rem",
                             textOrientation: "upright",
                             color: "#304153",
                             opacity: opacity,

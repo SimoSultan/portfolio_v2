@@ -2,17 +2,18 @@ import React from "react"
 import AnimatedButton from "../other/AnimatedButton"
 import { useMediaQuery, Grid, Paper, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import CONTENT from "../../content.json"
 
 import Fade from "react-reveal/Fade"
 
-export default function AboutMe({ toggleAboutMeText }) {
+export default function AboutMe({
+    toggleAboutMeText,
+    homeContainerID,
+    aboutMeContent,
+}) {
     const isLandscape = useMediaQuery("(orientation: landscape)")
     const isDesktopOrLaptop = useMediaQuery("(min-device-width: 1020px)")
     const theme = useTheme()
-    const {
-        aboutMe: { title, description, gitHubLink, cvLink },
-    } = CONTENT
+    const { title, description, gitHubLink, cvLink } = aboutMeContent
 
     return (
         <Grid container style={{ zIndex: 500 }}>
@@ -103,7 +104,7 @@ export default function AboutMe({ toggleAboutMeText }) {
                             >
                                 <AnimatedButton
                                     text="OK!"
-                                    linkTo="home-cont"
+                                    linkTo={homeContainerID}
                                     callback={toggleAboutMeText}
                                 />
 
