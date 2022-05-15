@@ -9,8 +9,7 @@ Live site: [simoncurran.dev](https://www.simoncurran.dev)
 
 ## Description
 
-I've wanted to make this single-page portfolio site for a while, and I thought why not take the opportunity to practice the new React skills and make it a single-page-application.
-If you're here reading this. I know my docs haven't been completed before the site is live, I know that's not ideal. But for my portfolio site, I really just wanted it up and running.
+Welcome to my portfolio site docs.
 
 ---
 
