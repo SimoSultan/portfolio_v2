@@ -1,0 +1,13 @@
+@import "./partials/fonts";
+@import "./partials/scrollbar";
+@import "./partials/arrowBounce";
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(70, 183, 255) #f2f3f5;
+}
+
+.svg {
+    z-index: 9;
+    position: relative;
+}
