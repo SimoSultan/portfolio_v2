@@ -1,30 +1,22 @@
 import React from "react"
 import ProjectItem from "./ProjectItem"
-import { useMediaQuery, List, Container } from "@mui/material"
+import { Container } from "@mui/material"
 
-function ProjectList({ list }) {
-    const isBigScreen = useMediaQuery("(min-width: 1600px)")
-    const isLandscape = useMediaQuery("(orientation: landscape)")
-
+export default function ProjectList({ list }) {
     const listItems = list
-        .map((p, index) => {
-            return (
-                Boolean(p.show) && (
-                    <ProjectItem
-                        project={p}
-                        index={index}
-                        key={`project-item-${index}`}
-                    />
-                )
-            )
-        })
+        .filter((p) => Boolean(p.show))
+        .map((p, index) => (
+            <ProjectItem
+                project={p}
+                index={index}
+                key={`project-item-${index}`}
+            />
+        ))
         .reverse()
 
     return (
-        <Container maxWidth="xl">
-            <List>{listItems}</List>
+        <Container maxWidth="xl" component="ul">
+            {listItems}
         </Container>
     )
 }
-
-export default ProjectList

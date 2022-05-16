@@ -1,35 +1,40 @@
 import React from "react"
 import Info from "./projectItem/Info"
 import Image from "./projectItem/Image"
-import { ListItem, Grid } from "@mui/material"
+import { Grid } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
 
 export default function ProjectItem({ project, index }) {
+    const theme = useTheme()
+
     return (
-        <ListItem
-            sx={{
-                marginBottom: "5%",
-            }}
+        <Grid
+            component="li"
+            container
+            direction={index % 2 === 0 ? "row" : "row-reverse"}
+            sx={{ marginBottom: "5%" }}
         >
             <Grid
+                item
                 container
-                direction={index % 2 === 0 ? "row" : "row-reverse"}
-                justifyContent="space-evenly"
+                xs={12}
+                sm={6}
+                alignItems="center"
+                justifyContent="center"
+                sx={{ padding: theme.spacing(4) }}
             >
-                <Grid item container xs={12} sm={8} md={5}>
-                    <Info project={project} />
-                </Grid>
-                <Grid
-                    item
-                    container
-                    xs={12}
-                    sm={9}
-                    md={7}
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <Image project={project} index={index} />
-                </Grid>
+                <Info project={project} />
             </Grid>
-        </ListItem>
+            <Grid
+                item
+                container
+                xs={12}
+                sm={6}
+                alignItems="center"
+                justifyContent="center"
+            >
+                <Image project={project} index={index} />
+            </Grid>
+        </Grid>
     )
 }

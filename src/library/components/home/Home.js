@@ -1,35 +1,23 @@
 import React, { useState } from "react"
-import HomeHeader from "./HomeHeader"
-import AboutMe from "./AboutMe"
-import profileImage from "../../img/v1_transparent.png"
+import Name from "./Name"
+import About from "./About"
+import FloatingImage from "./FloatingImage"
 import CONTENT from "../../content.json"
-import { useMediaQuery, Grid, Container } from "@mui/material"
+import { useMediaQuery, Grid } from "@mui/material"
 
-import Fade from "react-reveal/Fade"
-import { useSpring, animated } from "react-spring"
-
-function Home() {
+export default function Home() {
+    const FADE_IN_DURATION = 500
     const [showAboutMe, setShowAboutMe] = useState(false)
     const [delayName, setDelayName] = useState(0)
-    const [delayAbout, setDelayAbout] = useState(500)
+    const [delayAbout, setDelayAbout] = useState(FADE_IN_DURATION)
     const isLandscape = useMediaQuery("(orientation: landscape)")
     const isDesktopOrLaptop = useMediaQuery("(min-device-width: 1020px)")
-    const [props, set] = useSpring(() => ({
-        xy: [0, 0],
-        config: { mass: 10, tension: 550, friction: 140 },
-    }))
 
     function toggleAboutMeText() {
         setShowAboutMe(!showAboutMe)
-        setDelayName(showAboutMe ? 600 : 0)
-        setDelayAbout(!showAboutMe ? 600 : 0)
+        setDelayName(showAboutMe ? FADE_IN_DURATION : 0)
+        setDelayAbout(!showAboutMe ? FADE_IN_DURATION : 0)
     }
-
-    const calc = (x, y) => [
-        x - window.innerWidth / 2,
-        y - window.innerHeight / 2,
-    ]
-    const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
     const {
         landingPage,
@@ -57,11 +45,11 @@ function Home() {
             <Grid
                 container
                 direction="row"
-                justifyContent="space-evenly"
+                justifyContent="center"
                 alignItems="center"
                 sx={{
                     height: "100%",
-                    width: "90vw",
+                    width: "80vw",
                     maxWidth: "2000px",
                     margin: "0 auto",
                 }}
@@ -81,35 +69,23 @@ function Home() {
                             : "",
                     }}
                 >
-                    <Fade
-                        when={!showAboutMe}
-                        right
-                        mirror={!showAboutMe}
-                        collapse
-                        delay={delayName}
-                        duration={600}
-                    >
-                        <HomeHeader
-                            toggleAboutMeText={toggleAboutMeText}
-                            homeContainerID={homeContainerID}
-                            landingPageContent={landingPage}
-                        />
-                    </Fade>
+                    <Name
+                        toggleAboutMeText={toggleAboutMeText}
+                        homeContainerID={homeContainerID}
+                        landingPageContent={landingPage}
+                        showAboutMe={showAboutMe}
+                        delayName={delayName}
+                        fadeInDuration={FADE_IN_DURATION}
+                    />
 
-                    <Fade
-                        when={showAboutMe}
-                        right
-                        mirror={showAboutMe}
-                        collapse
-                        delay={delayAbout}
-                        duration={600}
-                    >
-                        <AboutMe
-                            toggleAboutMeText={toggleAboutMeText}
-                            homeContainerID={homeContainerID}
-                            aboutMeContent={aboutMe}
-                        />
-                    </Fade>
+                    <About
+                        toggleAboutMeText={toggleAboutMeText}
+                        homeContainerID={homeContainerID}
+                        aboutMeContent={aboutMe}
+                        showAboutMe={showAboutMe}
+                        delayAbout={delayAbout}
+                        fadeInDuration={FADE_IN_DURATION}
+                    />
                 </Grid>
 
                 <Grid
@@ -121,40 +97,9 @@ function Home() {
                     sm={isLandscape ? 6 : 10}
                     md={6}
                 >
-                    <Fade right delay={500} duration={1000}>
-                        <div
-                            onMouseMove={({ clientX: x, clientY: y }) =>
-                                set({ xy: calc(x, y) })
-                            }
-                        >
-                            <animated.div
-                                style={{
-                                    transform: props.xy.interpolate(trans1),
-                                }}
-                            >
-                                <Grid
-                                    container
-                                    alignItems="center"
-                                    justifyContent="center"
-                                >
-                                    <img
-                                        style={{
-                                            width: "80%",
-                                            maxWidth: "700px",
-                                            margin: "0 auto",
-                                            zIndex: 0,
-                                        }}
-                                        src={profileImage}
-                                        alt="profile"
-                                    />
-                                </Grid>
-                            </animated.div>
-                        </div>
-                    </Fade>
+                    <FloatingImage fadeInDuration={FADE_IN_DURATION} />
                 </Grid>
             </Grid>
         </div>
     )
 }
-
-export default Home

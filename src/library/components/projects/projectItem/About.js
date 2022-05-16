@@ -1,8 +1,10 @@
 import React from "react"
 import { Grid, Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
 
 export default function About({ project }) {
-    const { what, why } = project
+    const theme = useTheme()
+    const { about } = project
 
     return (
         <Grid
@@ -11,19 +13,21 @@ export default function About({ project }) {
             direction="column"
             justifyContent="flex-start"
             alignItems="flex-start"
+            sx={{
+                paddingTop: "4%",
+                paddingX: theme.spacing(4),
+            }}
         >
             <Typography
                 variant="body1"
                 sx={{
-                    paddingTop: "4%",
-                    marginLeft: "6%",
                     color: "#235aa1",
                     fontSize: "1.2rem",
                     fontFamily: "Raleway, sans-serif",
                     fontWeight: "bold",
                 }}
             >
-                What
+                About
             </Typography>
 
             <Typography
@@ -33,31 +37,7 @@ export default function About({ project }) {
                     fontFamily: "Quicksand",
                 }}
             >
-                {what}
-            </Typography>
-
-            <Typography
-                variant="body1"
-                sx={{
-                    paddingTop: "4%",
-                    marginLeft: "6%",
-                    color: "#235aa1",
-                    fontSize: "1.2rem",
-                    fontFamily: "Raleway, sans-serif",
-                    fontWeight: "bold",
-                }}
-            >
-                Why
-            </Typography>
-
-            <Typography
-                sx={{
-                    textAlign: "left",
-                    fontStyle: "italic",
-                    fontFamily: "Quicksand",
-                }}
-            >
-                {why}
+                {about}
             </Typography>
         </Grid>
     )

@@ -1,50 +1,44 @@
 import React from "react"
-import { useMediaQuery, Typography, Grid } from "@mui/material"
+import { Typography, Grid } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
 
 function DevIcons({ iconList }) {
-    const isDesktopOrLaptop = useMediaQuery("(minWidth: 1024px)")
+    const theme = useTheme()
 
     const listItems = iconList.map((iconName, index) => (
         <Grid
-            item
             container
-            direction="row"
-            xs={isDesktopOrLaptop ? 3 : 6}
+            item
+            direction="column"
             key={`icon-key-${index}`}
+            xs={6}
+            sm={3}
+            sx={{ marginBottom: theme.spacing(2) }}
         >
-            <Grid item container direction="column">
-                <img
-                    style={{ width: "40px", margin: "0 auto" }}
-                    src={`images/devIcons/${iconName.toLowerCase()}-plain.svg`}
-                    alt={`${iconName}-icon`}
-                />
+            <img
+                style={{ width: "40px", margin: "0 auto" }}
+                src={`images/devIcons/${iconName.toLowerCase()}-plain.svg`}
+                alt={`${iconName}-icon`}
+            />
 
-                <Typography
-                    variant="subtitle2"
-                    stx={{
-                        letterSpacing: "1px",
-                        lineHeight: "1rem",
-                        marginTop: "3%",
-                        color: "#235aa1",
-                        fontFamily: "PT Sans Narrow, sans-serif",
-                        fontSize: "1rem",
-                    }}
-                >
-                    {iconName}
-                </Typography>
-            </Grid>
+            <Typography
+                variant="subtitle2"
+                lineHeight="1rem"
+                color="#235aa1"
+                fontFamily="PT Sans Narrow, sans-serif"
+                sx={{ marginTop: theme.spacing(1) }}
+            >
+                {iconName}
+            </Typography>
         </Grid>
     ))
 
     return (
         <Grid
-            item
             container
-            xs
             direction="row"
-            spacing={2}
-            sx={{ margin: "3% auto" }}
             justifyContent="center"
+            sx={{ marginTop: theme.spacing(2) }}
         >
             {listItems}
         </Grid>

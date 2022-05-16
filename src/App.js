@@ -14,10 +14,11 @@ import {
 
 import "./styles/App.css"
 
-let theme = createTheme()
-theme = responsiveFontSizes(theme)
-
 function App() {
+    let theme = createTheme()
+    theme = responsiveFontSizes(theme)
+    console.log({ theme })
+
     return (
         <ThemeProvider theme={theme}>
             <Navigation />

@@ -1,6 +1,4 @@
 export { default as Home } from "./home/Home"
-export { default as AboutMe } from "./home/AboutMe"
-export { default as HomeHeader } from "./home/HomeHeader"
 
 export { default as Blogs } from "./blogs/Blogs"
 

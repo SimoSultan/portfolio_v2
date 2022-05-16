@@ -1,18 +1,14 @@
 import React from "react"
 import { Grid, Button } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
 
 export default function DeployedButtons({ project }) {
+    const theme = useTheme()
     const { deployed, github } = project
 
     return (
-        <Grid container direction="row" justifyContent="flex-start">
-            <div
-                style={{
-                    "&:hover > *:lastChild": {
-                        opacity: 0,
-                    },
-                }}
-            >
+        <Grid container direction="row" justifyContent="flex-start" spacing={2}>
+            <Grid item>
                 <Button
                     href={deployed.toString()}
                     target="_blank"
@@ -24,31 +20,16 @@ export default function DeployedButtons({ project }) {
                         letterSpacing: "1px",
                         fontFamily: "Roboto Slab",
                         fontSize: "0.9rem",
+                        borderBottom: deployed && "1px solid #F2511B",
+                        borderRadius: 0,
+                        paddingBottom: 0,
                     }}
                 >
                     {`DEMO${!deployed ? ": n/a" : ""}`}
                 </Button>
+            </Grid>
 
-                {deployed && (
-                    <div
-                        style={{
-                            width: "78%",
-                            height: "1px",
-                            backgroundColor: "#F2511B",
-                            margin: "-9px auto 0 auto",
-                            transition: "opacity .35s ease-in-out",
-                        }}
-                    />
-                )}
-            </div>
-
-            <div
-                style={{
-                    "&:hover > *:lastChild": {
-                        opacity: 0,
-                    },
-                }}
-            >
+            <Grid item>
                 <Button
                     href={github.toString()}
                     target="_blank"
@@ -60,23 +41,14 @@ export default function DeployedButtons({ project }) {
                         letterSpacing: "1px",
                         fontFamily: "Roboto Slab",
                         fontSize: "0.9rem",
+                        borderBottom: github && "1px solid #F2511B",
+                        borderRadius: 0,
+                        paddingBottom: 0,
                     }}
                 >
                     {`SOURCE CODE${!github ? ": private" : ""}`}
                 </Button>
-
-                {github && (
-                    <div
-                        style={{
-                            width: "90%",
-                            height: "1px",
-                            backgroundColor: "#F2511B",
-                            margin: "-9px auto 0 auto",
-                            transition: "opacity .35s ease-in-out",
-                        }}
-                    />
-                )}
-            </div>
+            </Grid>
         </Grid>
     )
 }

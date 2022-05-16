@@ -1,9 +1,11 @@
 import React from "react"
 import { Paper } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
 
 import Fade from "react-reveal/Fade"
 
 export default function Image({ project, index }) {
+    const theme = useTheme()
     const { deployed, gif } = project
 
     return (
