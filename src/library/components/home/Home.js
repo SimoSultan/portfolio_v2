@@ -3,7 +3,7 @@ import HomeHeader from "./HomeHeader"
 import AboutMe from "./AboutMe"
 import profileImage from "../../img/v1_transparent.png"
 import CONTENT from "../../content.json"
-import { useMediaQuery, Grid } from "@mui/material"
+import { useMediaQuery, Grid, Container } from "@mui/material"
 
 import Fade from "react-reveal/Fade"
 import { useSpring, animated } from "react-spring"

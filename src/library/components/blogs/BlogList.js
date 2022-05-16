@@ -7,9 +7,17 @@ function BlogList({ list }) {
     const isLandscape = useMediaQuery("(orientation: landscape)")
 
     const listItems = list
-        .map((b, index) => (
-            <BlogItem blog={b} index={index} key={`blog-item-${index}`} />
-        ))
+        .map((b, index) => {
+            return (
+                Boolean(b.show) && (
+                    <BlogItem
+                        blog={b}
+                        index={index}
+                        key={`blog-item-${index}`}
+                    />
+                )
+            )
+        })
         .reverse()
 
     return (

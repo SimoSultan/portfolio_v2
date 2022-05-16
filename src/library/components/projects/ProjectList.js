@@ -7,21 +7,21 @@ function ProjectList({ list }) {
     const isLandscape = useMediaQuery("(orientation: landscape)")
 
     const listItems = list
-        .map((p, index) => (
-            <ProjectItem
-                project={p}
-                index={index}
-                key={`project-item-${index}`}
-            />
-        ))
+        .map((p, index) => {
+            return (
+                Boolean(p.show) && (
+                    <ProjectItem
+                        project={p}
+                        index={index}
+                        key={`project-item-${index}`}
+                    />
+                )
+            )
+        })
         .reverse()
 
     return (
-        <Container
-            sx={{
-                paddingLeft: isBigScreen && isLandscape ? "" : "15%",
-            }}
-        >
+        <Container maxWidth="xl">
             <List>{listItems}</List>
         </Container>
     )
