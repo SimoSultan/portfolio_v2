@@ -34,7 +34,6 @@ export default function FloatingImage({ fadeInDuration }) {
                             style={{
                                 width: "80%",
                                 maxWidth: "700px",
-                                margin: "0 auto",
                                 zIndex: 0,
                             }}
                             src={profileImage}

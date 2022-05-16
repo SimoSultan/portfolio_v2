@@ -1,6 +1,6 @@
 import React from "react"
 import { AnimatedButton } from "../exports"
-import { Container, Grid, Typography } from "@mui/material"
+import { Grid, Typography } from "@mui/material"
 
 import Fade from "react-reveal/Fade"
 
@@ -26,22 +26,15 @@ export default function Name({
             delay={delayName}
             duration={fadeInDuration}
         >
-            <Container maxWidth="sm">
+            <Grid container direction="column">
                 <Grid
+                    item
                     container
                     direction="column"
-                    justifyContent="space-between"
                     alignItems="flex-start"
+                    justifyContent="center"
                 >
-                    <Typography
-                        variant="h1"
-                        sx={{
-                            width: "max-content",
-                            fontFamily: "Quicksand",
-                            fontWeight: 500,
-                            fontSize: 17,
-                        }}
-                    >
+                    <Typography variant="h1">
                         <Fade
                             left
                             cascade
@@ -51,15 +44,7 @@ export default function Name({
                         </Fade>
                     </Typography>
 
-                    <Typography
-                        variant="h1"
-                        sx={{
-                            margin: 0,
-                            fontFamily: "Quicksand",
-                            fontWeight: 500,
-                            fontSize: 17,
-                        }}
-                    >
+                    <Typography variant="h1">
                         <Fade
                             left
                             cascade
@@ -71,15 +56,23 @@ export default function Name({
                 </Grid>
 
                 <Grid
+                    id="FIND_ME"
                     container
-                    direction="row"
-                    justifyContent="flex-end"
-                    alignItems="center"
+                    sx={{
+                        width: "95%",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                    }}
                 >
                     <Fade
                         bottom
                         delay={fadeInDuration}
                         duration={WHO_BUTTON_FADE_IN_DURATION}
+                        style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            width: "100%",
+                        }}
                     >
                         <div
                             style={{
@@ -101,11 +94,11 @@ export default function Name({
                                     margin: "-8px auto 0 auto",
                                     transition: "opacity .2s ease-in-out",
                                 }}
-                            ></div>
+                            />
                         </div>
                     </Fade>
                 </Grid>
-            </Container>
+            </Grid>
         </Fade>
     )
 }

@@ -12,12 +12,13 @@ import {
     ThemeProvider,
 } from "@mui/material/styles"
 
+import { PORTFOLIO_THEME } from "./styles/theme"
 import "./styles/App.css"
 
 function App() {
-    let theme = createTheme()
-    theme = responsiveFontSizes(theme)
+    let theme = createTheme(PORTFOLIO_THEME)
     console.log({ theme })
+    theme = responsiveFontSizes(theme)
 
     return (
         <ThemeProvider theme={theme}>

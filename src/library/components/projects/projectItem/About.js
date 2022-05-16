@@ -14,7 +14,7 @@ export default function About({ project }) {
             justifyContent="flex-start"
             alignItems="flex-start"
             sx={{
-                paddingTop: "4%",
+                paddingTop: theme.spacing(2),
                 paddingX: theme.spacing(4),
             }}
         >
@@ -31,6 +31,7 @@ export default function About({ project }) {
             </Typography>
 
             <Typography
+                variant="body1"
                 sx={{
                     textAlign: "left",
                     fontStyle: "italic",

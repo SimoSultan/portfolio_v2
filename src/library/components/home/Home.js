@@ -4,14 +4,25 @@ import About from "./About"
 import FloatingImage from "./FloatingImage"
 import CONTENT from "../../content.json"
 import { useMediaQuery, Grid } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
 
 export default function Home() {
     const FADE_IN_DURATION = 500
+    const theme = useTheme()
     const [showAboutMe, setShowAboutMe] = useState(false)
     const [delayName, setDelayName] = useState(0)
     const [delayAbout, setDelayAbout] = useState(FADE_IN_DURATION)
     const isLandscape = useMediaQuery("(orientation: landscape)")
-    const isDesktopOrLaptop = useMediaQuery("(min-device-width: 1020px)")
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+    const isTablet =
+        useMediaQuery(theme.breakpoints.up("sm")) &&
+        useMediaQuery(theme.breakpoints.down("lg"))
+    const isDesktop = useMediaQuery(theme.breakpoints.up("lg"))
+
+    console.log({ isMobile })
+    console.log({ isTablet })
+    console.log({ isDesktop })
+    console.log({ isLandscape })
 
     function toggleAboutMeText() {
         setShowAboutMe(!showAboutMe)
@@ -35,7 +46,7 @@ export default function Home() {
                 height: "100vh",
                 width: "100vw",
                 margin: 0,
-                padding: 0,
+                paddingY: theme.spacing(2),
                 background: "rgb(237,238,240)",
                 background:
                     "linear-gradient(180deg, rgba(252,252,252,1) 0%, rgba(222,222,222,1) 90%)",
@@ -44,29 +55,28 @@ export default function Home() {
         >
             <Grid
                 container
-                direction="row"
                 justifyContent="center"
                 alignItems="center"
                 sx={{
                     height: "100%",
-                    width: "80vw",
+                    width: isMobile || isTablet ? "100vw" : "80vw",
                     maxWidth: "1700px",
                     margin: "0 auto",
+                    flexWrap: isMobile ? "wrap-reverse" : "wrap",
                 }}
             >
                 <Grid
                     item
                     container
-                    xs={isLandscape ? 6 : 12}
-                    sm={isLandscape ? 6 : 9}
-                    md={6}
+                    justifyContent="center"
+                    alignItems="center"
+                    xs={12}
+                    sm={6}
                     lg={5}
                     sx={{
-                        paddingTop: isLandscape
-                            ? "3%"
-                            : isDesktopOrLaptop
-                            ? "5%"
-                            : "",
+                        minWidth: isMobile || isTablet ? 0 : "462px",
+                        paddingY: isMobile ? theme.spacing(2) : 0,
+                        height: "100%",
                     }}
                 >
                     <Name
@@ -93,9 +103,8 @@ export default function Home() {
                     container
                     justifyContent="center"
                     alignItems="center"
-                    xs={isLandscape ? 6 : 12}
-                    sm={isLandscape ? 6 : 10}
-                    md={6}
+                    xs={12}
+                    sm={6}
                 >
                     <FloatingImage fadeInDuration={FADE_IN_DURATION} />
                 </Grid>

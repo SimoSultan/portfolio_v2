@@ -13,9 +13,10 @@ export default function About({
     delayAbout,
     fadeInDuration,
 }) {
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
     const isLandscape = useMediaQuery("(orientation: landscape)")
     const isDesktopOrLaptop = useMediaQuery("(min-device-width: 1020px)")
-    const theme = useTheme()
     const { title, description, gitHubLink, cvLink } = aboutMeContent
 
     return (
@@ -27,7 +28,15 @@ export default function About({
             delay={delayAbout}
             duration={fadeInDuration}
         >
-            <Grid container style={{ zIndex: 500, paddingX: theme.spacing(3) }}>
+            <Grid
+                container
+                item
+                style={{
+                    zIndex: 500,
+                    paddingX: theme.spacing(3),
+                    width: isMobile ? "90vw" : "100%",
+                }}
+            >
                 <Fade left big>
                     <Paper
                         sx={{
@@ -40,7 +49,6 @@ export default function About({
                         <Typography
                             variant="h6"
                             sx={{
-                                fontFamily: "Quicksand, sans-serif",
                                 fontWeight: "700",
                             }}
                         >
