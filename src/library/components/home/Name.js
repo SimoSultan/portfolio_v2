@@ -13,6 +13,9 @@ export default function Name({
     fadeInDuration,
 }) {
     const { firstName, lastName } = landingPageContent
+    const FIRST_NAME_FADE_IN_DURATION = 1000
+    const LAST_NAME_FADE_IN_DURATION = 1500
+    const WHO_BUTTON_FADE_IN_DURATION = 1000
 
     return (
         <Fade
@@ -39,7 +42,11 @@ export default function Name({
                             fontSize: 17,
                         }}
                     >
-                        <Fade left cascade duration={1000}>
+                        <Fade
+                            left
+                            cascade
+                            duration={FIRST_NAME_FADE_IN_DURATION}
+                        >
                             {firstName.toString().toUpperCase()}
                         </Fade>
                     </Typography>
@@ -53,7 +60,11 @@ export default function Name({
                             fontSize: 17,
                         }}
                     >
-                        <Fade left cascade duration={1500}>
+                        <Fade
+                            left
+                            cascade
+                            duration={LAST_NAME_FADE_IN_DURATION}
+                        >
                             {lastName.toString().toUpperCase()}
                         </Fade>
                     </Typography>
@@ -65,7 +76,11 @@ export default function Name({
                     justifyContent="flex-end"
                     alignItems="center"
                 >
-                    <Fade bottom delay={500} duration={1000}>
+                    <Fade
+                        bottom
+                        delay={fadeInDuration}
+                        duration={WHO_BUTTON_FADE_IN_DURATION}
+                    >
                         <div
                             style={{
                                 "&:hover > *:lastChild": {
@@ -78,7 +93,6 @@ export default function Name({
                                 linkTo={homeContainerID}
                                 callback={toggleAboutMeText}
                             />
-
                             <div
                                 style={{
                                     width: "40%",

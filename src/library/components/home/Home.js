@@ -50,7 +50,7 @@ export default function Home() {
                 sx={{
                     height: "100%",
                     width: "80vw",
-                    maxWidth: "2000px",
+                    maxWidth: "1700px",
                     margin: "0 auto",
                 }}
             >
