@@ -11,7 +11,7 @@ export default function ProjectList({ list }) {
     .reverse();
 
   return (
-    <Container maxWidth="xl" component="ul">
+    <Container maxWidth="lg" component="ul">
       {listItems}
     </Container>
   );

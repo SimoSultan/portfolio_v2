@@ -49,10 +49,9 @@ function Footer() {
             }}
           >
             <Typography
-              variant="h5"
               sx={{
                 letterSpacing: isPortrait ? "1px" : "10px",
-                fontSize: isMobile ? "3rem" : "6rem",
+                fontSize: isMobile ? "3rem" : "5rem",
                 width: "90%",
                 margin: "-3% auto -6% auto",
                 color: isMobile ? "#f2f2f2" : "#e3e3e3",
@@ -64,7 +63,6 @@ function Footer() {
               </Fade>
             </Typography>
           </Grid>
-
           <Grid
             item
             container
@@ -73,7 +71,7 @@ function Footer() {
             alignItems="center"
             sx={{
               textAlign: "center",
-              padding: "3% 0",
+              padding: "1% 0",
               width: "90%",
               margin: "0 auto",
             }}
@@ -91,9 +89,8 @@ function Footer() {
                 margin: "2% 0",
               }}
             >
-              <AnimatedFooterButton text="twitter" linkTo={twitterLink} />
+              <AnimatedFooterButton text="email" linkTo={emailLink} />
             </Grid>
-
             <Grid
               item
               xs={isPortrait ? 5 : (isTabletOrMobile && 4) || 2}
@@ -109,7 +106,6 @@ function Footer() {
             >
               <AnimatedFooterButton text="github" linkTo={githubLink} />
             </Grid>
-
             <Grid
               item
               xs={isPortrait ? 5 : (isTabletOrMobile && 4) || 2}
@@ -125,7 +121,6 @@ function Footer() {
             >
               <AnimatedFooterButton text="linkedin" linkTo={linkedInLink} />
             </Grid>
-
             <Grid
               item
               xs={isPortrait ? 5 : (isTabletOrMobile && 4) || 2}
@@ -140,38 +135,6 @@ function Footer() {
               }}
             >
               <AnimatedFooterButton text="spotify" linkTo={spotifyLink} />
-            </Grid>
-
-            <Grid
-              item
-              xs={isPortrait ? 5 : (isTabletOrMobile && 4) || 2}
-              sx={{
-                cursor: "pointer",
-                position: "relative",
-                width: "140px",
-                height: "60px",
-                color: "#000",
-                textDecoration: "none",
-                margin: "2% 0",
-              }}
-            >
-              <AnimatedFooterButton text="medium" linkTo={mediumLink} />
-            </Grid>
-
-            <Grid
-              item
-              xs={isPortrait ? 5 : (isTabletOrMobile && 4) || 2}
-              sx={{
-                cursor: "pointer",
-                position: "relative",
-                width: "140px",
-                height: "60px",
-                color: "#000",
-                textDecoration: "none",
-                margin: "2% 0",
-              }}
-            >
-              <AnimatedFooterButton text="email" linkTo={emailLink} />
             </Grid>
           </Grid>
 

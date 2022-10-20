@@ -1,11 +1,13 @@
 import React from "react";
 import Info from "./projectItem/Info";
 import Image from "./projectItem/Image";
-import { Grid } from "@mui/material";
+import { Grid, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 export default function ProjectItem({ project, index }) {
   const theme = useTheme();
+  const isPortrait = useMediaQuery("(orientation: portrait)");
+  const isMobile = useMediaQuery("(max-width: 411px)");
 
   return (
     <Grid
@@ -21,7 +23,10 @@ export default function ProjectItem({ project, index }) {
         sm={6}
         alignItems="center"
         justifyContent="center"
-        sx={{ padding: theme.spacing(4) }}
+        sx={{
+          py: theme.spacing(4),
+          px: theme.spacing(isMobile && isPortrait ? 0 : 4),
+        }}
       >
         <Info project={project} />
       </Grid>

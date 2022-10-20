@@ -43,6 +43,7 @@ export default function Navigation() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       position="fixed"
+      sx={{ zIndex: 1000 }}
     >
       {navLinks.map(({ text, id }) => (
         <MenuItem key={`mobile-menu-key-${text}`}>
@@ -55,8 +56,10 @@ export default function Navigation() {
             duration={1000}
           >
             <Typography
-              variant="button"
-              sx={{ color: "#F2511B", fontFamily: "Roboto Slab" }}
+              sx={{
+                color: "#F2511B",
+                fontFamily: "Roboto Slab",
+              }}
             >
               {text}
             </Typography>
@@ -82,24 +85,22 @@ export default function Navigation() {
       >
         <Toolbar component="nav">
           <div style={{ flexGrow: 1 }} />
-          {!isTabletOrMobile && (
-            <div
-              style={{
-                top: "12px",
-                right: "24px",
-                width: "559px",
-                height: "40px",
-                opacity: 0.7,
-                overflow: "hidden",
-                position: "absolute",
-                transform: "skew(-20deg)",
-                background: "#F2F3F5",
-              }}
-            />
-          )}
 
-          {theme.breakpoints.up("md") ? (
+          {!isTabletOrMobile ? (
             <>
+              <div
+                style={{
+                  top: "12px",
+                  right: "24px",
+                  width: "559px",
+                  height: "40px",
+                  opacity: 0.7,
+                  overflow: "hidden",
+                  position: "absolute",
+                  transform: "skew(-20deg)",
+                  background: "#F2F3F5",
+                }}
+              />
               {navLinks.map(({ text, id }) => (
                 <AnimatedButton
                   text={text}

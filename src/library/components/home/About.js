@@ -3,7 +3,7 @@ import AnimatedButton from "../other/AnimatedButton";
 import { useMediaQuery, Grid, Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-reveal";
 
 export default function About({
   toggleAboutMeText,
@@ -54,7 +54,6 @@ export default function About({
             >
               <strong>{title}</strong>
             </Typography>
-
             <Typography
               variant={isLandscape && isDesktopOrLaptop ? "body1" : "body2"}
               sx={{
@@ -65,12 +64,9 @@ export default function About({
               }}
             >
               <em>{description}</em>
-
               <br />
               <br />
-
               {"Check out my work on "}
-
               <strong>
                 <a
                   style={{
@@ -83,9 +79,7 @@ export default function About({
                   {"GitHub"}
                 </a>
               </strong>
-
               {", or grab "}
-
               <strong>
                 <a
                   style={{
@@ -100,7 +94,6 @@ export default function About({
               </strong>
               {"."}
             </Typography>
-
             <Grid
               container
               direction="row"
@@ -121,7 +114,6 @@ export default function About({
                     linkTo={homeContainerID}
                     callback={toggleAboutMeText}
                   />
-
                   <div
                     style={{
                       width: "25%",

@@ -1,10 +1,12 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 export default function About({ project }) {
   const theme = useTheme();
   const { about } = project;
+  const isPortrait = useMediaQuery("(orientation: portrait)");
+  const isMobile = useMediaQuery("(max-width: 411px)");
 
   return (
     <Grid
@@ -15,14 +17,12 @@ export default function About({ project }) {
       alignItems="flex-start"
       sx={{
         paddingTop: theme.spacing(2),
-        paddingX: theme.spacing(4),
       }}
     >
       <Typography
         variant="body1"
         sx={{
           color: "#235aa1",
-          fontSize: "1.2rem",
           fontFamily: "Raleway, sans-serif",
           fontWeight: "bold",
         }}
@@ -31,7 +31,7 @@ export default function About({ project }) {
       </Typography>
 
       <Typography
-        variant="body1"
+        variant={isPortrait && isMobile ? "body2" : "body1"}
         sx={{
           textAlign: "left",
           fontStyle: "italic",

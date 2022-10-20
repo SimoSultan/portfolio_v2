@@ -1,11 +1,8 @@
 import React from "react";
 import BlogItem from "./BlogItem";
-import { Container, Grid, useMediaQuery } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 function BlogList({ list }) {
-  const isBigScreen = useMediaQuery("(min-width: 1600px)");
-  const isLandscape = useMediaQuery("(orientation: landscape)");
-
   const listItems = list
     .map((b, index) => {
       return (
@@ -17,17 +14,13 @@ function BlogList({ list }) {
     .reverse();
 
   return (
-    <Container
-      sx={{
-        paddingLeft: isBigScreen && isLandscape ? "" : "15%",
-      }}
-    >
+    <Container maxWidth="lg">
       <Grid
         container
         justifyContent="center"
         alignItems="center"
-        spacing={8}
-        sx={{ paddingTop: "5%" }}
+        spacing={1}
+        sx={{ paddingTop: "5%", px: 1 }}
         component="ul"
       >
         {listItems}

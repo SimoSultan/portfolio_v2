@@ -14,7 +14,7 @@ import { useTheme } from "@mui/material/styles";
 
 // animation library and plugins
 import { useSpring, animated } from "react-spring";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-reveal";
 
 function BlogItem({ blog, index }) {
   const isLandscape = useMediaQuery("(orientation: landscape)");

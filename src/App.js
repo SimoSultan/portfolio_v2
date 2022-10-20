@@ -17,7 +17,6 @@ import "./styles/App.css";
 
 function App() {
   let theme = createTheme(PORTFOLIO_THEME);
-  console.log({ theme });
   theme = responsiveFontSizes(theme);
 
   return (

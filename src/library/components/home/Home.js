@@ -19,11 +19,6 @@ export default function Home() {
     useMediaQuery(theme.breakpoints.down("lg"));
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
-  console.log({ isMobile });
-  console.log({ isTablet });
-  console.log({ isDesktop });
-  console.log({ isLandscape });
-
   function toggleAboutMeText() {
     setShowAboutMe(!showAboutMe);
     setDelayName(showAboutMe ? FADE_IN_DURATION : 0);

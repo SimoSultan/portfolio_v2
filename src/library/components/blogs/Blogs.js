@@ -12,7 +12,6 @@ function Blogs() {
     <div
       id="blogs-cont"
       style={{
-        height: "fit-content",
         background:
           "linear-gradient(120deg, rgba(62,148,215,1) 0%, rgba(28,86,129,1) 90%)",
         zIndex: 25,

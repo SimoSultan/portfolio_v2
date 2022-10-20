@@ -67,7 +67,7 @@ function AnimatedButton({ text, linkTo, callback = false }) {
         >
           <animated.span style={{ color }}>
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
                 fontFamily: "Roboto Slab",
                 fontWeight: "bold",

@@ -14,14 +14,13 @@ function AnimatedSectionHeading({ text, opacity }) {
       {isLandscape && isDesktopOrLaptop ? (
         <Grid item>
           <Typography
-            variant="h2"
+            variant="h1"
             sx={{
               position: "absolute",
               top: 0,
               left: 0,
               writingMode: "vertical-rl",
               overflow: "hidden",
-              fontSize: "14rem",
               textOrientation: "upright",
               color: "#304153",
               opacity: opacity,

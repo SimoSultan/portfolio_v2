@@ -27,8 +27,8 @@ export default function Image({ project, index }) {
           >
             <img
               style={{
-                width: "600px",
-                height: "400px",
+                width: "100%",
+                margin: "0 auto",
                 objectFit: "contain",
               }}
               src={gif}
@@ -38,8 +38,8 @@ export default function Image({ project, index }) {
         ) : (
           <img
             style={{
-              width: "600px",
-              height: "400px",
+              width: "100%",
+              margin: "0 auto",
               objectFit: "contain",
             }}
             src={gif}
